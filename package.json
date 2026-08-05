@@ -1,0 +1,12 @@
+{
+  "name": "eq2-class-rotation",
+  "version": "0.1.0",
+  "description": "EverQuest 2 class rotation reference overlay (custom UI) + generator. Inquisitor first; data-driven so more classes drop in.",
+  "type": "module",
+  "scripts": {
+    "build": "node src/generate.mjs",
+    "build:stacked": "node src/generate.mjs --layout=stacked",
+    "build:smoke": "node src/generate.mjs --smoke"
+  },
+  "license": "MIT"
+}
