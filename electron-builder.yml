@@ -38,3 +38,4 @@ publish:
   provider: github
   owner: themafia98
   repo: eq2-class-rotation
+  releaseType: release   # publish directly (not a draft) so CI tag-releases are immediately visible
