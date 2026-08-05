@@ -1,5 +1,5 @@
 {
-  "_readme": "Advisor settings. logFile/logsDir 'auto' = auto-detect newest eq2log_*.txt in common EQ2 install dirs; set an absolute path if detection fails. Use `npm run advisor:learn` to see your client's real cast wording and adjust castPatterns.",
+  "_readme": "Advisor settings. logFile/logsDir 'auto' = auto-detect newest eq2log_*.txt in common EQ2 install dirs; set an absolute path if detection fails (e.g. logsDir to your <EQ2>\\logs folder). Modern EQ2 does NOT log 'You begin casting X' - abilities are detected from 'YOUR <ability> <verb> ...' effect lines (effectPrefix/effectVerbs). Use `npm run advisor:learn` to see ability lines your patterns didn't catch and add missing verbs.",
   "class": "Inquisitor",
   "dataFile": "data/inquisitor.json",
   "logsDir": "auto",
@@ -9,6 +9,14 @@
     "You begin casting {spell}.",
     "You begin to perform {spell}.",
     "You begin channeling {spell}."
+  ],
+  "effectPrefix": "YOUR",
+  "effectVerbs": [
+    "hits", "heals", "wards", "reduces", "afflicts", "damages", "crushes", "pierces",
+    "slashes", "burns", "freezes", "blasts", "smites", "strikes", "multi attacks",
+    "flurries", "interrupts", "dispels", "mesmerizes", "stuns", "roots", "snares",
+    "staggers", "taunts", "cures", "shields", "regenerates", "relieves", "absorbs",
+    "restores", "drains", "steals", "mends"
   ],
   "engine": { "gcd": 1.0, "combatWindow": 8, "queueSize": 3 },
   "eventCap": 400,

@@ -24,9 +24,13 @@ live, what to cast next by priority for the active role. It is **suggest-only**:
 1. Log in to your character.
 2. Type `/log` to start logging. (Toggling `/log` off then on again ensures it writes to the
    per-character file rather than a generic one.)
-3. Make sure combat text is actually being logged — in EQ2's chat/filter options, combat
-   messages should be enabled for the logged window. You want lines like
-   `You begin casting <Spell>.` in the file.
+3. Make sure combat text is going to the logged window (default chat is fine).
+
+**How it detects your abilities:** modern EQ2 does **not** log "You begin casting X." Instead it
+logs the *effect* of your abilities as `YOUR <ability> hits/heals/... `. The advisor keys off
+those `YOUR` lines (config `effectPrefix` / `effectVerbs`). So an ability counts as "used" the
+moment its effect lands — a hair after you cast it, which is fine for cooldown timing. (It still
+also understands `You begin casting X.` if your client emits it.)
 
 The log file is written to:
 ```
@@ -34,9 +38,13 @@ The log file is written to:
 ```
 Lines look like:
 ```
-(1700000000)[Sat Aug 05 12:00:00 2026] You begin to perform Verdict.
+(1785949908)[Wed Aug  5 19:11:48 2026] YOUR Verdict hits a wooly spider for 260 divine damage.
 ```
 The number in parentheses is a Unix timestamp — the advisor uses it for timing.
+
+> **DoT caveat:** damage-over-time abilities log an effect line on every tick, so their estimated
+> cooldown only frees up after the DoT stops ticking. Direct abilities (one hit per cast) are
+> accurate. Tune `recast` per ability in `data\inquisitor.json`.
 
 ---
 
@@ -90,7 +98,8 @@ Edit the files there, then restart the exe.
 | `logsDir` | `"auto"` probes common EQ2 install dirs; or set an absolute logs path |
 | `logFile` | `"auto"` = newest `eq2log_*.txt` under `logsDir`; or set an absolute file path |
 | `defaultRole` | `heal` / `solo` / `groupdps` / `raiddps` |
-| `castPatterns` | log lines that mean "you cast X" — `{spell}` is the captured name |
+| `effectPrefix` / `effectVerbs` | how it reads `YOUR <ability> <verb> ...` lines (the main detection) |
+| `castPatterns` | fallback "begin casting" lines — `{spell}` is the captured name |
 | `engine.gcd` | assumed global cooldown (s) when an ability has no `recast` |
 | `engine.combatWindow` | seconds of no casts before it switches back to the opener list |
 | `window` | overlay opacity / corner / size |

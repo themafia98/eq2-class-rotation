@@ -2,13 +2,7 @@
 // and the Electron main process (via dynamic import). Node built-ins only.
 
 import { readFileSync } from "node:fs";
-import {
-  compilePatterns,
-  parseLine,
-  stripTimestamp,
-  looksLikeCast,
-  DEFAULT_CAST_PATTERNS,
-} from "./parse.mjs";
+import { createParser, stripTimestamp, looksLikeCast } from "./parse.mjs";
 import { computeState } from "./engine.mjs";
 import { createTailer, replay, resolveLogFile } from "./logtail.mjs";
 
@@ -20,9 +14,11 @@ export function loadClassData(dataFile) {
 // Returns { stop, setRole, getRole, logFile }.
 export function startAdvisor(opts) {
   const { config, classData, mode = "live", onState, onLearn, onEnd } = opts;
-  const patterns = compilePatterns(
-    config.castPatterns?.length ? config.castPatterns : DEFAULT_CAST_PATTERNS
-  );
+  const parse = createParser({
+    castPatterns: config.castPatterns,
+    effectPrefix: config.effectPrefix,
+    effectVerbs: config.effectVerbs,
+  });
   const cap = config.eventCap ?? 400;
   const engineOpts = config.engine || {};
   const events = [];
@@ -37,7 +33,7 @@ export function startAdvisor(opts) {
   const handleLine = (line) => {
     const { ts } = stripTimestamp(line);
     const now = ts ?? Math.floor(Date.now() / 1000);
-    const ev = parseLine(line, patterns, now);
+    const ev = parse(line, now);
     if (ev) {
       events.push(ev);
       if (events.length > cap) events.shift();

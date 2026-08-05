@@ -10,9 +10,18 @@ import { homedir } from "node:os";
 
 // Common EQ2 logs locations to probe when logsDir is "auto".
 const COMMON_LOG_DIRS = [
+  // Steam installs
+  "C:/Program Files (x86)/Steam/steamapps/common/EverQuest 2/logs",
+  "C:/Program Files/Steam/steamapps/common/EverQuest 2/logs",
+  "D:/Steam/steamapps/common/EverQuest 2/logs",
+  "D:/SteamLibrary/steamapps/common/EverQuest 2/logs",
+  "E:/SteamLibrary/steamapps/common/EverQuest 2/logs",
+  // Daybreak / Sony launcher installs (default + common custom folders)
+  "C:/games/Daybreak Game Company/Installed Games/EverQuest II/logs",
+  "D:/games/Daybreak Game Company/Installed Games/EverQuest II/logs",
+  "C:/Users/Public/Daybreak Game Company/Installed Games/EverQuest II/logs",
   "C:/Program Files/Sony/EverQuest II/logs",
   "C:/Program Files (x86)/Sony/EverQuest II/logs",
-  "C:/Users/Public/Daybreak Game Company/Installed Games/EverQuest II/logs",
   join(homedir(), "Daybreak Game Company/Installed Games/EverQuest II/logs"),
 ];
 
