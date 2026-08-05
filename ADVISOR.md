@@ -129,6 +129,13 @@ Play a bit; it prints any casting-looking line that **didn't** match. Copy the w
 | `Ctrl+Alt+G` | show / hide the overlay |
 | `Ctrl+Alt+Up / Down` | opacity up / down |
 | `Ctrl+Alt+E` | open the settings folder (packaged .exe only) |
+| `Ctrl+Alt+P` | open/close the in-overlay rotation editor |
+
+**New in v0.2:** the app **auto-updates** from GitHub Releases (installed version), **auto-detects
+your character + class** from the log, uses **DoT-aware cooldowns** (tick lines no longer read as
+"busy forever"), and settings **refresh automatically on upgrade** (old copy saved as `.bak`). The
+✏️ button / `Ctrl+Alt+P` opens an editor to reorder priorities, tweak `recast`, and add abilities
+the log has seen — no JSON by hand.
 
 You can also click the role tabs in the overlay (turn click-through **off** first). Drag the
 overlay by its top/bottom strip to reposition. Change any binding in `config.json → shortcuts`.

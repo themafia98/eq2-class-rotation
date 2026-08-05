@@ -42,28 +42,35 @@ Then follow **[INSTALL.md](./INSTALL.md)**: copy `dist/UI/RotationUI/` into
 ## Quick start — live advisor
 
 ```
-npm install             # first time (pulls Electron)
-npm test                # verify the parser + engine
-npm run advisor:headless  # console demo over advisor/sample.log (no game needed)
+npm install             # first time (pulls Electron + toolchain)
+npm run typecheck       # tsgo (TypeScript 7 native preview)
+npm test                # tsx test runner (parser/engine/detect/ingest)
+npm run build           # esbuild -> build/
+npm run advisor:headless -- --replay=advisor/sample.log   # console demo (no game needed)
 npm run advisor         # the real Electron overlay (tails your live EQ2 log)
-npm run dist            # build a portable EXE -> dist-exe\EQ2-Rotation-Advisor-<ver>.exe
+npm run dist            # build installer + portable EXE -> dist-exe/
 ```
 
-The **.exe** is a single double-click file; on first run it seeds an editable
-`config.json` + `data\` into `%APPDATA%\eq2-class-rotation\` (open it with the overlay's
-⚙ button or `Ctrl+Alt+E`). See **[ADVISOR.md](./ADVISOR.md)** for enabling `/log`,
-cast-pattern tuning, shortcuts, and the honest limitations.
+The **.exe** is a double-click app; on first run it seeds an editable `config.json` + `data\`
+into `%APPDATA%\eq2-class-rotation\` (open it with the overlay's ⚙ button or `Ctrl+Alt+E`),
+and **refreshes them on version upgrade** (old copies saved as `.bak`). It also **auto-updates**
+from GitHub Releases, **auto-detects your character/class** from the log, and has an in-overlay
+**rotation editor** (`Ctrl+Alt+P`). See **[ADVISOR.md](./ADVISOR.md)** for details.
 
-## Project layout
+## Project layout (TypeScript)
 
 ```
-data/inquisitor.json   # EDIT THIS: roles + ordered priorities (+ optional recast/duration timings)
-src/generate.mjs       # overlay generator: data/*.json -> EQ2 custom-UI XML, with XML validation
-dist/UI/<skin>/        # generated, copy-ready skin (git-ignored build output)
-advisor/               # live advisor: parse/engine (pure, tested) + logtail + Electron shell
-INSTALL.md             # in-game overlay: install/usage/troubleshooting
-ADVISOR.md             # live advisor: setup, /log, shortcuts, limitations
+src/shared/types.ts        # domain model + typed IPC contract (single source of truth)
+src/overlay/generate.ts    # EQ2 custom-UI XML generator (+ cli.ts)
+src/advisor/*.ts           # pure core: parse, ingest (DoT-aware), engine, logtail, detect, config, core
+src/advisor/electron/*.ts  # main + preload (bundled to build/*.cjs)
+src/advisor/renderer/*     # overlay.html + overlay.ts (editor)
+tests/*.test.ts            # tsx/node --test
+data/*.json                # EDIT THIS: rotations (one file per class)
+build/ , dist/ , dist-exe/ # generated (git-ignored)
 ```
+
+Tooling: **tsgo** (TS7) typecheck · **esbuild** bundle · **tsx** run/test · **electron-builder** package.
 
 ## Editing your rotation
 
@@ -71,15 +78,15 @@ Edit `data/inquisitor.json` — each role has `maintain / opener / priority / em
 cooldowns`, each an ordered list of `{ "name", "note" }` (top = do first). Optional per-item
 `recast` (seconds) / `duration` (seconds) drive the live advisor's cooldown & refresh
 estimates; the overlay generator ignores them. Every shipped spell name/timing marked
-`(verify)` should be checked against your server (Vushi may differ from standard Echoes of
-Faydwer). After editing: rebuild the overlay (`npm run build`) and/or restart the advisor.
+`(verify)` should be checked against your server. After editing: rebuild the in-game overlay
+with `npm run build:overlay`, and/or restart the advisor (or edit live in the overlay editor).
 
 ## Adding another class
 
 1. Copy `data/inquisitor.json` → `data/<class>.json`.
 2. Set `class`, `title`, a unique `windowName`, and fill the four roles.
-3. `npm run build`. The generator picks up every `data/*.json` automatically and prints the
-   `/show_window` command for each new window. No code changes needed.
+3. `npm run build:overlay` regenerates the in-game skin; the advisor auto-detects and loads the
+   matching class from the log. No code changes needed.
 
 ## CLI flags
 
