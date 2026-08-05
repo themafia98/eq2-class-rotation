@@ -83,7 +83,7 @@ anywhere and double-click. No installer.
 On **first launch** the exe copies an **editable** `config.json` and `data\` into your Windows
 user folder so you can edit your rotation and log path (inside the exe they're read-only):
 ```
-%APPDATA%\EQ2 Rotation Advisor\
+%APPDATA%\eq2-class-rotation\
 ```
 Click the **⚙** in the overlay's bottom-right (or press `Ctrl+Alt+E`) to open that folder.
 Edit the files there, then restart the exe.

@@ -1,6 +1,6 @@
 {
   "name": "eq2-class-rotation",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "EverQuest 2 class rotation tools: in-game reference overlay (custom UI) generator + a suggest-only live rotation advisor. Inquisitor first; data-driven so more classes drop in.",
   "type": "module",
   "author": "eq2-class-rotation",

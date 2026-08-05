@@ -50,7 +50,7 @@ npm run dist            # build a portable EXE -> dist-exe\EQ2-Rotation-Advisor-
 ```
 
 The **.exe** is a single double-click file; on first run it seeds an editable
-`config.json` + `data\` into `%APPDATA%\EQ2 Rotation Advisor\` (open it with the overlay's
+`config.json` + `data\` into `%APPDATA%\eq2-class-rotation\` (open it with the overlay's
 ⚙ button or `Ctrl+Alt+E`). See **[ADVISOR.md](./ADVISOR.md)** for enabling `/log`,
 cast-pattern tuning, shortcuts, and the honest limitations.
 

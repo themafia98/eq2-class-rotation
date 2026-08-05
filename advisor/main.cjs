@@ -22,24 +22,39 @@ let opacity = 0.92;
 // When packaged into an .exe the app files live read-only inside app.asar, so
 // seed an editable copy of config.json + data/*.json into the user's data dir
 // on first run and read/write settings from there.
-function ensureUserFiles(dir) {
+// Seed dest from src. If dest is missing, copy it. If `force` (a version upgrade),
+// back the existing one up to .bak and overwrite so shipped fixes actually reach users.
+function seedFile(src, dest, force) {
+  if (!fs.existsSync(dest)) { fs.copyFileSync(src, dest); return; }
+  if (force) {
+    try { fs.copyFileSync(dest, dest + ".bak"); } catch { /* ignore */ }
+    fs.copyFileSync(src, dest);
+  }
+}
+
+function ensureUserFiles(dir, force) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-  const userCfg = path.join(dir, "config.json");
-  if (!fs.existsSync(userCfg)) fs.copyFileSync(path.join(__dirname, "config.json"), userCfg);
+  seedFile(path.join(__dirname, "config.json"), path.join(dir, "config.json"), force);
   const userData = path.join(dir, "data");
   if (!fs.existsSync(userData)) fs.mkdirSync(userData, { recursive: true });
   const bundledData = path.join(ROOT, "data");
   for (const f of fs.readdirSync(bundledData)) {
     if (!f.endsWith(".json")) continue;
-    const dest = path.join(userData, f);
-    if (!fs.existsSync(dest)) fs.copyFileSync(path.join(bundledData, f), dest);
+    seedFile(path.join(bundledData, f), path.join(userData, f), force);
   }
 }
 
 function initConfig() {
   if (app.isPackaged) {
     userDir = app.getPath("userData");
-    ensureUserFiles(userDir);
+    // Refresh seeded files whenever the app version changed (or no stamp yet, i.e.
+    // pre-existing stale settings) so parser/data fixes reach users on upgrade.
+    const stamp = path.join(userDir, ".seeded-version");
+    let prev = null;
+    try { prev = fs.readFileSync(stamp, "utf8").trim(); } catch { /* none */ }
+    const version = app.getVersion();
+    ensureUserFiles(userDir, prev !== version);
+    try { fs.writeFileSync(stamp, version); } catch { /* ignore */ }
     config = JSON.parse(fs.readFileSync(path.join(userDir, "config.json"), "utf8"));
     dataRoot = userDir;
   } else {
@@ -101,6 +116,7 @@ async function startAdvisor() {
     mode: replayFile ? "replay" : "live",
     file: replayFile || undefined,
     onState: (s) => win && !win.isDestroyed() && win.webContents.send("state", s),
+    onLogFile: (file) => sendMeta({ logFile: file }),
   });
   sendMeta({
     class: classData.class,

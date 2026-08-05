@@ -46,6 +46,7 @@ export function startAdvisor(opts) {
   // pick the source
   let source;
   let logFile = null;
+  let logSwitcher = null;
   if (mode === "replay") {
     logFile = opts.file;
     source = replay({
@@ -55,11 +56,27 @@ export function startAdvisor(opts) {
       onEnd,
     });
   } else {
-    logFile = opts.file || resolveLogFile(config);
-    if (!logFile) {
-      onState?.({ error: "log file not found — set logFile in advisor/config.json", role: currentRole, next: null, queue: [], refresh: [] });
+    const startTail = (file) => {
+      logFile = file;
+      source = createTailer({ file, onLine: handleLine, pollMs: 500 });
+      opts.onLogFile?.(file);
+    };
+    const first = opts.file || resolveLogFile(config);
+    if (!first) {
+      onState?.({ error: "log file not found — start EQ2 and /log, or set logFile in config.json", role: currentRole, next: null, queue: [], refresh: [] });
     } else {
-      source = createTailer({ file: logFile, onLine: handleLine, pollMs: 500 });
+      startTail(first);
+    }
+    // Auto-switch to a newer log file if one appears (e.g. you started EQ2 after
+    // the advisor, or logged in a different character). Only when auto-detecting.
+    if (!opts.file) {
+      logSwitcher = setInterval(() => {
+        const latest = resolveLogFile(config);
+        if (latest && latest !== logFile) {
+          source?.stop?.();
+          startTail(latest);
+        }
+      }, config.logRescanMs ?? 5000);
     }
   }
 
@@ -72,7 +89,7 @@ export function startAdvisor(opts) {
   emit(lastNow); // initial paint
 
   return {
-    logFile,
+    get logFile() { return logFile; },
     getRole: () => currentRole,
     setRole(id) {
       currentRole = id;
@@ -81,6 +98,7 @@ export function startAdvisor(opts) {
     stop() {
       source?.stop?.();
       if (ticker) clearInterval(ticker);
+      if (logSwitcher) clearInterval(logSwitcher);
     },
   };
 }
