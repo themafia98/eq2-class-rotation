@@ -13,6 +13,20 @@ DPS / RAID), data-driven so more classes are just another JSON file:
 > advisor only *reads the log* and suggests — same category of tool as ACT. EQ2 has no
 > cooldown API, so advisor cooldowns are **estimated** from your casts in the log.
 
+## ⬇️ For players — download & install (no coding)
+
+1. Open the **[Releases](https://github.com/themafia98/eq2-class-rotation/releases/latest)** page.
+2. Download **`EQ2-Rotation-Advisor-Setup-<version>.exe`** (installer) — or the
+   `...-portable.exe` if you'd rather not install, just run.
+3. Double-click it. Windows may show **"Windows protected your PC"** (the app isn't code-signed):
+   click **More info → Run anyway**. This is normal for free indie apps.
+4. Launch **EQ2 Rotation Advisor** from the Start menu / desktop shortcut.
+5. In EQ2: type `/log` once to enable logging, and play in **Borderless Windowed** so the
+   overlay stays on top. Roles switch with `Ctrl+Alt+H/S/D/R`; the ⚙ button (or `Ctrl+Alt+E`)
+   opens your editable rotation files.
+
+That's it — full details in **[ADVISOR.md](./ADVISOR.md)**.
+
 ## Quick start — in-game overlay
 
 ```

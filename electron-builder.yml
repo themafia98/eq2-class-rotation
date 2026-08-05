@@ -16,7 +16,25 @@ directories:
   output: dist-exe
 
 win:
-  target: portable          # single self-contained .exe, no installer
+  target:
+    - nsis        # friendly installer (wizard + Start-menu/desktop shortcut)
+    - portable    # single self-contained .exe, no install
+
+# Installer: per-user (no admin/UAC prompt), simple wizard, makes shortcuts.
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: EQ2 Rotation Advisor
+  artifactName: EQ2-Rotation-Advisor-Setup-${version}.exe
 
 portable:
-  artifactName: EQ2-Rotation-Advisor-${version}.exe
+  artifactName: EQ2-Rotation-Advisor-${version}-portable.exe
+
+# Lets `electron-builder --publish` push the built exe straight to GitHub Releases.
+publish:
+  provider: github
+  owner: themafia98
+  repo: eq2-class-rotation
