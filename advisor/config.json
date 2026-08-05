@@ -1,0 +1,29 @@
+{
+  "_readme": "Advisor settings. logFile/logsDir 'auto' = auto-detect newest eq2log_*.txt in common EQ2 install dirs; set an absolute path if detection fails. Use `npm run advisor:learn` to see your client's real cast wording and adjust castPatterns.",
+  "class": "Inquisitor",
+  "dataFile": "data/inquisitor.json",
+  "logsDir": "auto",
+  "logFile": "auto",
+  "defaultRole": "raiddps",
+  "castPatterns": [
+    "You begin casting {spell}.",
+    "You begin to perform {spell}.",
+    "You begin channeling {spell}."
+  ],
+  "engine": { "gcd": 1.0, "combatWindow": 8, "queueSize": 3 },
+  "eventCap": 400,
+  "replayIntervalMs": 350,
+  "tickMs": 250,
+  "window": { "opacity": 0.92, "corner": "top-right", "width": 300, "height": 250, "margin": 24 },
+  "shortcuts": {
+    "roleHeal": "Control+Alt+H",
+    "roleSolo": "Control+Alt+S",
+    "roleGrpDps": "Control+Alt+D",
+    "roleRaid": "Control+Alt+R",
+    "toggleClickThrough": "Control+Alt+O",
+    "toggleShow": "Control+Alt+G",
+    "opacityUp": "Control+Alt+Up",
+    "opacityDown": "Control+Alt+Down",
+    "openSettings": "Control+Alt+E"
+  }
+}

@@ -1,12 +1,25 @@
 {
   "name": "eq2-class-rotation",
   "version": "0.1.0",
-  "description": "EverQuest 2 class rotation reference overlay (custom UI) + generator. Inquisitor first; data-driven so more classes drop in.",
+  "description": "EverQuest 2 class rotation tools: in-game reference overlay (custom UI) generator + a suggest-only live rotation advisor. Inquisitor first; data-driven so more classes drop in.",
   "type": "module",
+  "author": "eq2-class-rotation",
+  "main": "advisor/main.cjs",
   "scripts": {
     "build": "node src/generate.mjs",
-    "build:stacked": "node src/generate.mjs --layout=stacked",
-    "build:smoke": "node src/generate.mjs --smoke"
+    "build:combined": "node src/generate.mjs --combined",
+    "build:smoke": "node src/generate.mjs --smoke --skin=RotationUI_Smoke",
+    "test": "node --test advisor/parse.test.mjs advisor/engine.test.mjs",
+    "advisor": "electron advisor/main.cjs",
+    "advisor:replay": "electron advisor/main.cjs --replay=advisor/sample.log",
+    "advisor:headless": "node advisor/headless.mjs --replay=advisor/sample.log",
+    "advisor:learn": "node advisor/headless.mjs --learn",
+    "dist": "electron-builder",
+    "dist:dir": "electron-builder --dir"
+  },
+  "devDependencies": {
+    "electron": "^31.3.0",
+    "electron-builder": "^24.13.3"
   },
   "license": "MIT"
 }

@@ -1,0 +1,22 @@
+appId: com.eq2.rotationadvisor
+productName: EQ2 Rotation Advisor
+
+# What goes inside the app (read-only). Editable config.json + data/ are seeded
+# into the user's data folder on first run (see advisor/main.cjs).
+files:
+  - advisor/**/*
+  - data/**/*
+  - package.json
+# don't ship the dev-only bits
+  - "!advisor/*.test.mjs"
+  - "!advisor/headless.mjs"
+  - "!advisor/sample.log"
+
+directories:
+  output: dist-exe
+
+win:
+  target: portable          # single self-contained .exe, no installer
+
+portable:
+  artifactName: EQ2-Rotation-Advisor-${version}.exe

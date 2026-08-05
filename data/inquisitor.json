@@ -1,5 +1,5 @@
 {
-  "_readme": "EDIT THIS FILE, then run `npm run build`. Every ability below is a DRAFT seeded from standard Echoes-of-Faydwer (level 70) Inquisitor knowledge and is marked (verify) where the exact name/behaviour may differ on your server (Vushi). Replace names/notes with YOUR actual spells. Structure: each role has 5 sections. Reorder items within a section to set priority (top = do first). Delete or add {name, note} items freely.",
+  "_readme": "EDIT THIS FILE, then run `npm run build` (overlay) or restart the advisor. Ability names are a DRAFT from standard Echoes-of-Faydwer (level 70) Inquisitor knowledge, marked (verify) where they may differ on your server (Vushi). Replace with YOUR spells. Fields per item: name, note, and OPTIONAL timings used by the live advisor: `recast` (seconds until reusable, for priority/opener), `duration` (seconds the buff/debuff lasts, for maintain -> refresh reminder), optional `logName` if the spell's name in the combat log differs from name. The overlay generator ignores timings. All timings are ROUGH placeholders — tune them.",
   "class": "Inquisitor",
   "title": "Inquisitor Rotation",
   "windowName": "Rotation",
@@ -15,26 +15,26 @@
     {
       "id": "heal",
       "label": "HEAL",
-      "blurb": "Group/raid main healer. Fastest recast of all priests — lead with the group reactive, cure the dangerous stuff first.",
+      "blurb": "Group/raid main healer. Fastest recast of all priests - lead with the group reactive, cure the dangerous stuff first.",
       "maintain": [
-        { "name": "Fanaticism", "note": "group melee/DPS buff — keep up (verify)" },
-        { "name": "Litany", "note": "group damage-proc buff (verify)" },
-        { "name": "Malevolent Diatribe", "note": "group REACTIVE heal — refresh before it's consumed" }
+        { "name": "Fanaticism", "note": "group melee/DPS buff - keep up (verify)", "duration": 300 },
+        { "name": "Litany", "note": "group damage-proc buff (verify)", "duration": 300 },
+        { "name": "Malevolent Diatribe", "note": "group REACTIVE heal - refresh before it's consumed", "duration": 30 }
       ],
       "opener": [
-        { "name": "Malevolent Diatribe", "note": "pre-cast group reactive before the pull" },
-        { "name": "Alleviation", "note": "pre-cast if incoming AoE is expected" }
+        { "name": "Malevolent Diatribe", "note": "pre-cast group reactive before the pull", "recast": 8 },
+        { "name": "Alleviation", "note": "pre-cast if incoming AoE is expected", "recast": 6 }
       ],
       "priority": [
-        { "name": "Resolute Flagellant", "note": "1) group cure arcane+elemental — clear dangerous detrimentals FIRST (verify)" },
-        { "name": "Cure", "note": "2) single-target cure for the tank if a spell is killing them" },
-        { "name": "Malevolent Diatribe", "note": "3) main HPS — keep the group reactive rolling" },
-        { "name": "Alleviation", "note": "4) group heal when 2+ are hurt" },
-        { "name": "Divine Recovery", "note": "5) big single heal — tank spot heal (verify)" },
-        { "name": "Reprimand", "note": "6) top-off / HoT filler (verify)" }
+        { "name": "Resolute Flagellant", "note": "1) group cure arcane+elemental - clear dangerous detrimentals FIRST (verify)", "recast": 10 },
+        { "name": "Cure", "note": "2) single-target cure for the tank if a spell is killing them", "recast": 6 },
+        { "name": "Malevolent Diatribe", "note": "3) main HPS - keep the group reactive rolling", "recast": 8 },
+        { "name": "Alleviation", "note": "4) group heal when 2+ are hurt", "recast": 6 },
+        { "name": "Divine Recovery", "note": "5) big single heal - tank spot heal (verify)", "recast": 12 },
+        { "name": "Reprimand", "note": "6) top-off / HoT filler (verify)", "recast": 8 }
       ],
       "emergency": [
-        { "name": "Divine Recovery", "note": "biggest single heal — tank about to die (verify)" },
+        { "name": "Divine Recovery", "note": "biggest single heal - tank about to die (verify)" },
         { "name": "Resolute Flagellant", "note": "panic group cure" },
         { "name": "Redemption", "note": "in-combat rez AFTER the fight is stable (verify)" }
       ],
@@ -47,18 +47,18 @@
       "label": "SOLO",
       "blurb": "Leveling / soloing. Land debuff + DoTs, melee auto-attack, heal yourself with the reactive as needed.",
       "maintain": [
-        { "name": "Fanaticism", "note": "self/group buff — keep up (verify)" },
-        { "name": "Heretic's Doom", "note": "debuff the target (dmg taken / power drain) (verify)" }
+        { "name": "Fanaticism", "note": "self/group buff - keep up (verify)", "duration": 300 },
+        { "name": "Heretic's Doom", "note": "debuff the target (dmg taken / power drain) (verify)", "duration": 30 }
       ],
       "opener": [
-        { "name": "Malevolent Diatribe", "note": "reactive on yourself before pulling" },
-        { "name": "Inquest", "note": "DoT to open (verify)" }
+        { "name": "Malevolent Diatribe", "note": "reactive on yourself before pulling", "recast": 8 },
+        { "name": "Inquest", "note": "DoT to open (verify)", "recast": 8 }
       ],
       "priority": [
-        { "name": "Inquest", "note": "1) keep the DoT ticking (verify)" },
-        { "name": "Verdict", "note": "2) big melee finisher / hardest hit (verify)" },
-        { "name": "Wrath", "note": "3) melee CA (verify)" },
-        { "name": "(nuke)", "note": "4) direct damage filler" },
+        { "name": "Inquest", "note": "1) keep the DoT ticking (verify)", "recast": 8 },
+        { "name": "Verdict", "note": "2) big melee finisher / hardest hit (verify)", "recast": 30 },
+        { "name": "Wrath", "note": "3) melee CA (verify)", "recast": 12 },
+        { "name": "(nuke)", "note": "4) direct damage filler", "recast": 4 },
         { "name": "auto-attack", "note": "5) stay in melee range, let auto-attack run between CAs" }
       ],
       "emergency": [
@@ -67,35 +67,35 @@
         { "name": "Condemn", "note": "stun/root and back off if losing (verify)" }
       ],
       "cooldowns": [
-        { "name": "Verdict", "note": "use on cooldown for burst (verify)" }
+        { "name": "Verdict", "note": "use on cooldown for burst (verify)", "recast": 30 }
       ]
     },
     {
       "id": "groupdps",
       "label": "GRP DPS",
-      "blurb": "Group has enough healing — push damage. Debuffs up, DoTs rolling, CA priority, keep auto-attack going. Toss a reactive only when needed.",
+      "blurb": "Group has enough healing - push damage. Debuffs up, DoTs rolling, CA priority, keep auto-attack going. Toss a reactive only when needed.",
       "maintain": [
-        { "name": "Heretic's Doom", "note": "target debuff — keep up (verify)" },
-        { "name": "Litany", "note": "group damage-proc buff (verify)" },
-        { "name": "Fanaticism", "note": "group DPS buff (verify)" }
+        { "name": "Heretic's Doom", "note": "target debuff - keep up (verify)", "duration": 30 },
+        { "name": "Litany", "note": "group damage-proc buff (verify)", "duration": 300 },
+        { "name": "Fanaticism", "note": "group DPS buff (verify)", "duration": 300 }
       ],
       "opener": [
-        { "name": "Heretic's Doom", "note": "apply debuff first" },
-        { "name": "Inquest", "note": "DoT (verify)" }
+        { "name": "Heretic's Doom", "note": "apply debuff first", "recast": 20 },
+        { "name": "Inquest", "note": "DoT (verify)", "recast": 8 }
       ],
       "priority": [
-        { "name": "Verdict", "note": "1) highest single hit — on cooldown (verify)" },
-        { "name": "Wrath", "note": "2) melee CA (verify)" },
-        { "name": "Inquest", "note": "3) refresh DoT when it drops (verify)" },
-        { "name": "(nuke)", "note": "4) direct damage filler" },
+        { "name": "Verdict", "note": "1) highest single hit - on cooldown (verify)", "recast": 30 },
+        { "name": "Wrath", "note": "2) melee CA (verify)", "recast": 12 },
+        { "name": "Inquest", "note": "3) refresh DoT when it drops (verify)", "recast": 8 },
+        { "name": "(nuke)", "note": "4) direct damage filler", "recast": 4 },
         { "name": "auto-attack", "note": "5) keep in melee range; weave CAs around auto-attack timer" }
       ],
       "emergency": [
-        { "name": "Resolute Flagellant", "note": "you're still a priest — group cure if healer is swamped" },
+        { "name": "Resolute Flagellant", "note": "you're still a priest - group cure if healer is swamped" },
         { "name": "Malevolent Diatribe", "note": "backup group reactive" }
       ],
       "cooldowns": [
-        { "name": "Verdict", "note": "burst window (verify)" }
+        { "name": "Verdict", "note": "burst window (verify)", "recast": 30 }
       ]
     },
     {
@@ -103,20 +103,20 @@
       "label": "RAID",
       "blurb": "Raid contribution beyond healing: keep raid/target debuffs + group buffs up, DPS in priority order, cover cures and interrupts.",
       "maintain": [
-        { "name": "Heretic's Doom", "note": "target debuff (raid-wide value) — keep up (verify)" },
-        { "name": "Fanaticism", "note": "group buff (verify)" },
-        { "name": "Litany", "note": "group damage-proc buff (verify)" },
-        { "name": "Malevolent Diatribe", "note": "keep a reactive on the tank/group as backup" }
+        { "name": "Heretic's Doom", "note": "target debuff (raid-wide value) - keep up (verify)", "duration": 30 },
+        { "name": "Fanaticism", "note": "group buff (verify)", "duration": 300 },
+        { "name": "Litany", "note": "group damage-proc buff (verify)", "duration": 300 },
+        { "name": "Malevolent Diatribe", "note": "keep a reactive on the tank/group as backup", "duration": 30 }
       ],
       "opener": [
-        { "name": "Heretic's Doom", "note": "debuff on pull" },
-        { "name": "Inquest", "note": "DoT (verify)" }
+        { "name": "Heretic's Doom", "note": "debuff on pull", "recast": 20 },
+        { "name": "Inquest", "note": "DoT (verify)", "recast": 8 }
       ],
       "priority": [
-        { "name": "Verdict", "note": "1) top single hit — on cooldown (verify)" },
-        { "name": "Wrath", "note": "2) melee CA (verify)" },
-        { "name": "Inquest", "note": "3) refresh DoT (verify)" },
-        { "name": "(nuke)", "note": "4) filler nuke" },
+        { "name": "Verdict", "note": "1) top single hit - on cooldown (verify)", "recast": 30 },
+        { "name": "Wrath", "note": "2) melee CA (verify)", "recast": 12 },
+        { "name": "Inquest", "note": "3) refresh DoT (verify)", "recast": 8 },
+        { "name": "(nuke)", "note": "4) filler nuke", "recast": 4 },
         { "name": "auto-attack", "note": "5) maintain melee auto-attack between CAs" }
       ],
       "emergency": [
@@ -125,7 +125,7 @@
         { "name": "Divine Recovery", "note": "emergency heal if your group's healer drops (verify)" }
       ],
       "cooldowns": [
-        { "name": "Verdict", "note": "line up with raid burst windows (verify)" }
+        { "name": "Verdict", "note": "line up with raid burst windows (verify)", "recast": 30 }
       ]
     }
   ]
