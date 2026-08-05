@@ -1,0 +1,29 @@
+name: Release
+
+# Push a version tag (e.g. v0.1.1) and this builds the Windows installer +
+# portable exe and attaches them to a GitHub Release automatically.
+#   npm version patch   # bumps version + creates the tag
+#   git push --follow-tags
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm test
+      - name: Build and publish to GitHub Releases
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx electron-builder --win --publish always
