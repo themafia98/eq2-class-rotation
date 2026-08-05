@@ -1,10 +1,11 @@
 {
-  "_readme": "Advisor settings. logFile/logsDir 'auto' = auto-detect newest eq2log_*.txt in common EQ2 install dirs; set an absolute path if detection fails (e.g. logsDir to your <EQ2>\\logs folder). Modern EQ2 does NOT log 'You begin casting X' - abilities are detected from 'YOUR <ability> <verb> ...' effect lines (effectPrefix/effectVerbs). Use `npm run advisor:learn` to see ability lines your patterns didn't catch and add missing verbs.",
+  "_readme": "Advisor settings. Seeded into %APPDATA%\\eq2-class-rotation\\ on first run (refreshed on version upgrade, old copy saved as .bak). logFile/logsDir 'auto' = auto-detect newest eq2log_*.txt. Modern EQ2 does NOT log 'You begin casting X'; abilities are detected from 'YOUR <ability> <verb> ...' effect lines (effectPrefix/effectVerbs). Missing keys fall back to built-in defaults.",
   "class": "Inquisitor",
   "dataFile": "data/inquisitor.json",
   "logsDir": "auto",
   "logFile": "auto",
-  "defaultRole": "raiddps",
+  "defaultRole": "solo",
+  "autoDetectClass": true,
   "castPatterns": [
     "You begin casting {spell}.",
     "You begin to perform {spell}.",
@@ -18,11 +19,12 @@
     "staggers", "taunts", "cures", "shields", "regenerates", "relieves", "absorbs",
     "restores", "drains", "steals", "mends"
   ],
-  "engine": { "gcd": 1.0, "combatWindow": 8, "queueSize": 3 },
+  "engine": { "gcd": 1, "combatWindow": 8, "queueSize": 3, "refreshLead": 0 },
   "eventCap": 400,
   "replayIntervalMs": 350,
   "tickMs": 250,
-  "window": { "opacity": 0.92, "corner": "top-right", "width": 300, "height": 250, "margin": 24 },
+  "logRescanMs": 5000,
+  "window": { "opacity": 0.92, "corner": "top-right", "width": 300, "height": 260, "margin": 24 },
   "shortcuts": {
     "roleHeal": "Control+Alt+H",
     "roleSolo": "Control+Alt+S",
@@ -30,6 +32,7 @@
     "roleRaid": "Control+Alt+R",
     "toggleClickThrough": "Control+Alt+O",
     "toggleShow": "Control+Alt+G",
+    "toggleEditor": "Control+Alt+P",
     "opacityUp": "Control+Alt+Up",
     "opacityDown": "Control+Alt+Down",
     "openSettings": "Control+Alt+E"

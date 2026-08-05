@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: transparent; overflow: hidden;
+    font-family: "Segoe UI", Arial, sans-serif; -webkit-user-select: none; user-select: none; color: #e8eaf0; }
+  .card { height: 100%; background: rgba(16,18,24,0.88); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 8px 10px; display: flex; flex-direction: column; gap: 6px; }
+  .head { display:flex; align-items:center; justify-content:space-between; -webkit-app-region: drag; }
+  .cls { font-size: 11px; letter-spacing:.4px; color:#9aa4b2; text-transform: uppercase; overflow:hidden;
+    text-overflow:ellipsis; white-space:nowrap; max-width:48%; }
+  .tabs { display:flex; gap:4px; -webkit-app-region: no-drag; }
+  .tab { font-size: 10px; padding: 2px 6px; border-radius: 6px; cursor: pointer; color:#aeb6c2;
+    background: rgba(255,255,255,0.05); }
+  .tab.active { color:#0b0d12; background:#f2c14e; font-weight:600; }
+  .next-label { font-size: 10px; color:#8b93a1; text-transform: uppercase; letter-spacing:1px; }
+  .next { font-size: 24px; font-weight: 700; line-height:1.1; color:#6ee7a8; word-break: break-word; }
+  .next.waiting { color:#8b93a1; font-size:16px; font-weight:600; }
+  .next-note { font-size: 10px; color:#8b93a1; margin-top:1px; }
+  .queue { display:flex; flex-direction:column; gap:3px; margin-top:2px; }
+  .q { display:flex; align-items:center; gap:6px; font-size: 11px; }
+  .q .name { flex: 0 0 42%; color:#c7cdd6; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .q .barwrap { flex:1; height:6px; background: rgba(255,255,255,0.06); border-radius:4px; overflow:hidden; }
+  .q .bar { height:100%; background:#5b8def; width:0%; }
+  .q .t { flex: 0 0 34px; text-align:right; color:#8b93a1; font-variant-numeric: tabular-nums; }
+  .q.ready .t { color:#6ee7a8; } .q.ready .bar { background:#6ee7a8; }
+  .refresh { display:flex; flex-wrap:wrap; gap:4px; margin-top:2px; }
+  .pill { font-size:10px; padding:2px 6px; border-radius:10px; background: rgba(242,193,78,0.18);
+    color:#f2c14e; border:1px solid rgba(242,193,78,0.35); }
+  .banner { -webkit-app-region:no-drag; font-size:11px; background:#2b6; color:#04120a; border-radius:6px;
+    padding:3px 8px; cursor:pointer; text-align:center; }
+  .foot { margin-top:auto; display:flex; align-items:center; justify-content:space-between; font-size:9px;
+    color:#6b7280; -webkit-app-region: drag; }
+  .dot { width:7px; height:7px; border-radius:50%; background:#e0574a; display:inline-block; margin-right:4px; }
+  .dot.on { background:#6ee7a8; }
+  .icons { -webkit-app-region:no-drag; display:flex; gap:8px; }
+  .icon { cursor:pointer; opacity:.7; } .icon:hover { opacity:1; }
+  .hidden { display:none !important; }
+
+  /* editor */
+  .editor { position:absolute; inset:0; background:rgba(12,14,19,0.98); border-radius:12px; padding:8px 10px;
+    display:flex; flex-direction:column; gap:6px; -webkit-app-region:no-drag; }
+  .editor h3 { margin:0; font-size:12px; color:#f2c14e; }
+  .ed-list { flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:3px; }
+  .ed-row { display:flex; align-items:center; gap:4px; font-size:11px; }
+  .ed-row .nm { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .ed-row input { width:42px; background:#1c2029; color:#e8eaf0; border:1px solid #333; border-radius:4px;
+    font-size:10px; padding:1px 3px; }
+  .ed-row button, .ed-actions button, .add-row button { background:#232838; color:#cdd3dc; border:1px solid #394;
+    border-radius:4px; font-size:10px; cursor:pointer; padding:1px 5px; }
+  .ed-actions { display:flex; gap:6px; justify-content:flex-end; }
+  .ed-actions .save { background:#2b6; color:#04120a; border-color:#2b6; }
+  .add-row { display:flex; gap:4px; }
+  .add-row select { flex:1; background:#1c2029; color:#e8eaf0; border:1px solid #333; border-radius:4px; font-size:10px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="head">
+      <span class="cls" id="cls">EQ2</span>
+      <span class="tabs" id="tabs"></span>
+    </div>
+    <div>
+      <div class="next-label">Next</div>
+      <div class="next waiting" id="next">connecting…</div>
+      <div class="next-note" id="nextNote"></div>
+    </div>
+    <div class="queue" id="queue"></div>
+    <div class="refresh" id="refresh"></div>
+    <div class="banner hidden" id="banner">Update ready — click to restart &amp; install</div>
+    <div class="foot">
+      <span><span class="dot" id="dot"></span><span id="status">no log</span></span>
+      <span class="icons">
+        <span class="icon" id="editBtn" title="Edit rotation (Ctrl+Alt+P)">✏️</span>
+        <span class="icon" id="gear" title="Open settings folder (Ctrl+Alt+E)">⚙</span>
+      </span>
+    </div>
+
+    <div class="editor hidden" id="editor">
+      <h3 id="edTitle">Edit rotation</h3>
+      <div class="ed-list" id="edList"></div>
+      <div class="add-row">
+        <select id="edAdd"><option value="">+ add ability…</option></select>
+        <button id="edAddBtn">Add</button>
+      </div>
+      <div class="ed-actions">
+        <button id="edCancel">Cancel</button>
+        <button class="save" id="edSave">Save</button>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="overlay.js"></script>
+</body>
+</html>

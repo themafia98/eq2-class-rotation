@@ -1,25 +1,31 @@
 {
   "name": "eq2-class-rotation",
-  "version": "0.1.3",
-  "description": "EverQuest 2 class rotation tools: in-game reference overlay (custom UI) generator + a suggest-only live rotation advisor. Inquisitor first; data-driven so more classes drop in.",
+  "version": "0.2.0",
+  "description": "EverQuest 2 rotation tools: in-game reference overlay generator + a suggest-only live rotation advisor (Electron). TypeScript.",
   "type": "module",
+  "main": "build/main.cjs",
   "author": "eq2-class-rotation",
-  "main": "advisor/main.cjs",
+  "license": "MIT",
   "scripts": {
-    "build": "node src/generate.mjs",
-    "build:combined": "node src/generate.mjs --combined",
-    "build:smoke": "node src/generate.mjs --smoke --skin=RotationUI_Smoke",
-    "test": "node --test advisor/parse.test.mjs advisor/engine.test.mjs",
-    "advisor": "electron advisor/main.cjs",
-    "advisor:replay": "electron advisor/main.cjs --replay=advisor/sample.log",
-    "advisor:headless": "node advisor/headless.mjs --replay=advisor/sample.log",
-    "advisor:learn": "node advisor/headless.mjs --learn",
-    "dist": "electron-builder",
-    "dist:dir": "electron-builder --dir"
+    "typecheck": "tsgo --noEmit",
+    "build": "node esbuild.mjs",
+    "build:overlay": "tsx src/overlay/cli.ts",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "advisor": "npm run build && electron build/main.cjs",
+    "advisor:replay": "npm run build && electron build/main.cjs --replay=advisor/sample.log",
+    "advisor:headless": "tsx src/advisor/headless.ts",
+    "dist": "npm run build && electron-builder",
+    "dist:dir": "npm run build && electron-builder --dir"
+  },
+  "dependencies": {
+    "electron-updater": "^6.3.9"
   },
   "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@typescript/native-preview": "latest",
     "electron": "^31.3.0",
-    "electron-builder": "^24.13.3"
-  },
-  "license": "MIT"
+    "electron-builder": "^24.13.3",
+    "esbuild": "^0.24.2",
+    "tsx": "^4.19.2"
+  }
 }
