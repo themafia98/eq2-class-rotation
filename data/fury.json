@@ -1,0 +1,400 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Fury",
+  "title": "Fury Rotation",
+  "windowName": "Fury",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (buffs/wards)",
+    "opener": "OPENER / PULL",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "EMERGENCY / CURES",
+    "cooldowns": "LONG COOLDOWNS"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "HEAL",
+      "blurb": "Keep the group up; weave a nuke only when nobody needs healing.",
+      "maintain": [
+        {
+          "name": "Thornskin",
+          "note": "damage-shield buff",
+          "duration": 600
+        },
+        {
+          "name": "Armor of Nature",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Porcupine",
+          "note": "reactive damage-shield (verify)",
+          "duration": 60
+        }
+      ],
+      "opener": [
+        {
+          "name": "Regrowth",
+          "note": "pre-cast tank HoT",
+          "recast": 10
+        }
+      ],
+      "priority": [
+        {
+          "name": "Cure",
+          "note": "1) cure detrimentals FIRST",
+          "recast": 10
+        },
+        {
+          "name": "Regrowth",
+          "note": "2) HoT — keep ticking",
+          "recast": 10,
+          "duration": 20
+        },
+        {
+          "name": "Nature's Salve",
+          "note": "3) fast single heal",
+          "recast": 4
+        },
+        {
+          "name": "Nature's Elixir",
+          "note": "4) big single heal",
+          "recast": 10
+        },
+        {
+          "name": "Untamed Regeneration",
+          "note": "5) group heal-over-time",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Primal Fury",
+          "note": "burst heal/buff (verify)",
+          "recast": 60
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental"
+        },
+        {
+          "name": "Hibernation",
+          "note": "emergency (verify)",
+          "recast": 120
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Call of the Hunt",
+          "note": "group DPS buff",
+          "recast": 180
+        },
+        {
+          "name": "Feral Pulse",
+          "note": "burst",
+          "recast": 60
+        },
+        {
+          "name": "Call of Storms",
+          "note": "big AoE nuke",
+          "recast": 60
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "DoT/nuke + self-heal as needed.",
+      "maintain": [
+        {
+          "name": "Thornskin",
+          "note": "damage-shield buff",
+          "duration": 600
+        },
+        {
+          "name": "Armor of Nature",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Porcupine",
+          "note": "reactive damage-shield (verify)",
+          "duration": 60
+        }
+      ],
+      "opener": [
+        {
+          "name": "Death Swarm",
+          "note": "DoT",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Tempest",
+          "note": "nuke",
+          "recast": 6
+        }
+      ],
+      "priority": [
+        {
+          "name": "Tempest",
+          "note": "1) nuke on cd",
+          "recast": 6
+        },
+        {
+          "name": "Death Swarm",
+          "note": "2) DoT — keep ticking",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Thunderbolt",
+          "note": "3) nuke",
+          "recast": 10
+        },
+        {
+          "name": "Starnova",
+          "note": "4) AoE nuke",
+          "recast": 15
+        },
+        {
+          "name": "Ring of Fire",
+          "note": "5) AoE DoT",
+          "recast": 20
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Primal Fury",
+          "note": "burst heal/buff (verify)",
+          "recast": 60
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental"
+        },
+        {
+          "name": "Hibernation",
+          "note": "emergency (verify)",
+          "recast": 120
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Call of the Hunt",
+          "note": "group DPS buff",
+          "recast": 180
+        },
+        {
+          "name": "Feral Pulse",
+          "note": "burst",
+          "recast": 60
+        },
+        {
+          "name": "Call of Storms",
+          "note": "big AoE nuke",
+          "recast": 60
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GRP DPS",
+      "blurb": "Group healing is covered — push damage, cover cures.",
+      "maintain": [
+        {
+          "name": "Thornskin",
+          "note": "damage-shield buff",
+          "duration": 600
+        },
+        {
+          "name": "Armor of Nature",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Porcupine",
+          "note": "reactive damage-shield (verify)",
+          "duration": 60
+        }
+      ],
+      "opener": [
+        {
+          "name": "Death Swarm",
+          "note": "DoT",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Tempest",
+          "note": "nuke",
+          "recast": 6
+        }
+      ],
+      "priority": [
+        {
+          "name": "Tempest",
+          "note": "1) nuke on cd",
+          "recast": 6
+        },
+        {
+          "name": "Death Swarm",
+          "note": "2) DoT — keep ticking",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Thunderbolt",
+          "note": "3) nuke",
+          "recast": 10
+        },
+        {
+          "name": "Starnova",
+          "note": "4) AoE nuke",
+          "recast": 15
+        },
+        {
+          "name": "Ring of Fire",
+          "note": "5) AoE DoT",
+          "recast": 20
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Primal Fury",
+          "note": "burst heal/buff (verify)",
+          "recast": 60
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental"
+        },
+        {
+          "name": "Hibernation",
+          "note": "emergency (verify)",
+          "recast": 120
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Call of the Hunt",
+          "note": "group DPS buff",
+          "recast": 180
+        },
+        {
+          "name": "Feral Pulse",
+          "note": "burst",
+          "recast": 60
+        },
+        {
+          "name": "Call of Storms",
+          "note": "big AoE nuke",
+          "recast": 60
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID",
+      "blurb": "Damage + utility; keep buffs up, cover your group's cures.",
+      "maintain": [
+        {
+          "name": "Thornskin",
+          "note": "damage-shield buff",
+          "duration": 600
+        },
+        {
+          "name": "Armor of Nature",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Porcupine",
+          "note": "reactive damage-shield (verify)",
+          "duration": 60
+        }
+      ],
+      "opener": [
+        {
+          "name": "Death Swarm",
+          "note": "DoT",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Tempest",
+          "note": "nuke",
+          "recast": 6
+        }
+      ],
+      "priority": [
+        {
+          "name": "Tempest",
+          "note": "1) nuke on cd",
+          "recast": 6
+        },
+        {
+          "name": "Death Swarm",
+          "note": "2) DoT — keep ticking",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Thunderbolt",
+          "note": "3) nuke",
+          "recast": 10
+        },
+        {
+          "name": "Starnova",
+          "note": "4) AoE nuke",
+          "recast": 15
+        },
+        {
+          "name": "Ring of Fire",
+          "note": "5) AoE DoT",
+          "recast": 20
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Primal Fury",
+          "note": "burst heal/buff (verify)",
+          "recast": 60
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental"
+        },
+        {
+          "name": "Hibernation",
+          "note": "emergency (verify)",
+          "recast": 120
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Call of the Hunt",
+          "note": "group DPS buff",
+          "recast": 180
+        },
+        {
+          "name": "Feral Pulse",
+          "note": "burst",
+          "recast": 60
+        },
+        {
+          "name": "Call of Storms",
+          "note": "big AoE nuke",
+          "recast": 60
+        }
+      ]
+    }
+  ]
+}

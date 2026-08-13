@@ -1,0 +1,438 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Troubador",
+  "title": "Troubador Rotation",
+  "windowName": "Troubador",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (songs)",
+    "opener": "OPENER",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "ESCAPE / UTILITY",
+    "cooldowns": "LONG COOLDOWNS"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "BUFFS / UTILITY",
+      "blurb": "Buff/utility pass: keep songs up, apply debuffs.",
+      "maintain": [
+        {
+          "name": "Aria of Magic",
+          "note": "group spell-damage song — keep up",
+          "duration": 60
+        },
+        {
+          "name": "Arcane Symphony",
+          "note": "group buff song (verify)",
+          "duration": 60
+        },
+        {
+          "name": "Dancing Blade",
+          "note": "group melee buff (verify)",
+          "duration": 60
+        },
+        {
+          "name": "Bria's Inspiring Ballad",
+          "note": "group power song",
+          "duration": 60
+        }
+      ],
+      "opener": [
+        {
+          "name": "Night Strike",
+          "note": "positional CA opener",
+          "recast": 15
+        },
+        {
+          "name": "Perfect Shrill",
+          "note": "AoE nuke",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Aria of Magic",
+          "note": "1) keep the damage song up",
+          "recast": 15,
+          "duration": 60
+        },
+        {
+          "name": "Bria's Inspiring Ballad",
+          "note": "2) group power",
+          "recast": 15,
+          "duration": 60
+        },
+        {
+          "name": "Jester's Cap",
+          "note": "3) big group DPS/power burst",
+          "recast": 300
+        },
+        {
+          "name": "Zander's Choral Rebuff",
+          "note": "4) group resist debuff",
+          "recast": 20
+        },
+        {
+          "name": "Requiem of Reflection",
+          "note": "5) group reflect (verify)",
+          "recast": 60
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Evade",
+          "note": "drop hate",
+          "recast": 30
+        },
+        {
+          "name": "Escape",
+          "note": "vanish",
+          "recast": 60
+        },
+        {
+          "name": "Lullaby",
+          "note": "AoE mez"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Jester's Cap",
+          "note": "group DPS/power burst",
+          "recast": 300
+        },
+        {
+          "name": "Perfection of the Maestro",
+          "note": "group buff burst (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Elemental Concerto",
+          "note": "damage burst (verify)",
+          "recast": 120
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "Solo damage rotation.",
+      "maintain": [
+        {
+          "name": "Aria of Magic",
+          "note": "group spell-damage song — keep up",
+          "duration": 60
+        },
+        {
+          "name": "Arcane Symphony",
+          "note": "group buff song (verify)",
+          "duration": 60
+        },
+        {
+          "name": "Dancing Blade",
+          "note": "group melee buff (verify)",
+          "duration": 60
+        },
+        {
+          "name": "Bria's Inspiring Ballad",
+          "note": "group power song",
+          "duration": 60
+        }
+      ],
+      "opener": [
+        {
+          "name": "Night Strike",
+          "note": "positional CA opener",
+          "recast": 15
+        },
+        {
+          "name": "Perfect Shrill",
+          "note": "AoE nuke",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Sandra's Deafening Strike",
+          "note": "1) big CA on cd",
+          "recast": 15
+        },
+        {
+          "name": "Night Strike",
+          "note": "2) positional CA",
+          "recast": 15
+        },
+        {
+          "name": "Perfect Shrill",
+          "note": "3) AoE nuke",
+          "recast": 12
+        },
+        {
+          "name": "Painful Lamentations",
+          "note": "4) DoT — keep ticking",
+          "recast": 15,
+          "dot": true
+        },
+        {
+          "name": "Singing Shot",
+          "note": "5) ranged CA",
+          "recast": 12
+        },
+        {
+          "name": "Thunderous Overture",
+          "note": "6) nuke",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Evade",
+          "note": "drop hate",
+          "recast": 30
+        },
+        {
+          "name": "Escape",
+          "note": "vanish",
+          "recast": 60
+        },
+        {
+          "name": "Lullaby",
+          "note": "AoE mez"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Jester's Cap",
+          "note": "group DPS/power burst",
+          "recast": 300
+        },
+        {
+          "name": "Perfection of the Maestro",
+          "note": "group buff burst (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Elemental Concerto",
+          "note": "damage burst (verify)",
+          "recast": 120
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GRP DPS",
+      "blurb": "Group DPS: keep songs up, then damage priority.",
+      "maintain": [
+        {
+          "name": "Aria of Magic",
+          "note": "group spell-damage song — keep up",
+          "duration": 60
+        },
+        {
+          "name": "Arcane Symphony",
+          "note": "group buff song (verify)",
+          "duration": 60
+        },
+        {
+          "name": "Dancing Blade",
+          "note": "group melee buff (verify)",
+          "duration": 60
+        },
+        {
+          "name": "Bria's Inspiring Ballad",
+          "note": "group power song",
+          "duration": 60
+        }
+      ],
+      "opener": [
+        {
+          "name": "Night Strike",
+          "note": "positional CA opener",
+          "recast": 15
+        },
+        {
+          "name": "Perfect Shrill",
+          "note": "AoE nuke",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Sandra's Deafening Strike",
+          "note": "1) big CA on cd",
+          "recast": 15
+        },
+        {
+          "name": "Night Strike",
+          "note": "2) positional CA",
+          "recast": 15
+        },
+        {
+          "name": "Perfect Shrill",
+          "note": "3) AoE nuke",
+          "recast": 12
+        },
+        {
+          "name": "Painful Lamentations",
+          "note": "4) DoT — keep ticking",
+          "recast": 15,
+          "dot": true
+        },
+        {
+          "name": "Singing Shot",
+          "note": "5) ranged CA",
+          "recast": 12
+        },
+        {
+          "name": "Thunderous Overture",
+          "note": "6) nuke",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Evade",
+          "note": "drop hate",
+          "recast": 30
+        },
+        {
+          "name": "Escape",
+          "note": "vanish",
+          "recast": 60
+        },
+        {
+          "name": "Lullaby",
+          "note": "AoE mez"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Jester's Cap",
+          "note": "group DPS/power burst",
+          "recast": 300
+        },
+        {
+          "name": "Perfection of the Maestro",
+          "note": "group buff burst (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Elemental Concerto",
+          "note": "damage burst (verify)",
+          "recast": 120
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID",
+      "blurb": "Raid: buff/debuff coverage + damage.",
+      "maintain": [
+        {
+          "name": "Aria of Magic",
+          "note": "group spell-damage song — keep up",
+          "duration": 60
+        },
+        {
+          "name": "Arcane Symphony",
+          "note": "group buff song (verify)",
+          "duration": 60
+        },
+        {
+          "name": "Dancing Blade",
+          "note": "group melee buff (verify)",
+          "duration": 60
+        },
+        {
+          "name": "Bria's Inspiring Ballad",
+          "note": "group power song",
+          "duration": 60
+        }
+      ],
+      "opener": [
+        {
+          "name": "Night Strike",
+          "note": "positional CA opener",
+          "recast": 15
+        },
+        {
+          "name": "Perfect Shrill",
+          "note": "AoE nuke",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Sandra's Deafening Strike",
+          "note": "1) big CA on cd",
+          "recast": 15
+        },
+        {
+          "name": "Night Strike",
+          "note": "2) positional CA",
+          "recast": 15
+        },
+        {
+          "name": "Perfect Shrill",
+          "note": "3) AoE nuke",
+          "recast": 12
+        },
+        {
+          "name": "Painful Lamentations",
+          "note": "4) DoT — keep ticking",
+          "recast": 15,
+          "dot": true
+        },
+        {
+          "name": "Singing Shot",
+          "note": "5) ranged CA",
+          "recast": 12
+        },
+        {
+          "name": "Thunderous Overture",
+          "note": "6) nuke",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Evade",
+          "note": "drop hate",
+          "recast": 30
+        },
+        {
+          "name": "Escape",
+          "note": "vanish",
+          "recast": 60
+        },
+        {
+          "name": "Lullaby",
+          "note": "AoE mez"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Jester's Cap",
+          "note": "group DPS/power burst",
+          "recast": 300
+        },
+        {
+          "name": "Perfection of the Maestro",
+          "note": "group buff burst (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Elemental Concerto",
+          "note": "damage burst (verify)",
+          "recast": 120
+        }
+      ]
+    }
+  ]
+}

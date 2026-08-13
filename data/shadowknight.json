@@ -1,0 +1,446 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Shadowknight",
+  "title": "Shadowknight Rotation",
+  "windowName": "Shadowknight",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (stance/buffs)",
+    "opener": "PULL / SNAP AGGRO",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "DEFENSIVES / SAVES",
+    "cooldowns": "LONG COOLDOWNS"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "MT / AGGRO",
+      "blurb": "Hold aggro: taunts on cooldown, then CAs for threat.",
+      "maintain": [
+        {
+          "name": "Unholy Blessing",
+          "note": "group buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Malice",
+          "note": "hate-gain buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Unending Agony",
+          "note": "DoT/debuff — keep on target",
+          "duration": 24,
+          "dot": true
+        }
+      ],
+      "opener": [
+        {
+          "name": "Insidious Whisper",
+          "note": "taunt + threat to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Painbringer",
+          "note": "opener CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Insidious Whisper",
+          "note": "1) single taunt on cd",
+          "recast": 8
+        },
+        {
+          "name": "Mortal Embrace",
+          "note": "2) taunt/root",
+          "recast": 12
+        },
+        {
+          "name": "Death Cloud",
+          "note": "3) AoE taunt/CA",
+          "recast": 15
+        },
+        {
+          "name": "Soulrend",
+          "note": "4) lifetap CA",
+          "recast": 12
+        },
+        {
+          "name": "Painbringer",
+          "note": "5) CA",
+          "recast": 12
+        },
+        {
+          "name": "Siphon Strike",
+          "note": "6) lifetap CA",
+          "recast": 12
+        },
+        {
+          "name": "Grim Harbinger",
+          "note": "7) CA",
+          "recast": 15
+        },
+        {
+          "name": "Cleave Flesh",
+          "note": "8) AoE CA",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Devouring Mist",
+          "note": "avoidance/defensive",
+          "recast": 180
+        },
+        {
+          "name": "Unholy Hunger",
+          "note": "big lifetap",
+          "recast": 60
+        },
+        {
+          "name": "Death March",
+          "note": "group protection (verify)",
+          "recast": 300
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Harm Touch",
+          "note": "huge nuke",
+          "recast": 300
+        },
+        {
+          "name": "Devouring Mist",
+          "note": "defensive burst",
+          "recast": 180
+        },
+        {
+          "name": "Pestilence",
+          "note": "AoE burst",
+          "recast": 45
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "Kill things: CA damage order, defensives as needed.",
+      "maintain": [
+        {
+          "name": "Unholy Blessing",
+          "note": "group buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Malice",
+          "note": "hate-gain buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Unending Agony",
+          "note": "DoT/debuff — keep on target",
+          "duration": 24,
+          "dot": true
+        }
+      ],
+      "opener": [
+        {
+          "name": "Insidious Whisper",
+          "note": "taunt + threat to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Painbringer",
+          "note": "opener CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Insidious Whisper",
+          "note": "1) single taunt on cd",
+          "recast": 8
+        },
+        {
+          "name": "Mortal Embrace",
+          "note": "2) taunt/root",
+          "recast": 12
+        },
+        {
+          "name": "Death Cloud",
+          "note": "3) AoE taunt/CA",
+          "recast": 15
+        },
+        {
+          "name": "Soulrend",
+          "note": "4) lifetap CA",
+          "recast": 12
+        },
+        {
+          "name": "Painbringer",
+          "note": "5) CA",
+          "recast": 12
+        },
+        {
+          "name": "Siphon Strike",
+          "note": "6) lifetap CA",
+          "recast": 12
+        },
+        {
+          "name": "Grim Harbinger",
+          "note": "7) CA",
+          "recast": 15
+        },
+        {
+          "name": "Cleave Flesh",
+          "note": "8) AoE CA",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Devouring Mist",
+          "note": "avoidance/defensive",
+          "recast": 180
+        },
+        {
+          "name": "Unholy Hunger",
+          "note": "big lifetap",
+          "recast": 60
+        },
+        {
+          "name": "Death March",
+          "note": "group protection (verify)",
+          "recast": 300
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Harm Touch",
+          "note": "huge nuke",
+          "recast": 300
+        },
+        {
+          "name": "Devouring Mist",
+          "note": "defensive burst",
+          "recast": 180
+        },
+        {
+          "name": "Pestilence",
+          "note": "AoE burst",
+          "recast": 45
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GROUP (AoE)",
+      "blurb": "Multi-mob: AoE taunts first, keep everything on you.",
+      "maintain": [
+        {
+          "name": "Unholy Blessing",
+          "note": "group buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Malice",
+          "note": "hate-gain buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Unending Agony",
+          "note": "DoT/debuff — keep on target",
+          "duration": 24,
+          "dot": true
+        }
+      ],
+      "opener": [
+        {
+          "name": "Insidious Whisper",
+          "note": "taunt + threat to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Painbringer",
+          "note": "opener CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Death Cloud",
+          "note": "1) AoE taunt on cd",
+          "recast": 15
+        },
+        {
+          "name": "Cleave Flesh",
+          "note": "2) AoE CA",
+          "recast": 15
+        },
+        {
+          "name": "Pestilence",
+          "note": "3) AoE DoT",
+          "recast": 30
+        },
+        {
+          "name": "Tap Veins",
+          "note": "4) AoE lifetap",
+          "recast": 30
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Devouring Mist",
+          "note": "avoidance/defensive",
+          "recast": 180
+        },
+        {
+          "name": "Unholy Hunger",
+          "note": "big lifetap",
+          "recast": 60
+        },
+        {
+          "name": "Death March",
+          "note": "group protection (verify)",
+          "recast": 300
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Harm Touch",
+          "note": "huge nuke",
+          "recast": 300
+        },
+        {
+          "name": "Devouring Mist",
+          "note": "defensive burst",
+          "recast": 180
+        },
+        {
+          "name": "Pestilence",
+          "note": "AoE burst",
+          "recast": 45
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID (MT/OT)",
+      "blurb": "Raid MT/OT: encounter taunts + threat CAs.",
+      "maintain": [
+        {
+          "name": "Unholy Blessing",
+          "note": "group buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Malice",
+          "note": "hate-gain buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Unending Agony",
+          "note": "DoT/debuff — keep on target",
+          "duration": 24,
+          "dot": true
+        }
+      ],
+      "opener": [
+        {
+          "name": "Insidious Whisper",
+          "note": "taunt + threat to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Painbringer",
+          "note": "opener CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Insidious Whisper",
+          "note": "1) single taunt on cd",
+          "recast": 8
+        },
+        {
+          "name": "Mortal Embrace",
+          "note": "2) taunt/root",
+          "recast": 12
+        },
+        {
+          "name": "Death Cloud",
+          "note": "3) AoE taunt/CA",
+          "recast": 15
+        },
+        {
+          "name": "Soulrend",
+          "note": "4) lifetap CA",
+          "recast": 12
+        },
+        {
+          "name": "Painbringer",
+          "note": "5) CA",
+          "recast": 12
+        },
+        {
+          "name": "Siphon Strike",
+          "note": "6) lifetap CA",
+          "recast": 12
+        },
+        {
+          "name": "Grim Harbinger",
+          "note": "7) CA",
+          "recast": 15
+        },
+        {
+          "name": "Cleave Flesh",
+          "note": "8) AoE CA",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Devouring Mist",
+          "note": "avoidance/defensive",
+          "recast": 180
+        },
+        {
+          "name": "Unholy Hunger",
+          "note": "big lifetap",
+          "recast": 60
+        },
+        {
+          "name": "Death March",
+          "note": "group protection (verify)",
+          "recast": 300
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Harm Touch",
+          "note": "huge nuke",
+          "recast": 300
+        },
+        {
+          "name": "Devouring Mist",
+          "note": "defensive burst",
+          "recast": 180
+        },
+        {
+          "name": "Pestilence",
+          "note": "AoE burst",
+          "recast": 45
+        }
+      ]
+    }
+  ]
+}

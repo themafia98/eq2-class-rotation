@@ -1,0 +1,405 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Defiler",
+  "title": "Defiler Rotation",
+  "windowName": "Defiler",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (buffs/wards)",
+    "opener": "OPENER / PULL",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "EMERGENCY / CURES",
+    "cooldowns": "LONG COOLDOWNS"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "HEAL",
+      "blurb": "Keep the group up; weave a nuke only when nobody needs healing.",
+      "maintain": [
+        {
+          "name": "Shroud of Armor",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Ancient Shroud",
+          "note": "reactive ward (verify)",
+          "duration": 30
+        },
+        {
+          "name": "Carrion Warding",
+          "note": "group ward — keep up",
+          "duration": 60
+        }
+      ],
+      "opener": [
+        {
+          "name": "Eidolic Ward",
+          "note": "pre-ward the tank",
+          "recast": 8
+        }
+      ],
+      "priority": [
+        {
+          "name": "Cure",
+          "note": "1) cure detrimentals FIRST",
+          "recast": 10
+        },
+        {
+          "name": "Eidolic Ward",
+          "note": "2) tank ward — refresh",
+          "recast": 8,
+          "duration": 15
+        },
+        {
+          "name": "Wild Accretion",
+          "note": "3) group ward",
+          "recast": 12
+        },
+        {
+          "name": "Dire Balm",
+          "note": "4) fast single heal",
+          "recast": 4
+        },
+        {
+          "name": "Sacrificial Restoration",
+          "note": "5) big single heal",
+          "recast": 10
+        },
+        {
+          "name": "Ancestral Avenger",
+          "note": "6) reactive save",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Spiritual Circle",
+          "note": "group save (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Maelstrom",
+          "note": "emergency (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Defile",
+          "note": "big cooldown (verify)",
+          "recast": 300
+        },
+        {
+          "name": "Soul Cannibalize",
+          "note": "power/burst (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Maelstrom",
+          "note": "AoE burst",
+          "recast": 120
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "DoT/nuke + self-heal as needed.",
+      "maintain": [
+        {
+          "name": "Shroud of Armor",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Ancient Shroud",
+          "note": "reactive ward (verify)",
+          "duration": 30
+        },
+        {
+          "name": "Carrion Warding",
+          "note": "group ward — keep up",
+          "duration": 60
+        }
+      ],
+      "opener": [
+        {
+          "name": "Putrefy",
+          "note": "DoT/debuff",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Imprecate",
+          "note": "nuke",
+          "recast": 8
+        }
+      ],
+      "priority": [
+        {
+          "name": "Imprecate",
+          "note": "1) nuke on cd",
+          "recast": 8
+        },
+        {
+          "name": "Putrefy",
+          "note": "2) DoT — keep ticking",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Bane of Warding",
+          "note": "3) nuke/debuff",
+          "recast": 12
+        },
+        {
+          "name": "Absolute Corruption",
+          "note": "4) big debuff/DoT",
+          "recast": 15
+        },
+        {
+          "name": "Atrophy",
+          "note": "5) melee debuff on target",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Spiritual Circle",
+          "note": "group save (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Maelstrom",
+          "note": "emergency (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Defile",
+          "note": "big cooldown (verify)",
+          "recast": 300
+        },
+        {
+          "name": "Soul Cannibalize",
+          "note": "power/burst (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Maelstrom",
+          "note": "AoE burst",
+          "recast": 120
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GRP DPS",
+      "blurb": "Group healing is covered — push damage, cover cures.",
+      "maintain": [
+        {
+          "name": "Shroud of Armor",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Ancient Shroud",
+          "note": "reactive ward (verify)",
+          "duration": 30
+        },
+        {
+          "name": "Carrion Warding",
+          "note": "group ward — keep up",
+          "duration": 60
+        }
+      ],
+      "opener": [
+        {
+          "name": "Putrefy",
+          "note": "DoT/debuff",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Imprecate",
+          "note": "nuke",
+          "recast": 8
+        }
+      ],
+      "priority": [
+        {
+          "name": "Imprecate",
+          "note": "1) nuke on cd",
+          "recast": 8
+        },
+        {
+          "name": "Putrefy",
+          "note": "2) DoT — keep ticking",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Bane of Warding",
+          "note": "3) nuke/debuff",
+          "recast": 12
+        },
+        {
+          "name": "Absolute Corruption",
+          "note": "4) big debuff/DoT",
+          "recast": 15
+        },
+        {
+          "name": "Atrophy",
+          "note": "5) melee debuff on target",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Spiritual Circle",
+          "note": "group save (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Maelstrom",
+          "note": "emergency (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Defile",
+          "note": "big cooldown (verify)",
+          "recast": 300
+        },
+        {
+          "name": "Soul Cannibalize",
+          "note": "power/burst (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Maelstrom",
+          "note": "AoE burst",
+          "recast": 120
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID",
+      "blurb": "Damage + utility; keep buffs up, cover your group's cures.",
+      "maintain": [
+        {
+          "name": "Shroud of Armor",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Ancient Shroud",
+          "note": "reactive ward (verify)",
+          "duration": 30
+        },
+        {
+          "name": "Carrion Warding",
+          "note": "group ward — keep up",
+          "duration": 60
+        }
+      ],
+      "opener": [
+        {
+          "name": "Putrefy",
+          "note": "DoT/debuff",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Imprecate",
+          "note": "nuke",
+          "recast": 8
+        }
+      ],
+      "priority": [
+        {
+          "name": "Imprecate",
+          "note": "1) nuke on cd",
+          "recast": 8
+        },
+        {
+          "name": "Putrefy",
+          "note": "2) DoT — keep ticking",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Bane of Warding",
+          "note": "3) nuke/debuff",
+          "recast": 12
+        },
+        {
+          "name": "Absolute Corruption",
+          "note": "4) big debuff/DoT",
+          "recast": 15
+        },
+        {
+          "name": "Atrophy",
+          "note": "5) melee debuff on target",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Spiritual Circle",
+          "note": "group save (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Maelstrom",
+          "note": "emergency (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Defile",
+          "note": "big cooldown (verify)",
+          "recast": 300
+        },
+        {
+          "name": "Soul Cannibalize",
+          "note": "power/burst (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Maelstrom",
+          "note": "AoE burst",
+          "recast": 120
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,414 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Swashbuckler",
+  "title": "Swashbuckler Rotation",
+  "windowName": "Swashbuckler",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (buffs/debuffs)",
+    "opener": "OPENER / STEALTH",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "ESCAPE / AVOID",
+    "cooldowns": "LONG COOLDOWNS / BURST"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "AOE / MULTI",
+      "blurb": "Multi-target: AoE / encounter damage.",
+      "maintain": [
+        {
+          "name": "Fancy Footwork",
+          "note": "avoidance/riposte buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Ruthless Cunning",
+          "note": "group buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Swarthy Deception",
+          "note": "self buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Viscerate",
+          "note": "open from stealth (behind mob)",
+          "recast": 15
+        },
+        {
+          "name": "Kidney Stab",
+          "note": "positional CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Flash of Steel",
+          "note": "1) AoE CA on cd",
+          "recast": 15
+        },
+        {
+          "name": "Storm of Steel",
+          "note": "2) big AoE",
+          "recast": 30
+        },
+        {
+          "name": "Dashing Swathe",
+          "note": "3) AoE CA",
+          "recast": 20
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Evade",
+          "note": "drop hate",
+          "recast": 30
+        },
+        {
+          "name": "Escape",
+          "note": "vanish",
+          "recast": 60
+        },
+        {
+          "name": "Hamstring",
+          "note": "snare"
+        },
+        {
+          "name": "Cheap Shot",
+          "note": "stun"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Inspired Daring",
+          "note": "DPS burst",
+          "recast": 60
+        },
+        {
+          "name": "Storm of Steel",
+          "note": "AoE burst",
+          "recast": 30
+        },
+        {
+          "name": "Hurricane",
+          "note": "AoE",
+          "recast": 45
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "Single-target sustained damage.",
+      "maintain": [
+        {
+          "name": "Fancy Footwork",
+          "note": "avoidance/riposte buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Ruthless Cunning",
+          "note": "group buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Swarthy Deception",
+          "note": "self buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Viscerate",
+          "note": "open from stealth (behind mob)",
+          "recast": 15
+        },
+        {
+          "name": "Kidney Stab",
+          "note": "positional CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Flash of Steel",
+          "note": "1) AoE CA on cd",
+          "recast": 15
+        },
+        {
+          "name": "Bladeweaver",
+          "note": "2) CA",
+          "recast": 15
+        },
+        {
+          "name": "Razor Edge",
+          "note": "3) CA",
+          "recast": 12
+        },
+        {
+          "name": "Flurry of Blades",
+          "note": "4) CA",
+          "recast": 15
+        },
+        {
+          "name": "Viscerate",
+          "note": "5) positional CA",
+          "recast": 15
+        },
+        {
+          "name": "Devious Blade",
+          "note": "6) CA",
+          "recast": 12
+        },
+        {
+          "name": "Lung Puncture",
+          "note": "7) CA",
+          "recast": 12
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Evade",
+          "note": "drop hate",
+          "recast": 30
+        },
+        {
+          "name": "Escape",
+          "note": "vanish",
+          "recast": 60
+        },
+        {
+          "name": "Hamstring",
+          "note": "snare"
+        },
+        {
+          "name": "Cheap Shot",
+          "note": "stun"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Inspired Daring",
+          "note": "DPS burst",
+          "recast": 60
+        },
+        {
+          "name": "Storm of Steel",
+          "note": "AoE burst",
+          "recast": 30
+        },
+        {
+          "name": "Hurricane",
+          "note": "AoE",
+          "recast": 45
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GRP / ST",
+      "blurb": "Group single-target priority.",
+      "maintain": [
+        {
+          "name": "Fancy Footwork",
+          "note": "avoidance/riposte buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Ruthless Cunning",
+          "note": "group buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Swarthy Deception",
+          "note": "self buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Viscerate",
+          "note": "open from stealth (behind mob)",
+          "recast": 15
+        },
+        {
+          "name": "Kidney Stab",
+          "note": "positional CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Flash of Steel",
+          "note": "1) AoE CA on cd",
+          "recast": 15
+        },
+        {
+          "name": "Bladeweaver",
+          "note": "2) CA",
+          "recast": 15
+        },
+        {
+          "name": "Razor Edge",
+          "note": "3) CA",
+          "recast": 12
+        },
+        {
+          "name": "Flurry of Blades",
+          "note": "4) CA",
+          "recast": 15
+        },
+        {
+          "name": "Viscerate",
+          "note": "5) positional CA",
+          "recast": 15
+        },
+        {
+          "name": "Devious Blade",
+          "note": "6) CA",
+          "recast": 12
+        },
+        {
+          "name": "Lung Puncture",
+          "note": "7) CA",
+          "recast": 12
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Evade",
+          "note": "drop hate",
+          "recast": 30
+        },
+        {
+          "name": "Escape",
+          "note": "vanish",
+          "recast": 60
+        },
+        {
+          "name": "Hamstring",
+          "note": "snare"
+        },
+        {
+          "name": "Cheap Shot",
+          "note": "stun"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Inspired Daring",
+          "note": "DPS burst",
+          "recast": 60
+        },
+        {
+          "name": "Storm of Steel",
+          "note": "AoE burst",
+          "recast": 30
+        },
+        {
+          "name": "Hurricane",
+          "note": "AoE",
+          "recast": 45
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID BURST",
+      "blurb": "Raid burst: line up cooldowns.",
+      "maintain": [
+        {
+          "name": "Fancy Footwork",
+          "note": "avoidance/riposte buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Ruthless Cunning",
+          "note": "group buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Swarthy Deception",
+          "note": "self buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Viscerate",
+          "note": "open from stealth (behind mob)",
+          "recast": 15
+        },
+        {
+          "name": "Kidney Stab",
+          "note": "positional CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Inspired Daring",
+          "note": "1) DPS burst",
+          "recast": 60
+        },
+        {
+          "name": "Hurricane",
+          "note": "2) AoE burst",
+          "recast": 45
+        },
+        {
+          "name": "Flamboyant Strike",
+          "note": "3) big CA",
+          "recast": 30
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Evade",
+          "note": "drop hate",
+          "recast": 30
+        },
+        {
+          "name": "Escape",
+          "note": "vanish",
+          "recast": 60
+        },
+        {
+          "name": "Hamstring",
+          "note": "snare"
+        },
+        {
+          "name": "Cheap Shot",
+          "note": "stun"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Inspired Daring",
+          "note": "DPS burst",
+          "recast": 60
+        },
+        {
+          "name": "Storm of Steel",
+          "note": "AoE burst",
+          "recast": 30
+        },
+        {
+          "name": "Hurricane",
+          "note": "AoE",
+          "recast": 45
+        }
+      ]
+    }
+  ]
+}

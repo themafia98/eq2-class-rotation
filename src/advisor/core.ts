@@ -29,6 +29,8 @@ export interface AdvisorHandle {
   getRole(): string;
   setRole(id: string): void;
   reloadClass(cd: ClassData): void;
+  /** Re-resolve the log file from the (possibly just-changed) config and re-tail it now. */
+  refreshLogSource(): void;
   stop(): void;
 }
 
@@ -180,6 +182,23 @@ export function startAdvisor(opts: StartAdvisorOptions): AdvisorHandle {
       activeClass = cd;
       ensureRole();
       onActiveClass?.(activeClass, character);
+      emit(lastNow);
+    },
+    refreshLogSource(): void {
+      if (mode === "replay") return;
+      const latest = resolveLogFile(config);
+      if (!latest) {
+        source?.stop();
+        source = undefined;
+        logFile = null;
+        character = null;
+        onLogFile?.(null);
+        emit(lastNow);
+        return;
+      }
+      if (latest === logFile && source) return;
+      source?.stop();
+      startTail(latest);
       emit(lastNow);
     },
     stop(): void {

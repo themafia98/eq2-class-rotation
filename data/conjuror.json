@@ -1,0 +1,388 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Conjuror",
+  "title": "Conjuror Rotation",
+  "windowName": "Conjuror",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (buffs/debuffs)",
+    "opener": "OPENER / STEALTH",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "ESCAPE / AVOID",
+    "cooldowns": "LONG COOLDOWNS / BURST"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "AOE / MULTI",
+      "blurb": "Multi-target: AoE / encounter damage.",
+      "maintain": [
+        {
+          "name": "Elemental Aspect",
+          "note": "pet damage buff (verify)",
+          "duration": 1800
+        },
+        {
+          "name": "Aqueous Soul",
+          "note": "power regen (verify)",
+          "duration": 1800
+        },
+        {
+          "name": "Flameshield",
+          "note": "self fire ward (verify)",
+          "duration": 600
+        }
+      ],
+      "opener": [
+        {
+          "name": "Fiery Annihilation",
+          "note": "big nuke opener",
+          "recast": 15
+        },
+        {
+          "name": "Crystal Blast",
+          "note": "nuke",
+          "recast": 6
+        }
+      ],
+      "priority": [
+        {
+          "name": "Shattered Earth",
+          "note": "1) AoE nuke on cd",
+          "recast": 15
+        },
+        {
+          "name": "Earthquake",
+          "note": "2) AoE nuke",
+          "recast": 20
+        },
+        {
+          "name": "Roaring Flames",
+          "note": "3) AoE nuke",
+          "recast": 12
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Stoneskin",
+          "note": "self stoneskin",
+          "recast": 60
+        },
+        {
+          "name": "Master's Intervention",
+          "note": "pull aggro off yourself (verify)",
+          "recast": 60
+        },
+        {
+          "name": "Call of The Hero",
+          "note": "yank an ally to you"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Blazing Avatar",
+          "note": "pet burst",
+          "recast": 300
+        },
+        {
+          "name": "Elemental Unity",
+          "note": "burst window (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Plane Shift",
+          "note": "reset/utility (verify)",
+          "recast": 300
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "Single-target sustained damage.",
+      "maintain": [
+        {
+          "name": "Elemental Aspect",
+          "note": "pet damage buff (verify)",
+          "duration": 1800
+        },
+        {
+          "name": "Aqueous Soul",
+          "note": "power regen (verify)",
+          "duration": 1800
+        },
+        {
+          "name": "Flameshield",
+          "note": "self fire ward (verify)",
+          "duration": 600
+        }
+      ],
+      "opener": [
+        {
+          "name": "Fiery Annihilation",
+          "note": "big nuke opener",
+          "recast": 15
+        },
+        {
+          "name": "Crystal Blast",
+          "note": "nuke",
+          "recast": 6
+        }
+      ],
+      "priority": [
+        {
+          "name": "Fiery Annihilation",
+          "note": "1) big nuke on cd",
+          "recast": 15
+        },
+        {
+          "name": "Crystal Blast",
+          "note": "2) fast nuke",
+          "recast": 6
+        },
+        {
+          "name": "Ice Storm",
+          "note": "3) nuke",
+          "recast": 10
+        },
+        {
+          "name": "Fire Seed",
+          "note": "4) DoT/nuke",
+          "recast": 12
+        },
+        {
+          "name": "Shattered Earth",
+          "note": "5) AoE nuke",
+          "recast": 15
+        },
+        {
+          "name": "Roaring Flames",
+          "note": "6) nuke",
+          "recast": 12
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Stoneskin",
+          "note": "self stoneskin",
+          "recast": 60
+        },
+        {
+          "name": "Master's Intervention",
+          "note": "pull aggro off yourself (verify)",
+          "recast": 60
+        },
+        {
+          "name": "Call of The Hero",
+          "note": "yank an ally to you"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Blazing Avatar",
+          "note": "pet burst",
+          "recast": 300
+        },
+        {
+          "name": "Elemental Unity",
+          "note": "burst window (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Plane Shift",
+          "note": "reset/utility (verify)",
+          "recast": 300
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GRP / ST",
+      "blurb": "Group single-target priority.",
+      "maintain": [
+        {
+          "name": "Elemental Aspect",
+          "note": "pet damage buff (verify)",
+          "duration": 1800
+        },
+        {
+          "name": "Aqueous Soul",
+          "note": "power regen (verify)",
+          "duration": 1800
+        },
+        {
+          "name": "Flameshield",
+          "note": "self fire ward (verify)",
+          "duration": 600
+        }
+      ],
+      "opener": [
+        {
+          "name": "Fiery Annihilation",
+          "note": "big nuke opener",
+          "recast": 15
+        },
+        {
+          "name": "Crystal Blast",
+          "note": "nuke",
+          "recast": 6
+        }
+      ],
+      "priority": [
+        {
+          "name": "Fiery Annihilation",
+          "note": "1) big nuke on cd",
+          "recast": 15
+        },
+        {
+          "name": "Crystal Blast",
+          "note": "2) fast nuke",
+          "recast": 6
+        },
+        {
+          "name": "Ice Storm",
+          "note": "3) nuke",
+          "recast": 10
+        },
+        {
+          "name": "Fire Seed",
+          "note": "4) DoT/nuke",
+          "recast": 12
+        },
+        {
+          "name": "Shattered Earth",
+          "note": "5) AoE nuke",
+          "recast": 15
+        },
+        {
+          "name": "Roaring Flames",
+          "note": "6) nuke",
+          "recast": 12
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Stoneskin",
+          "note": "self stoneskin",
+          "recast": 60
+        },
+        {
+          "name": "Master's Intervention",
+          "note": "pull aggro off yourself (verify)",
+          "recast": 60
+        },
+        {
+          "name": "Call of The Hero",
+          "note": "yank an ally to you"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Blazing Avatar",
+          "note": "pet burst",
+          "recast": 300
+        },
+        {
+          "name": "Elemental Unity",
+          "note": "burst window (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Plane Shift",
+          "note": "reset/utility (verify)",
+          "recast": 300
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID BURST",
+      "blurb": "Raid burst: line up cooldowns.",
+      "maintain": [
+        {
+          "name": "Elemental Aspect",
+          "note": "pet damage buff (verify)",
+          "duration": 1800
+        },
+        {
+          "name": "Aqueous Soul",
+          "note": "power regen (verify)",
+          "duration": 1800
+        },
+        {
+          "name": "Flameshield",
+          "note": "self fire ward (verify)",
+          "duration": 600
+        }
+      ],
+      "opener": [
+        {
+          "name": "Fiery Annihilation",
+          "note": "big nuke opener",
+          "recast": 15
+        },
+        {
+          "name": "Crystal Blast",
+          "note": "nuke",
+          "recast": 6
+        }
+      ],
+      "priority": [
+        {
+          "name": "Blazing Avatar",
+          "note": "1) pet burst buff",
+          "recast": 300
+        },
+        {
+          "name": "Fiery Annihilation",
+          "note": "2) big nuke",
+          "recast": 15
+        },
+        {
+          "name": "Elemental Unity",
+          "note": "3) burst (verify)",
+          "recast": 180
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Stoneskin",
+          "note": "self stoneskin",
+          "recast": 60
+        },
+        {
+          "name": "Master's Intervention",
+          "note": "pull aggro off yourself (verify)",
+          "recast": 60
+        },
+        {
+          "name": "Call of The Hero",
+          "note": "yank an ally to you"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Blazing Avatar",
+          "note": "pet burst",
+          "recast": 300
+        },
+        {
+          "name": "Elemental Unity",
+          "note": "burst window (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Plane Shift",
+          "note": "reset/utility (verify)",
+          "recast": 300
+        }
+      ]
+    }
+  ]
+}

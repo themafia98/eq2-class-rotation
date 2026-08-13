@@ -1,0 +1,414 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Brigand",
+  "title": "Brigand Rotation",
+  "windowName": "Brigand",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (buffs/debuffs)",
+    "opener": "OPENER / STEALTH",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "ESCAPE / AVOID",
+    "cooldowns": "LONG COOLDOWNS / BURST"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "AOE / MULTI",
+      "blurb": "Multi-target: AoE / encounter damage.",
+      "maintain": [
+        {
+          "name": "Debilitate",
+          "note": "big defense debuff — keep on target",
+          "duration": 30
+        },
+        {
+          "name": "Ruthless Cunning",
+          "note": "group buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Blackguard",
+          "note": "self buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Backstab",
+          "note": "open from stealth (behind mob)",
+          "recast": 15
+        },
+        {
+          "name": "Puncture",
+          "note": "positional CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Double Blast",
+          "note": "1) AoE CA on cd",
+          "recast": 20
+        },
+        {
+          "name": "Barroom Negotiation",
+          "note": "2) AoE CA",
+          "recast": 15
+        },
+        {
+          "name": "Entangle",
+          "note": "3) AoE root",
+          "recast": 20
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Evade",
+          "note": "drop hate",
+          "recast": 30
+        },
+        {
+          "name": "Escape",
+          "note": "vanish",
+          "recast": 60
+        },
+        {
+          "name": "Beg for Mercy",
+          "note": "big hate drop"
+        },
+        {
+          "name": "Cheap Shot",
+          "note": "stun"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Dispatch",
+          "note": "big CA",
+          "recast": 45
+        },
+        {
+          "name": "Band of Thugs",
+          "note": "summon damage adds (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Deceit",
+          "note": "burst",
+          "recast": 60
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "Single-target sustained damage.",
+      "maintain": [
+        {
+          "name": "Debilitate",
+          "note": "big defense debuff — keep on target",
+          "duration": 30
+        },
+        {
+          "name": "Ruthless Cunning",
+          "note": "group buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Blackguard",
+          "note": "self buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Backstab",
+          "note": "open from stealth (behind mob)",
+          "recast": 15
+        },
+        {
+          "name": "Puncture",
+          "note": "positional CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Debilitate",
+          "note": "1) keep the defense debuff up",
+          "recast": 30
+        },
+        {
+          "name": "Battery and Assault",
+          "note": "2) big CA",
+          "recast": 20
+        },
+        {
+          "name": "Barroom Negotiation",
+          "note": "3) CA",
+          "recast": 15
+        },
+        {
+          "name": "Gouge",
+          "note": "4) CA",
+          "recast": 12
+        },
+        {
+          "name": "Backstab",
+          "note": "5) positional CA",
+          "recast": 15
+        },
+        {
+          "name": "Shank",
+          "note": "6) CA",
+          "recast": 12
+        },
+        {
+          "name": "Puncture",
+          "note": "7) CA",
+          "recast": 12
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Evade",
+          "note": "drop hate",
+          "recast": 30
+        },
+        {
+          "name": "Escape",
+          "note": "vanish",
+          "recast": 60
+        },
+        {
+          "name": "Beg for Mercy",
+          "note": "big hate drop"
+        },
+        {
+          "name": "Cheap Shot",
+          "note": "stun"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Dispatch",
+          "note": "big CA",
+          "recast": 45
+        },
+        {
+          "name": "Band of Thugs",
+          "note": "summon damage adds (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Deceit",
+          "note": "burst",
+          "recast": 60
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GRP / ST",
+      "blurb": "Group single-target priority.",
+      "maintain": [
+        {
+          "name": "Debilitate",
+          "note": "big defense debuff — keep on target",
+          "duration": 30
+        },
+        {
+          "name": "Ruthless Cunning",
+          "note": "group buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Blackguard",
+          "note": "self buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Backstab",
+          "note": "open from stealth (behind mob)",
+          "recast": 15
+        },
+        {
+          "name": "Puncture",
+          "note": "positional CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Debilitate",
+          "note": "1) keep the defense debuff up",
+          "recast": 30
+        },
+        {
+          "name": "Battery and Assault",
+          "note": "2) big CA",
+          "recast": 20
+        },
+        {
+          "name": "Barroom Negotiation",
+          "note": "3) CA",
+          "recast": 15
+        },
+        {
+          "name": "Gouge",
+          "note": "4) CA",
+          "recast": 12
+        },
+        {
+          "name": "Backstab",
+          "note": "5) positional CA",
+          "recast": 15
+        },
+        {
+          "name": "Shank",
+          "note": "6) CA",
+          "recast": 12
+        },
+        {
+          "name": "Puncture",
+          "note": "7) CA",
+          "recast": 12
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Evade",
+          "note": "drop hate",
+          "recast": 30
+        },
+        {
+          "name": "Escape",
+          "note": "vanish",
+          "recast": 60
+        },
+        {
+          "name": "Beg for Mercy",
+          "note": "big hate drop"
+        },
+        {
+          "name": "Cheap Shot",
+          "note": "stun"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Dispatch",
+          "note": "big CA",
+          "recast": 45
+        },
+        {
+          "name": "Band of Thugs",
+          "note": "summon damage adds (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Deceit",
+          "note": "burst",
+          "recast": 60
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID BURST",
+      "blurb": "Raid burst: line up cooldowns.",
+      "maintain": [
+        {
+          "name": "Debilitate",
+          "note": "big defense debuff — keep on target",
+          "duration": 30
+        },
+        {
+          "name": "Ruthless Cunning",
+          "note": "group buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Blackguard",
+          "note": "self buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Backstab",
+          "note": "open from stealth (behind mob)",
+          "recast": 15
+        },
+        {
+          "name": "Puncture",
+          "note": "positional CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Dispatch",
+          "note": "1) big burst CA",
+          "recast": 45
+        },
+        {
+          "name": "Deceit",
+          "note": "2) burst (verify)",
+          "recast": 60
+        },
+        {
+          "name": "Double Up",
+          "note": "3) extra CA (verify)",
+          "recast": 30
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Evade",
+          "note": "drop hate",
+          "recast": 30
+        },
+        {
+          "name": "Escape",
+          "note": "vanish",
+          "recast": 60
+        },
+        {
+          "name": "Beg for Mercy",
+          "note": "big hate drop"
+        },
+        {
+          "name": "Cheap Shot",
+          "note": "stun"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Dispatch",
+          "note": "big CA",
+          "recast": 45
+        },
+        {
+          "name": "Band of Thugs",
+          "note": "summon damage adds (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Deceit",
+          "note": "burst",
+          "recast": 60
+        }
+      ]
+    }
+  ]
+}

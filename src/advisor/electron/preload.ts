@@ -8,6 +8,7 @@ const api: AdvisorApi = {
   onToggleEditor: (cb) => ipcRenderer.on("toggle-editor", () => cb()),
   setRole: (id) => ipcRenderer.send("set-role", id),
   openSettings: () => ipcRenderer.send("open-settings"),
+  pickLogsDir: () => ipcRenderer.send("pick-logs-dir"),
   saveClass: (data: ClassData) => ipcRenderer.send("save-class", data),
   restartToUpdate: () => ipcRenderer.send("restart-to-update"),
 };

@@ -1,119 +1,478 @@
 {
-  "_readme": "Auto-built from the real Wuoshi combat log of the Inquisitor 'Pawlith' (leveling-era kit). Ability NAMES match your log so the live advisor detects them. recast/duration are ROUGH estimates from cast gaps - tune them. Ordering = best-guess priority; reorder to taste (top = first). EXCLUDED as not player-pressed: Serenade / Dissonant Note / Precise Note (bard mercenary), Smite of Consistency (adornment proc), most 'Runic Armor' ticks (ward proc - kept once as a buff reminder). Add spells you have that aren't here (they only show up once you've cast them in the logged session). Fields: name, note, optional recast (s, priority/opener), duration (s, maintain->refresh), logName.",
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
   "class": "Inquisitor",
   "title": "Inquisitor Rotation",
-  "windowName": "Rotation",
-  "sections": ["maintain", "opener", "priority", "emergency", "cooldowns"],
+  "windowName": "Inquisitor",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
   "sectionLabels": {
-    "maintain": "KEEP UP (buffs/debuffs)",
+    "maintain": "KEEP UP (buffs/wards)",
     "opener": "OPENER / PULL",
-    "priority": "SUSTAINED PRIORITY (top = first)",
+    "priority": "PRIORITY (top = first)",
     "emergency": "EMERGENCY / CURES",
-    "cooldowns": "LONG COOLDOWNS / BURST"
+    "cooldowns": "LONG COOLDOWNS"
   },
   "roles": [
     {
       "id": "heal",
       "label": "HEAL",
-      "blurb": "Keep the group up; weave a nuke when nobody needs healing.",
+      "blurb": "Keep the group up; weave a nuke only when nobody needs healing.",
       "maintain": [
-        { "name": "Vengeful Faith", "note": "heal-on-attack buff - keep up (verify)", "duration": 30 },
-        { "name": "Runic Armor", "note": "ward - keep it up if it's a spell you cast (verify)", "duration": 60 }
+        {
+          "name": "Vengeful Faith",
+          "note": "heal-on-attack proc buff — keep up (verify)",
+          "duration": 30
+        },
+        {
+          "name": "Sacred Armor",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Fanatic's Faith",
+          "note": "group proc buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Runic Armor",
+          "note": "ward, if it's yours to cast (verify)",
+          "duration": 60
+        }
       ],
       "opener": [
-        { "name": "Ministration", "note": "pre-heal the tank before the pull", "recast": 8 }
+        {
+          "name": "Alleviation",
+          "note": "pre-cast the reactive heal on the tank",
+          "recast": 8
+        }
       ],
       "priority": [
-        { "name": "Resolute Flagellant", "note": "1) group cure - clear dangerous detrimentals FIRST", "recast": 20 },
-        { "name": "Ministration", "note": "2) main heal", "recast": 8 },
-        { "name": "Convert Ally", "note": "3) heal", "recast": 7 },
-        { "name": "Invocation", "note": "4) nuke filler when nobody's hurt", "recast": 5 }
+        {
+          "name": "Cure",
+          "note": "1) cure detrimentals FIRST",
+          "recast": 10
+        },
+        {
+          "name": "Alleviation",
+          "note": "2) reactive heal — keep on tank",
+          "recast": 12,
+          "duration": 15
+        },
+        {
+          "name": "Ministration",
+          "note": "3) fast single heal",
+          "recast": 4
+        },
+        {
+          "name": "Convert Ally",
+          "note": "4) heal",
+          "recast": 7
+        },
+        {
+          "name": "Reforming Soul",
+          "note": "5) big single heal",
+          "recast": 10
+        },
+        {
+          "name": "Fervent Faith",
+          "note": "6) group heal",
+          "recast": 12
+        },
+        {
+          "name": "Resolute Flagellant",
+          "note": "7) group cure",
+          "recast": 20
+        }
       ],
       "emergency": [
-        { "name": "Ministration", "note": "biggest heal - tank about to die" },
-        { "name": "Resolute Flagellant", "note": "panic cure" }
+        {
+          "name": "Resolute Flagellant",
+          "note": "group cure — panic",
+          "recast": 20
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental",
+          "recast": 10
+        },
+        {
+          "name": "Redemption",
+          "note": "rez a dead ally",
+          "recast": 300
+        }
       ],
       "cooldowns": [
-        { "name": "Unholy Strike", "note": "lifetap hit+heal - extra healing while doing damage (verify)", "recast": 30 }
+        {
+          "name": "Fanaticism",
+          "note": "group DPS/haste buff",
+          "recast": 60
+        },
+        {
+          "name": "Inquest",
+          "note": "damage burst (verify)",
+          "recast": 45
+        },
+        {
+          "name": "Verdict",
+          "note": "big nuke",
+          "recast": 20
+        },
+        {
+          "name": "Act of War",
+          "note": "melee burst",
+          "recast": 30
+        }
       ]
     },
     {
       "id": "solo",
       "label": "SOLO",
-      "blurb": "DoT + nuke, melee auto-attack, self-heal with Ministration as needed.",
+      "blurb": "DoT/nuke + self-heal as needed.",
       "maintain": [
-        { "name": "Vengeful Faith", "note": "keep buff up (verify)", "duration": 30 }
+        {
+          "name": "Vengeful Faith",
+          "note": "heal-on-attack proc buff — keep up (verify)",
+          "duration": 30
+        },
+        {
+          "name": "Sacred Armor",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Fanatic's Faith",
+          "note": "group proc buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Runic Armor",
+          "note": "ward, if it's yours to cast (verify)",
+          "duration": 60
+        }
       ],
       "opener": [
-        { "name": "Torment", "note": "open with the DoT", "recast": 10 },
-        { "name": "Invocation", "note": "nuke", "recast": 5 }
+        {
+          "name": "Torment",
+          "note": "open with the DoT",
+          "recast": 10,
+          "dot": true
+        },
+        {
+          "name": "Invocation",
+          "note": "nuke",
+          "recast": 5
+        }
       ],
       "priority": [
-        { "name": "Torment", "note": "1) keep the DoT ticking (recast is a rough guess)", "recast": 10 },
-        { "name": "Invocation", "note": "2) main nuke on cooldown", "recast": 5 },
-        { "name": "Unholy Strike", "note": "3) melee CA - hits and heals you (verify)", "recast": 30 },
-        { "name": "Cleanse", "note": "4) extra divine damage (verify recast)", "recast": 6 },
-        { "name": "auto-attack", "note": "5) stay in melee range between casts" }
+        {
+          "name": "Invocation",
+          "note": "1) main nuke on cd",
+          "recast": 5
+        },
+        {
+          "name": "Torment",
+          "note": "2) DoT — keep ticking",
+          "recast": 10,
+          "dot": true
+        },
+        {
+          "name": "Condemn",
+          "note": "3) nuke",
+          "recast": 8
+        },
+        {
+          "name": "Malevolent Diatribe",
+          "note": "4) encounter debuff/nuke",
+          "recast": 15
+        },
+        {
+          "name": "Unholy Strike",
+          "note": "5) melee lifetap CA",
+          "recast": 30
+        },
+        {
+          "name": "Cleanse",
+          "note": "6) divine damage filler",
+          "recast": 6
+        },
+        {
+          "name": "Heretic's Doom",
+          "note": "7) nuke",
+          "recast": 12
+        }
       ],
       "emergency": [
-        { "name": "Ministration", "note": "self heal" },
-        { "name": "Resolute Flagellant", "note": "cure a nasty detrimental" }
+        {
+          "name": "Ministration",
+          "note": "self heal",
+          "recast": 4
+        },
+        {
+          "name": "Convert Ally",
+          "note": "self heal",
+          "recast": 7
+        }
       ],
       "cooldowns": [
-        { "name": "Unholy Strike", "note": "use on cooldown for burst + self-heal (verify)", "recast": 30 }
+        {
+          "name": "Fanaticism",
+          "note": "group DPS/haste buff",
+          "recast": 60
+        },
+        {
+          "name": "Inquest",
+          "note": "damage burst (verify)",
+          "recast": 45
+        },
+        {
+          "name": "Verdict",
+          "note": "big nuke",
+          "recast": 20
+        },
+        {
+          "name": "Act of War",
+          "note": "melee burst",
+          "recast": 30
+        }
       ]
     },
     {
       "id": "groupdps",
       "label": "GRP DPS",
-      "blurb": "Group has healing covered - push damage; toss a cure/heal only when needed.",
+      "blurb": "Group healing is covered — push damage, cover cures.",
       "maintain": [
-        { "name": "Vengeful Faith", "note": "group DPS/heal proc buff (verify)", "duration": 30 }
+        {
+          "name": "Vengeful Faith",
+          "note": "heal-on-attack proc buff — keep up (verify)",
+          "duration": 30
+        },
+        {
+          "name": "Sacred Armor",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Fanatic's Faith",
+          "note": "group proc buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Runic Armor",
+          "note": "ward, if it's yours to cast (verify)",
+          "duration": 60
+        }
       ],
       "opener": [
-        { "name": "Torment", "note": "DoT first", "recast": 10 },
-        { "name": "Invocation", "note": "nuke", "recast": 5 }
+        {
+          "name": "Torment",
+          "note": "open with the DoT",
+          "recast": 10,
+          "dot": true
+        },
+        {
+          "name": "Invocation",
+          "note": "nuke",
+          "recast": 5
+        }
       ],
       "priority": [
-        { "name": "Invocation", "note": "1) main nuke on cooldown", "recast": 5 },
-        { "name": "Torment", "note": "2) refresh the DoT when it drops", "recast": 10 },
-        { "name": "Unholy Strike", "note": "3) melee CA (verify)", "recast": 30 },
-        { "name": "Cleanse", "note": "4) divine damage (verify recast)", "recast": 6 },
-        { "name": "auto-attack", "note": "5) keep melee auto-attack going" }
+        {
+          "name": "Invocation",
+          "note": "1) main nuke on cd",
+          "recast": 5
+        },
+        {
+          "name": "Torment",
+          "note": "2) DoT — keep ticking",
+          "recast": 10,
+          "dot": true
+        },
+        {
+          "name": "Condemn",
+          "note": "3) nuke",
+          "recast": 8
+        },
+        {
+          "name": "Malevolent Diatribe",
+          "note": "4) encounter debuff/nuke",
+          "recast": 15
+        },
+        {
+          "name": "Unholy Strike",
+          "note": "5) melee lifetap CA",
+          "recast": 30
+        },
+        {
+          "name": "Cleanse",
+          "note": "6) divine damage filler",
+          "recast": 6
+        },
+        {
+          "name": "Heretic's Doom",
+          "note": "7) nuke",
+          "recast": 12
+        }
       ],
       "emergency": [
-        { "name": "Resolute Flagellant", "note": "group cure if the healer is swamped" },
-        { "name": "Ministration", "note": "backup heal" }
+        {
+          "name": "Resolute Flagellant",
+          "note": "group cure — panic",
+          "recast": 20
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental",
+          "recast": 10
+        },
+        {
+          "name": "Redemption",
+          "note": "rez a dead ally",
+          "recast": 300
+        }
       ],
       "cooldowns": [
-        { "name": "Unholy Strike", "note": "burst window (verify)", "recast": 30 }
+        {
+          "name": "Fanaticism",
+          "note": "group DPS/haste buff",
+          "recast": 60
+        },
+        {
+          "name": "Inquest",
+          "note": "damage burst (verify)",
+          "recast": 45
+        },
+        {
+          "name": "Verdict",
+          "note": "big nuke",
+          "recast": 20
+        },
+        {
+          "name": "Act of War",
+          "note": "melee burst",
+          "recast": 30
+        }
       ]
     },
     {
       "id": "raiddps",
       "label": "RAID",
-      "blurb": "Damage + utility: DoT/nuke priority, keep the buff up, cover cures.",
+      "blurb": "Damage + utility; keep buffs up, cover your group's cures.",
       "maintain": [
-        { "name": "Vengeful Faith", "note": "keep buff up (verify)", "duration": 30 },
-        { "name": "Runic Armor", "note": "ward, if it's yours to cast (verify)", "duration": 60 }
+        {
+          "name": "Vengeful Faith",
+          "note": "heal-on-attack proc buff — keep up (verify)",
+          "duration": 30
+        },
+        {
+          "name": "Sacred Armor",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Fanatic's Faith",
+          "note": "group proc buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Runic Armor",
+          "note": "ward, if it's yours to cast (verify)",
+          "duration": 60
+        }
       ],
       "opener": [
-        { "name": "Torment", "note": "DoT on pull", "recast": 10 },
-        { "name": "Invocation", "note": "nuke", "recast": 5 }
+        {
+          "name": "Torment",
+          "note": "open with the DoT",
+          "recast": 10,
+          "dot": true
+        },
+        {
+          "name": "Invocation",
+          "note": "nuke",
+          "recast": 5
+        }
       ],
       "priority": [
-        { "name": "Invocation", "note": "1) top nuke on cooldown", "recast": 5 },
-        { "name": "Torment", "note": "2) refresh DoT", "recast": 10 },
-        { "name": "Unholy Strike", "note": "3) melee CA (verify)", "recast": 30 },
-        { "name": "Cleanse", "note": "4) filler divine damage (verify)", "recast": 6 },
-        { "name": "auto-attack", "note": "5) maintain melee auto-attack" }
+        {
+          "name": "Invocation",
+          "note": "1) main nuke on cd",
+          "recast": 5
+        },
+        {
+          "name": "Torment",
+          "note": "2) DoT — keep ticking",
+          "recast": 10,
+          "dot": true
+        },
+        {
+          "name": "Condemn",
+          "note": "3) nuke",
+          "recast": 8
+        },
+        {
+          "name": "Malevolent Diatribe",
+          "note": "4) encounter debuff/nuke",
+          "recast": 15
+        },
+        {
+          "name": "Unholy Strike",
+          "note": "5) melee lifetap CA",
+          "recast": 30
+        },
+        {
+          "name": "Cleanse",
+          "note": "6) divine damage filler",
+          "recast": 6
+        },
+        {
+          "name": "Heretic's Doom",
+          "note": "7) nuke",
+          "recast": 12
+        }
       ],
       "emergency": [
-        { "name": "Resolute Flagellant", "note": "group cure for your group" },
-        { "name": "Ministration", "note": "emergency heal if your group's healer drops" }
+        {
+          "name": "Resolute Flagellant",
+          "note": "group cure — panic",
+          "recast": 20
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental",
+          "recast": 10
+        },
+        {
+          "name": "Redemption",
+          "note": "rez a dead ally",
+          "recast": 300
+        }
       ],
       "cooldowns": [
-        { "name": "Unholy Strike", "note": "line up with burst (verify)", "recast": 30 }
+        {
+          "name": "Fanaticism",
+          "note": "group DPS/haste buff",
+          "recast": 60
+        },
+        {
+          "name": "Inquest",
+          "note": "damage burst (verify)",
+          "recast": 45
+        },
+        {
+          "name": "Verdict",
+          "note": "big nuke",
+          "recast": 20
+        },
+        {
+          "name": "Act of War",
+          "note": "melee burst",
+          "recast": 30
+        }
       ]
     }
   ]

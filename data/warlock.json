@@ -1,0 +1,398 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Warlock",
+  "title": "Warlock Rotation",
+  "windowName": "Warlock",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (buffs/debuffs)",
+    "opener": "OPENER / STEALTH",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "ESCAPE / AVOID",
+    "cooldowns": "LONG COOLDOWNS / BURST"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "AOE / MULTI",
+      "blurb": "Multi-target: AoE / encounter damage.",
+      "maintain": [
+        {
+          "name": "Magi's Shielding",
+          "note": "self damage-shield (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Aspect of Darkness",
+          "note": "damage buff (verify)",
+          "duration": 600
+        }
+      ],
+      "opener": [
+        {
+          "name": "Acid",
+          "note": "stack your DoT first",
+          "recast": 15,
+          "dot": true
+        },
+        {
+          "name": "Dark Nebula",
+          "note": "DoT",
+          "recast": 15,
+          "dot": true
+        }
+      ],
+      "priority": [
+        {
+          "name": "Apocalypse",
+          "note": "1) huge AoE on cd",
+          "recast": 30
+        },
+        {
+          "name": "Rift",
+          "note": "2) huge AoE",
+          "recast": 30
+        },
+        {
+          "name": "Cataclysm",
+          "note": "3) AoE nuke",
+          "recast": 12
+        },
+        {
+          "name": "Dark Infestation",
+          "note": "4) AoE DoT",
+          "recast": 20,
+          "dot": true
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Encase",
+          "note": "root the mob",
+          "recast": 20
+        },
+        {
+          "name": "Absorb Magic",
+          "note": "self protection",
+          "recast": 60
+        },
+        {
+          "name": "Absolution",
+          "note": "AoE control (verify)",
+          "recast": 45
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Netherlord",
+          "note": "damage buff",
+          "recast": 60
+        },
+        {
+          "name": "Gift of Bertoxxulous",
+          "note": "buff/burst (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Apocalypse",
+          "note": "big AoE",
+          "recast": 30
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "Single-target sustained damage.",
+      "maintain": [
+        {
+          "name": "Magi's Shielding",
+          "note": "self damage-shield (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Aspect of Darkness",
+          "note": "damage buff (verify)",
+          "duration": 600
+        }
+      ],
+      "opener": [
+        {
+          "name": "Acid",
+          "note": "stack your DoT first",
+          "recast": 15,
+          "dot": true
+        },
+        {
+          "name": "Dark Nebula",
+          "note": "DoT",
+          "recast": 15,
+          "dot": true
+        }
+      ],
+      "priority": [
+        {
+          "name": "Apocalypse",
+          "note": "1) big AoE nuke on cd",
+          "recast": 30
+        },
+        {
+          "name": "Rift",
+          "note": "2) big AoE nuke",
+          "recast": 30
+        },
+        {
+          "name": "Acid",
+          "note": "3) DoT — keep ticking",
+          "recast": 15,
+          "dot": true
+        },
+        {
+          "name": "Dark Pyre",
+          "note": "4) nuke",
+          "recast": 10
+        },
+        {
+          "name": "Dissolve",
+          "note": "5) fast nuke",
+          "recast": 5
+        },
+        {
+          "name": "Cataclysm",
+          "note": "6) AoE nuke",
+          "recast": 12
+        },
+        {
+          "name": "Netherous Bind",
+          "note": "7) nuke/root",
+          "recast": 12
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Encase",
+          "note": "root the mob",
+          "recast": 20
+        },
+        {
+          "name": "Absorb Magic",
+          "note": "self protection",
+          "recast": 60
+        },
+        {
+          "name": "Absolution",
+          "note": "AoE control (verify)",
+          "recast": 45
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Netherlord",
+          "note": "damage buff",
+          "recast": 60
+        },
+        {
+          "name": "Gift of Bertoxxulous",
+          "note": "buff/burst (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Apocalypse",
+          "note": "big AoE",
+          "recast": 30
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GRP / ST",
+      "blurb": "Group single-target priority.",
+      "maintain": [
+        {
+          "name": "Magi's Shielding",
+          "note": "self damage-shield (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Aspect of Darkness",
+          "note": "damage buff (verify)",
+          "duration": 600
+        }
+      ],
+      "opener": [
+        {
+          "name": "Acid",
+          "note": "stack your DoT first",
+          "recast": 15,
+          "dot": true
+        },
+        {
+          "name": "Dark Nebula",
+          "note": "DoT",
+          "recast": 15,
+          "dot": true
+        }
+      ],
+      "priority": [
+        {
+          "name": "Apocalypse",
+          "note": "1) big AoE nuke on cd",
+          "recast": 30
+        },
+        {
+          "name": "Rift",
+          "note": "2) big AoE nuke",
+          "recast": 30
+        },
+        {
+          "name": "Acid",
+          "note": "3) DoT — keep ticking",
+          "recast": 15,
+          "dot": true
+        },
+        {
+          "name": "Dark Pyre",
+          "note": "4) nuke",
+          "recast": 10
+        },
+        {
+          "name": "Dissolve",
+          "note": "5) fast nuke",
+          "recast": 5
+        },
+        {
+          "name": "Cataclysm",
+          "note": "6) AoE nuke",
+          "recast": 12
+        },
+        {
+          "name": "Netherous Bind",
+          "note": "7) nuke/root",
+          "recast": 12
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Encase",
+          "note": "root the mob",
+          "recast": 20
+        },
+        {
+          "name": "Absorb Magic",
+          "note": "self protection",
+          "recast": 60
+        },
+        {
+          "name": "Absolution",
+          "note": "AoE control (verify)",
+          "recast": 45
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Netherlord",
+          "note": "damage buff",
+          "recast": 60
+        },
+        {
+          "name": "Gift of Bertoxxulous",
+          "note": "buff/burst (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Apocalypse",
+          "note": "big AoE",
+          "recast": 30
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID BURST",
+      "blurb": "Raid burst: line up cooldowns.",
+      "maintain": [
+        {
+          "name": "Magi's Shielding",
+          "note": "self damage-shield (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Aspect of Darkness",
+          "note": "damage buff (verify)",
+          "duration": 600
+        }
+      ],
+      "opener": [
+        {
+          "name": "Acid",
+          "note": "stack your DoT first",
+          "recast": 15,
+          "dot": true
+        },
+        {
+          "name": "Dark Nebula",
+          "note": "DoT",
+          "recast": 15,
+          "dot": true
+        }
+      ],
+      "priority": [
+        {
+          "name": "Apocalypse",
+          "note": "1) biggest AoE burst",
+          "recast": 30
+        },
+        {
+          "name": "Rift",
+          "note": "2) big AoE",
+          "recast": 30
+        },
+        {
+          "name": "Netherlord",
+          "note": "3) damage buff/burst",
+          "recast": 60
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Encase",
+          "note": "root the mob",
+          "recast": 20
+        },
+        {
+          "name": "Absorb Magic",
+          "note": "self protection",
+          "recast": 60
+        },
+        {
+          "name": "Absolution",
+          "note": "AoE control (verify)",
+          "recast": 45
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Netherlord",
+          "note": "damage buff",
+          "recast": 60
+        },
+        {
+          "name": "Gift of Bertoxxulous",
+          "note": "buff/burst (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Apocalypse",
+          "note": "big AoE",
+          "recast": 30
+        }
+      ]
+    }
+  ]
+}

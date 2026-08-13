@@ -1,0 +1,459 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Guardian",
+  "title": "Guardian Rotation",
+  "windowName": "Guardian",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (stance/buffs)",
+    "opener": "PULL / SNAP AGGRO",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "DEFENSIVES / SAVES",
+    "cooldowns": "LONG COOLDOWNS"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "MT / AGGRO",
+      "blurb": "Hold aggro: taunts on cooldown, then CAs for threat.",
+      "maintain": [
+        {
+          "name": "Hold the Line",
+          "note": "defensive stance — keep on (persistent)"
+        },
+        {
+          "name": "Sentinel",
+          "note": "group mitigation buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Call to Arms",
+          "note": "group buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Provoke",
+          "note": "single taunt to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Taunting Blow",
+          "note": "taunt + hit",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Rescue",
+          "note": "1) taunt if you lose aggro",
+          "recast": 30
+        },
+        {
+          "name": "Provoke",
+          "note": "2) single taunt on cd",
+          "recast": 8
+        },
+        {
+          "name": "Shout",
+          "note": "3) AoE taunt",
+          "recast": 15
+        },
+        {
+          "name": "Assault",
+          "note": "4) threat CA",
+          "recast": 12
+        },
+        {
+          "name": "Overpower",
+          "note": "5) CA",
+          "recast": 10
+        },
+        {
+          "name": "Sever",
+          "note": "6) CA",
+          "recast": 12
+        },
+        {
+          "name": "Gut Kick",
+          "note": "7) CA + interrupt",
+          "recast": 12
+        },
+        {
+          "name": "Slam",
+          "note": "8) CA",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Tower of Stone",
+          "note": "big damage-absorb wall",
+          "recast": 300
+        },
+        {
+          "name": "Sentry Watch",
+          "note": "defensive cooldown",
+          "recast": 180
+        },
+        {
+          "name": "Guardian Sphere",
+          "note": "group protection",
+          "recast": 300
+        },
+        {
+          "name": "Last Man Standing",
+          "note": "survive lethal hit (verify)"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Reinforcement",
+          "note": "threat/defensive burst (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Decimate",
+          "note": "big CA",
+          "recast": 45
+        },
+        {
+          "name": "Unyielding Will",
+          "note": "break/immunity (verify)",
+          "recast": 300
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "Kill things: CA damage order, defensives as needed.",
+      "maintain": [
+        {
+          "name": "Hold the Line",
+          "note": "defensive stance — keep on (persistent)"
+        },
+        {
+          "name": "Sentinel",
+          "note": "group mitigation buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Call to Arms",
+          "note": "group buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Provoke",
+          "note": "single taunt to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Taunting Blow",
+          "note": "taunt + hit",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Rescue",
+          "note": "1) taunt if you lose aggro",
+          "recast": 30
+        },
+        {
+          "name": "Provoke",
+          "note": "2) single taunt on cd",
+          "recast": 8
+        },
+        {
+          "name": "Shout",
+          "note": "3) AoE taunt",
+          "recast": 15
+        },
+        {
+          "name": "Assault",
+          "note": "4) threat CA",
+          "recast": 12
+        },
+        {
+          "name": "Overpower",
+          "note": "5) CA",
+          "recast": 10
+        },
+        {
+          "name": "Sever",
+          "note": "6) CA",
+          "recast": 12
+        },
+        {
+          "name": "Gut Kick",
+          "note": "7) CA + interrupt",
+          "recast": 12
+        },
+        {
+          "name": "Slam",
+          "note": "8) CA",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Tower of Stone",
+          "note": "big damage-absorb wall",
+          "recast": 300
+        },
+        {
+          "name": "Sentry Watch",
+          "note": "defensive cooldown",
+          "recast": 180
+        },
+        {
+          "name": "Guardian Sphere",
+          "note": "group protection",
+          "recast": 300
+        },
+        {
+          "name": "Last Man Standing",
+          "note": "survive lethal hit (verify)"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Reinforcement",
+          "note": "threat/defensive burst (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Decimate",
+          "note": "big CA",
+          "recast": 45
+        },
+        {
+          "name": "Unyielding Will",
+          "note": "break/immunity (verify)",
+          "recast": 300
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GROUP (AoE)",
+      "blurb": "Multi-mob: AoE taunts first, keep everything on you.",
+      "maintain": [
+        {
+          "name": "Hold the Line",
+          "note": "defensive stance — keep on (persistent)"
+        },
+        {
+          "name": "Sentinel",
+          "note": "group mitigation buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Call to Arms",
+          "note": "group buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Provoke",
+          "note": "single taunt to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Taunting Blow",
+          "note": "taunt + hit",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Shout",
+          "note": "1) AoE taunt on cd",
+          "recast": 15
+        },
+        {
+          "name": "Rescue",
+          "note": "2) AoE aggro save",
+          "recast": 30
+        },
+        {
+          "name": "Call to Arms",
+          "note": "3) AoE taunt",
+          "recast": 30
+        },
+        {
+          "name": "Decimate",
+          "note": "4) AoE CA",
+          "recast": 20
+        },
+        {
+          "name": "Overpower",
+          "note": "5) CA",
+          "recast": 10
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Tower of Stone",
+          "note": "big damage-absorb wall",
+          "recast": 300
+        },
+        {
+          "name": "Sentry Watch",
+          "note": "defensive cooldown",
+          "recast": 180
+        },
+        {
+          "name": "Guardian Sphere",
+          "note": "group protection",
+          "recast": 300
+        },
+        {
+          "name": "Last Man Standing",
+          "note": "survive lethal hit (verify)"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Reinforcement",
+          "note": "threat/defensive burst (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Decimate",
+          "note": "big CA",
+          "recast": 45
+        },
+        {
+          "name": "Unyielding Will",
+          "note": "break/immunity (verify)",
+          "recast": 300
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID (MT/OT)",
+      "blurb": "Raid MT/OT: encounter taunts + threat CAs.",
+      "maintain": [
+        {
+          "name": "Hold the Line",
+          "note": "defensive stance — keep on (persistent)"
+        },
+        {
+          "name": "Sentinel",
+          "note": "group mitigation buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Call to Arms",
+          "note": "group buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Provoke",
+          "note": "single taunt to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Taunting Blow",
+          "note": "taunt + hit",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Rescue",
+          "note": "1) taunt if you lose aggro",
+          "recast": 30
+        },
+        {
+          "name": "Provoke",
+          "note": "2) single taunt on cd",
+          "recast": 8
+        },
+        {
+          "name": "Shout",
+          "note": "3) AoE taunt",
+          "recast": 15
+        },
+        {
+          "name": "Assault",
+          "note": "4) threat CA",
+          "recast": 12
+        },
+        {
+          "name": "Overpower",
+          "note": "5) CA",
+          "recast": 10
+        },
+        {
+          "name": "Sever",
+          "note": "6) CA",
+          "recast": 12
+        },
+        {
+          "name": "Gut Kick",
+          "note": "7) CA + interrupt",
+          "recast": 12
+        },
+        {
+          "name": "Slam",
+          "note": "8) CA",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Tower of Stone",
+          "note": "big damage-absorb wall",
+          "recast": 300
+        },
+        {
+          "name": "Sentry Watch",
+          "note": "defensive cooldown",
+          "recast": 180
+        },
+        {
+          "name": "Guardian Sphere",
+          "note": "group protection",
+          "recast": 300
+        },
+        {
+          "name": "Last Man Standing",
+          "note": "survive lethal hit (verify)"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Reinforcement",
+          "note": "threat/defensive burst (verify)",
+          "recast": 180
+        },
+        {
+          "name": "Decimate",
+          "note": "big CA",
+          "recast": 45
+        },
+        {
+          "name": "Unyielding Will",
+          "note": "break/immunity (verify)",
+          "recast": 300
+        }
+      ]
+    }
+  ]
+}

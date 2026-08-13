@@ -1,0 +1,418 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Templar",
+  "title": "Templar Rotation",
+  "windowName": "Templar",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (buffs/wards)",
+    "opener": "OPENER / PULL",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "EMERGENCY / CURES",
+    "cooldowns": "LONG COOLDOWNS"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "HEAL",
+      "blurb": "Keep the group up; weave a nuke only when nobody needs healing.",
+      "maintain": [
+        {
+          "name": "Aegolism",
+          "note": "big stamina/HP group buff",
+          "duration": 1800
+        },
+        {
+          "name": "Symbol of Marzin",
+          "note": "group buff (verify)",
+          "duration": 1800
+        },
+        {
+          "name": "Holy Armor",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        }
+      ],
+      "opener": [
+        {
+          "name": "Vital Intercession",
+          "note": "pre-heal the tank",
+          "recast": 8
+        }
+      ],
+      "priority": [
+        {
+          "name": "Cure",
+          "note": "1) cure detrimentals FIRST",
+          "recast": 10
+        },
+        {
+          "name": "Reverence",
+          "note": "2) reactive heal — keep on tank",
+          "recast": 12
+        },
+        {
+          "name": "Vital Intercession",
+          "note": "3) group heal",
+          "recast": 8
+        },
+        {
+          "name": "Meliorate",
+          "note": "4) fast single heal",
+          "recast": 4
+        },
+        {
+          "name": "Restoration",
+          "note": "5) big single heal",
+          "recast": 10
+        },
+        {
+          "name": "Focused Intervention",
+          "note": "6) emergency single heal",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Divine Arbitration",
+          "note": "equalize group HP — panic",
+          "recast": 180
+        },
+        {
+          "name": "Unyielding Benediction",
+          "note": "prevent tank death",
+          "recast": 300
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental"
+        },
+        {
+          "name": "Sanctuary",
+          "note": "invuln a target (verify)",
+          "recast": 300
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Divine Arbitration",
+          "note": "raid save",
+          "recast": 180
+        },
+        {
+          "name": "Unyielding Benediction",
+          "note": "death prevention",
+          "recast": 300
+        },
+        {
+          "name": "Glory",
+          "note": "group buff/burst (verify)",
+          "recast": 120
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "DoT/nuke + self-heal as needed.",
+      "maintain": [
+        {
+          "name": "Aegolism",
+          "note": "big stamina/HP group buff",
+          "duration": 1800
+        },
+        {
+          "name": "Symbol of Marzin",
+          "note": "group buff (verify)",
+          "duration": 1800
+        },
+        {
+          "name": "Holy Armor",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        }
+      ],
+      "opener": [
+        {
+          "name": "Rebuke",
+          "note": "debuff/nuke",
+          "recast": 10
+        },
+        {
+          "name": "Divine Smite",
+          "note": "nuke",
+          "recast": 6
+        }
+      ],
+      "priority": [
+        {
+          "name": "Divine Smite",
+          "note": "1) nuke on cd",
+          "recast": 6
+        },
+        {
+          "name": "Rebuke",
+          "note": "2) debuff + damage",
+          "recast": 10
+        },
+        {
+          "name": "Divine Strike",
+          "note": "3) melee CA",
+          "recast": 12
+        },
+        {
+          "name": "Smite Corruption",
+          "note": "4) damage",
+          "recast": 12
+        },
+        {
+          "name": "Unswerving Hammer",
+          "note": "5) nuke",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Divine Arbitration",
+          "note": "equalize group HP — panic",
+          "recast": 180
+        },
+        {
+          "name": "Unyielding Benediction",
+          "note": "prevent tank death",
+          "recast": 300
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental"
+        },
+        {
+          "name": "Sanctuary",
+          "note": "invuln a target (verify)",
+          "recast": 300
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Divine Arbitration",
+          "note": "raid save",
+          "recast": 180
+        },
+        {
+          "name": "Unyielding Benediction",
+          "note": "death prevention",
+          "recast": 300
+        },
+        {
+          "name": "Glory",
+          "note": "group buff/burst (verify)",
+          "recast": 120
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GRP DPS",
+      "blurb": "Group healing is covered — push damage, cover cures.",
+      "maintain": [
+        {
+          "name": "Aegolism",
+          "note": "big stamina/HP group buff",
+          "duration": 1800
+        },
+        {
+          "name": "Symbol of Marzin",
+          "note": "group buff (verify)",
+          "duration": 1800
+        },
+        {
+          "name": "Holy Armor",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        }
+      ],
+      "opener": [
+        {
+          "name": "Rebuke",
+          "note": "debuff/nuke",
+          "recast": 10
+        },
+        {
+          "name": "Divine Smite",
+          "note": "nuke",
+          "recast": 6
+        }
+      ],
+      "priority": [
+        {
+          "name": "Divine Smite",
+          "note": "1) nuke on cd",
+          "recast": 6
+        },
+        {
+          "name": "Rebuke",
+          "note": "2) debuff + damage",
+          "recast": 10
+        },
+        {
+          "name": "Divine Strike",
+          "note": "3) melee CA",
+          "recast": 12
+        },
+        {
+          "name": "Smite Corruption",
+          "note": "4) damage",
+          "recast": 12
+        },
+        {
+          "name": "Unswerving Hammer",
+          "note": "5) nuke",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Divine Arbitration",
+          "note": "equalize group HP — panic",
+          "recast": 180
+        },
+        {
+          "name": "Unyielding Benediction",
+          "note": "prevent tank death",
+          "recast": 300
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental"
+        },
+        {
+          "name": "Sanctuary",
+          "note": "invuln a target (verify)",
+          "recast": 300
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Divine Arbitration",
+          "note": "raid save",
+          "recast": 180
+        },
+        {
+          "name": "Unyielding Benediction",
+          "note": "death prevention",
+          "recast": 300
+        },
+        {
+          "name": "Glory",
+          "note": "group buff/burst (verify)",
+          "recast": 120
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID",
+      "blurb": "Damage + utility; keep buffs up, cover your group's cures.",
+      "maintain": [
+        {
+          "name": "Aegolism",
+          "note": "big stamina/HP group buff",
+          "duration": 1800
+        },
+        {
+          "name": "Symbol of Marzin",
+          "note": "group buff (verify)",
+          "duration": 1800
+        },
+        {
+          "name": "Holy Armor",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        }
+      ],
+      "opener": [
+        {
+          "name": "Rebuke",
+          "note": "debuff/nuke",
+          "recast": 10
+        },
+        {
+          "name": "Divine Smite",
+          "note": "nuke",
+          "recast": 6
+        }
+      ],
+      "priority": [
+        {
+          "name": "Divine Smite",
+          "note": "1) nuke on cd",
+          "recast": 6
+        },
+        {
+          "name": "Rebuke",
+          "note": "2) debuff + damage",
+          "recast": 10
+        },
+        {
+          "name": "Divine Strike",
+          "note": "3) melee CA",
+          "recast": 12
+        },
+        {
+          "name": "Smite Corruption",
+          "note": "4) damage",
+          "recast": 12
+        },
+        {
+          "name": "Unswerving Hammer",
+          "note": "5) nuke",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Divine Arbitration",
+          "note": "equalize group HP — panic",
+          "recast": 180
+        },
+        {
+          "name": "Unyielding Benediction",
+          "note": "prevent tank death",
+          "recast": 300
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental"
+        },
+        {
+          "name": "Sanctuary",
+          "note": "invuln a target (verify)",
+          "recast": 300
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Divine Arbitration",
+          "note": "raid save",
+          "recast": 180
+        },
+        {
+          "name": "Unyielding Benediction",
+          "note": "death prevention",
+          "recast": 300
+        },
+        {
+          "name": "Glory",
+          "note": "group buff/burst (verify)",
+          "recast": 120
+        }
+      ]
+    }
+  ]
+}

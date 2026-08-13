@@ -1,0 +1,414 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Monk",
+  "title": "Monk Rotation",
+  "windowName": "Monk",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (stance/buffs)",
+    "opener": "PULL / SNAP AGGRO",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "DEFENSIVES / SAVES",
+    "cooldowns": "LONG COOLDOWNS"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "MT / AGGRO",
+      "blurb": "Hold aggro: taunts on cooldown, then CAs for threat.",
+      "maintain": [
+        {
+          "name": "Inner Calm",
+          "note": "avoidance stance — keep on (persistent)"
+        },
+        {
+          "name": "Body Like Mountain",
+          "note": "mitigation buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Challenge",
+          "note": "single taunt to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Waking Dragon",
+          "note": "opener CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Challenge",
+          "note": "1) single taunt on cd",
+          "recast": 8
+        },
+        {
+          "name": "Silent Threat",
+          "note": "2) taunt",
+          "recast": 12
+        },
+        {
+          "name": "Five Rings",
+          "note": "3) AoE taunt/CA",
+          "recast": 15
+        },
+        {
+          "name": "Waking Dragon",
+          "note": "4) CA",
+          "recast": 12
+        },
+        {
+          "name": "Frozen Palm",
+          "note": "5) CA",
+          "recast": 10
+        },
+        {
+          "name": "Crescent Strike",
+          "note": "6) CA",
+          "recast": 12
+        },
+        {
+          "name": "Charging Tiger",
+          "note": "7) CA",
+          "recast": 15
+        },
+        {
+          "name": "Arctic Talon",
+          "note": "8) CA",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Tsunami",
+          "note": "huge avoidance cooldown",
+          "recast": 300
+        },
+        {
+          "name": "Mountain Stance",
+          "note": "mitigation cooldown (rooted)",
+          "recast": 180
+        },
+        {
+          "name": "Feign Death",
+          "note": "drop aggro / survive"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Devastation Fist",
+          "note": "big CA",
+          "recast": 60
+        },
+        {
+          "name": "Dragonfire",
+          "note": "AoE nuke",
+          "recast": 45
+        },
+        {
+          "name": "Fall of the Phoenix",
+          "note": "self-rez on death",
+          "recast": 600
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "Kill things: CA damage order, defensives as needed.",
+      "maintain": [
+        {
+          "name": "Inner Calm",
+          "note": "avoidance stance — keep on (persistent)"
+        },
+        {
+          "name": "Body Like Mountain",
+          "note": "mitigation buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Challenge",
+          "note": "single taunt to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Waking Dragon",
+          "note": "opener CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Challenge",
+          "note": "1) single taunt on cd",
+          "recast": 8
+        },
+        {
+          "name": "Silent Threat",
+          "note": "2) taunt",
+          "recast": 12
+        },
+        {
+          "name": "Five Rings",
+          "note": "3) AoE taunt/CA",
+          "recast": 15
+        },
+        {
+          "name": "Waking Dragon",
+          "note": "4) CA",
+          "recast": 12
+        },
+        {
+          "name": "Frozen Palm",
+          "note": "5) CA",
+          "recast": 10
+        },
+        {
+          "name": "Crescent Strike",
+          "note": "6) CA",
+          "recast": 12
+        },
+        {
+          "name": "Charging Tiger",
+          "note": "7) CA",
+          "recast": 15
+        },
+        {
+          "name": "Arctic Talon",
+          "note": "8) CA",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Tsunami",
+          "note": "huge avoidance cooldown",
+          "recast": 300
+        },
+        {
+          "name": "Mountain Stance",
+          "note": "mitigation cooldown (rooted)",
+          "recast": 180
+        },
+        {
+          "name": "Feign Death",
+          "note": "drop aggro / survive"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Devastation Fist",
+          "note": "big CA",
+          "recast": 60
+        },
+        {
+          "name": "Dragonfire",
+          "note": "AoE nuke",
+          "recast": 45
+        },
+        {
+          "name": "Fall of the Phoenix",
+          "note": "self-rez on death",
+          "recast": 600
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GROUP (AoE)",
+      "blurb": "Multi-mob: AoE taunts first, keep everything on you.",
+      "maintain": [
+        {
+          "name": "Inner Calm",
+          "note": "avoidance stance — keep on (persistent)"
+        },
+        {
+          "name": "Body Like Mountain",
+          "note": "mitigation buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Challenge",
+          "note": "single taunt to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Waking Dragon",
+          "note": "opener CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Five Rings",
+          "note": "1) AoE taunt on cd",
+          "recast": 15
+        },
+        {
+          "name": "Instill Panic",
+          "note": "2) AoE taunt",
+          "recast": 20
+        },
+        {
+          "name": "Silent Palm",
+          "note": "3) AoE CA",
+          "recast": 20
+        },
+        {
+          "name": "Dragonfire",
+          "note": "4) AoE CA",
+          "recast": 30
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Tsunami",
+          "note": "huge avoidance cooldown",
+          "recast": 300
+        },
+        {
+          "name": "Mountain Stance",
+          "note": "mitigation cooldown (rooted)",
+          "recast": 180
+        },
+        {
+          "name": "Feign Death",
+          "note": "drop aggro / survive"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Devastation Fist",
+          "note": "big CA",
+          "recast": 60
+        },
+        {
+          "name": "Dragonfire",
+          "note": "AoE nuke",
+          "recast": 45
+        },
+        {
+          "name": "Fall of the Phoenix",
+          "note": "self-rez on death",
+          "recast": 600
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID (MT/OT)",
+      "blurb": "Raid MT/OT: encounter taunts + threat CAs.",
+      "maintain": [
+        {
+          "name": "Inner Calm",
+          "note": "avoidance stance — keep on (persistent)"
+        },
+        {
+          "name": "Body Like Mountain",
+          "note": "mitigation buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Challenge",
+          "note": "single taunt to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Waking Dragon",
+          "note": "opener CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Challenge",
+          "note": "1) single taunt on cd",
+          "recast": 8
+        },
+        {
+          "name": "Silent Threat",
+          "note": "2) taunt",
+          "recast": 12
+        },
+        {
+          "name": "Five Rings",
+          "note": "3) AoE taunt/CA",
+          "recast": 15
+        },
+        {
+          "name": "Waking Dragon",
+          "note": "4) CA",
+          "recast": 12
+        },
+        {
+          "name": "Frozen Palm",
+          "note": "5) CA",
+          "recast": 10
+        },
+        {
+          "name": "Crescent Strike",
+          "note": "6) CA",
+          "recast": 12
+        },
+        {
+          "name": "Charging Tiger",
+          "note": "7) CA",
+          "recast": 15
+        },
+        {
+          "name": "Arctic Talon",
+          "note": "8) CA",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Tsunami",
+          "note": "huge avoidance cooldown",
+          "recast": 300
+        },
+        {
+          "name": "Mountain Stance",
+          "note": "mitigation cooldown (rooted)",
+          "recast": 180
+        },
+        {
+          "name": "Feign Death",
+          "note": "drop aggro / survive"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Devastation Fist",
+          "note": "big CA",
+          "recast": 60
+        },
+        {
+          "name": "Dragonfire",
+          "note": "AoE nuke",
+          "recast": 45
+        },
+        {
+          "name": "Fall of the Phoenix",
+          "note": "self-rez on death",
+          "recast": 600
+        }
+      ]
+    }
+  ]
+}

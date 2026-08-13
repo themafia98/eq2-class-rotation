@@ -1,0 +1,442 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Berserker",
+  "title": "Berserker Rotation",
+  "windowName": "Berserker",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (stance/buffs)",
+    "opener": "PULL / SNAP AGGRO",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "DEFENSIVES / SAVES",
+    "cooldowns": "LONG COOLDOWNS"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "MT / AGGRO",
+      "blurb": "Hold aggro: taunts on cooldown, then CAs for threat.",
+      "maintain": [
+        {
+          "name": "Berserk Rage",
+          "note": "haste/DPS stance — keep on",
+          "duration": 300
+        },
+        {
+          "name": "Aggressive Defense",
+          "note": "riposte buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Open Wounds",
+          "note": "proc buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Mock",
+          "note": "single taunt to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Rupture",
+          "note": "opener CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Rescue",
+          "note": "1) taunt if you lose aggro",
+          "recast": 30
+        },
+        {
+          "name": "Mock",
+          "note": "2) single taunt on cd",
+          "recast": 8
+        },
+        {
+          "name": "War Cry",
+          "note": "3) AoE taunt",
+          "recast": 15
+        },
+        {
+          "name": "Maul",
+          "note": "4) threat CA",
+          "recast": 12
+        },
+        {
+          "name": "Head Crush",
+          "note": "5) CA + interrupt",
+          "recast": 12
+        },
+        {
+          "name": "Rupture",
+          "note": "6) CA",
+          "recast": 12
+        },
+        {
+          "name": "Mutilate",
+          "note": "7) CA",
+          "recast": 15
+        },
+        {
+          "name": "Destructive Rage",
+          "note": "8) CA",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Wall of Rage",
+          "note": "block/defensive",
+          "recast": 180
+        },
+        {
+          "name": "Vision of Madness",
+          "note": "burst + self buff",
+          "recast": 180
+        },
+        {
+          "name": "Rescue",
+          "note": "aggro save",
+          "recast": 30
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Juggernaut",
+          "note": "big DPS/threat burst",
+          "recast": 300
+        },
+        {
+          "name": "Frenzy",
+          "note": "melee burst",
+          "recast": 60
+        },
+        {
+          "name": "Rampage",
+          "note": "AoE burst",
+          "recast": 45
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "Kill things: CA damage order, defensives as needed.",
+      "maintain": [
+        {
+          "name": "Berserk Rage",
+          "note": "haste/DPS stance — keep on",
+          "duration": 300
+        },
+        {
+          "name": "Aggressive Defense",
+          "note": "riposte buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Open Wounds",
+          "note": "proc buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Mock",
+          "note": "single taunt to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Rupture",
+          "note": "opener CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Rescue",
+          "note": "1) taunt if you lose aggro",
+          "recast": 30
+        },
+        {
+          "name": "Mock",
+          "note": "2) single taunt on cd",
+          "recast": 8
+        },
+        {
+          "name": "War Cry",
+          "note": "3) AoE taunt",
+          "recast": 15
+        },
+        {
+          "name": "Maul",
+          "note": "4) threat CA",
+          "recast": 12
+        },
+        {
+          "name": "Head Crush",
+          "note": "5) CA + interrupt",
+          "recast": 12
+        },
+        {
+          "name": "Rupture",
+          "note": "6) CA",
+          "recast": 12
+        },
+        {
+          "name": "Mutilate",
+          "note": "7) CA",
+          "recast": 15
+        },
+        {
+          "name": "Destructive Rage",
+          "note": "8) CA",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Wall of Rage",
+          "note": "block/defensive",
+          "recast": 180
+        },
+        {
+          "name": "Vision of Madness",
+          "note": "burst + self buff",
+          "recast": 180
+        },
+        {
+          "name": "Rescue",
+          "note": "aggro save",
+          "recast": 30
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Juggernaut",
+          "note": "big DPS/threat burst",
+          "recast": 300
+        },
+        {
+          "name": "Frenzy",
+          "note": "melee burst",
+          "recast": 60
+        },
+        {
+          "name": "Rampage",
+          "note": "AoE burst",
+          "recast": 45
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GROUP (AoE)",
+      "blurb": "Multi-mob: AoE taunts first, keep everything on you.",
+      "maintain": [
+        {
+          "name": "Berserk Rage",
+          "note": "haste/DPS stance — keep on",
+          "duration": 300
+        },
+        {
+          "name": "Aggressive Defense",
+          "note": "riposte buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Open Wounds",
+          "note": "proc buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Mock",
+          "note": "single taunt to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Rupture",
+          "note": "opener CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "War Cry",
+          "note": "1) AoE taunt on cd",
+          "recast": 15
+        },
+        {
+          "name": "Berserker Onslaught",
+          "note": "2) AoE taunt + damage",
+          "recast": 30
+        },
+        {
+          "name": "Rampage",
+          "note": "3) AoE CA",
+          "recast": 30
+        },
+        {
+          "name": "Demolish",
+          "note": "4) AoE CA",
+          "recast": 20
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Wall of Rage",
+          "note": "block/defensive",
+          "recast": 180
+        },
+        {
+          "name": "Vision of Madness",
+          "note": "burst + self buff",
+          "recast": 180
+        },
+        {
+          "name": "Rescue",
+          "note": "aggro save",
+          "recast": 30
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Juggernaut",
+          "note": "big DPS/threat burst",
+          "recast": 300
+        },
+        {
+          "name": "Frenzy",
+          "note": "melee burst",
+          "recast": 60
+        },
+        {
+          "name": "Rampage",
+          "note": "AoE burst",
+          "recast": 45
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID (MT/OT)",
+      "blurb": "Raid MT/OT: encounter taunts + threat CAs.",
+      "maintain": [
+        {
+          "name": "Berserk Rage",
+          "note": "haste/DPS stance — keep on",
+          "duration": 300
+        },
+        {
+          "name": "Aggressive Defense",
+          "note": "riposte buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Open Wounds",
+          "note": "proc buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Mock",
+          "note": "single taunt to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Rupture",
+          "note": "opener CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Rescue",
+          "note": "1) taunt if you lose aggro",
+          "recast": 30
+        },
+        {
+          "name": "Mock",
+          "note": "2) single taunt on cd",
+          "recast": 8
+        },
+        {
+          "name": "War Cry",
+          "note": "3) AoE taunt",
+          "recast": 15
+        },
+        {
+          "name": "Maul",
+          "note": "4) threat CA",
+          "recast": 12
+        },
+        {
+          "name": "Head Crush",
+          "note": "5) CA + interrupt",
+          "recast": 12
+        },
+        {
+          "name": "Rupture",
+          "note": "6) CA",
+          "recast": 12
+        },
+        {
+          "name": "Mutilate",
+          "note": "7) CA",
+          "recast": 15
+        },
+        {
+          "name": "Destructive Rage",
+          "note": "8) CA",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Wall of Rage",
+          "note": "block/defensive",
+          "recast": 180
+        },
+        {
+          "name": "Vision of Madness",
+          "note": "burst + self buff",
+          "recast": 180
+        },
+        {
+          "name": "Rescue",
+          "note": "aggro save",
+          "recast": 30
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Juggernaut",
+          "note": "big DPS/threat burst",
+          "recast": 300
+        },
+        {
+          "name": "Frenzy",
+          "note": "melee burst",
+          "recast": 60
+        },
+        {
+          "name": "Rampage",
+          "note": "AoE burst",
+          "recast": 45
+        }
+      ]
+    }
+  ]
+}

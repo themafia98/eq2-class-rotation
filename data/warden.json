@@ -1,0 +1,408 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Warden",
+  "title": "Warden Rotation",
+  "windowName": "Warden",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (buffs/wards)",
+    "opener": "OPENER / PULL",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "EMERGENCY / CURES",
+    "cooldowns": "LONG COOLDOWNS"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "HEAL",
+      "blurb": "Keep the group up; weave a nuke only when nobody needs healing.",
+      "maintain": [
+        {
+          "name": "Thorncoat",
+          "note": "damage-shield buff",
+          "duration": 600
+        },
+        {
+          "name": "Armor of Seasons",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Regenerating Spores",
+          "note": "group regen — keep up",
+          "duration": 60
+        }
+      ],
+      "opener": [
+        {
+          "name": "Photosynthesis",
+          "note": "pre-cast tank HoT",
+          "recast": 10
+        }
+      ],
+      "priority": [
+        {
+          "name": "Cure",
+          "note": "1) cure detrimentals FIRST",
+          "recast": 10
+        },
+        {
+          "name": "Healstorm",
+          "note": "2) group HoT — keep ticking",
+          "recast": 12,
+          "duration": 20
+        },
+        {
+          "name": "Photosynthesis",
+          "note": "3) tank HoT",
+          "recast": 10,
+          "duration": 20
+        },
+        {
+          "name": "Sylvan Bloom",
+          "note": "4) fast single heal",
+          "recast": 4
+        },
+        {
+          "name": "Nature's Embrace",
+          "note": "5) big single heal",
+          "recast": 10
+        },
+        {
+          "name": "Winds of Healing",
+          "note": "6) group heal",
+          "recast": 12
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Tunare's Watch",
+          "note": "prevent death — panic",
+          "recast": 300
+        },
+        {
+          "name": "Nature's Renewal",
+          "note": "big emergency heal",
+          "recast": 30
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental"
+        },
+        {
+          "name": "Sandstorm",
+          "note": "group avoidance (verify)",
+          "recast": 120
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Healing Grove",
+          "note": "big heal cooldown",
+          "recast": 180
+        },
+        {
+          "name": "Tunare's Watch",
+          "note": "death save",
+          "recast": 300
+        },
+        {
+          "name": "Nature's Pack",
+          "note": "group buff (verify)",
+          "recast": 120
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "DoT/nuke + self-heal as needed.",
+      "maintain": [
+        {
+          "name": "Thorncoat",
+          "note": "damage-shield buff",
+          "duration": 600
+        },
+        {
+          "name": "Armor of Seasons",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Regenerating Spores",
+          "note": "group regen — keep up",
+          "duration": 60
+        }
+      ],
+      "opener": [
+        {
+          "name": "Icefall",
+          "note": "nuke",
+          "recast": 8
+        },
+        {
+          "name": "Dawnstrike",
+          "note": "nuke",
+          "recast": 6
+        }
+      ],
+      "priority": [
+        {
+          "name": "Dawnstrike",
+          "note": "1) nuke on cd",
+          "recast": 6
+        },
+        {
+          "name": "Icefall",
+          "note": "2) nuke",
+          "recast": 8
+        },
+        {
+          "name": "Frostbite",
+          "note": "3) DoT — keep ticking",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Winter's Sting",
+          "note": "4) nuke",
+          "recast": 12
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Tunare's Watch",
+          "note": "prevent death — panic",
+          "recast": 300
+        },
+        {
+          "name": "Nature's Renewal",
+          "note": "big emergency heal",
+          "recast": 30
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental"
+        },
+        {
+          "name": "Sandstorm",
+          "note": "group avoidance (verify)",
+          "recast": 120
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Healing Grove",
+          "note": "big heal cooldown",
+          "recast": 180
+        },
+        {
+          "name": "Tunare's Watch",
+          "note": "death save",
+          "recast": 300
+        },
+        {
+          "name": "Nature's Pack",
+          "note": "group buff (verify)",
+          "recast": 120
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GRP DPS",
+      "blurb": "Group healing is covered — push damage, cover cures.",
+      "maintain": [
+        {
+          "name": "Thorncoat",
+          "note": "damage-shield buff",
+          "duration": 600
+        },
+        {
+          "name": "Armor of Seasons",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Regenerating Spores",
+          "note": "group regen — keep up",
+          "duration": 60
+        }
+      ],
+      "opener": [
+        {
+          "name": "Icefall",
+          "note": "nuke",
+          "recast": 8
+        },
+        {
+          "name": "Dawnstrike",
+          "note": "nuke",
+          "recast": 6
+        }
+      ],
+      "priority": [
+        {
+          "name": "Dawnstrike",
+          "note": "1) nuke on cd",
+          "recast": 6
+        },
+        {
+          "name": "Icefall",
+          "note": "2) nuke",
+          "recast": 8
+        },
+        {
+          "name": "Frostbite",
+          "note": "3) DoT — keep ticking",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Winter's Sting",
+          "note": "4) nuke",
+          "recast": 12
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Tunare's Watch",
+          "note": "prevent death — panic",
+          "recast": 300
+        },
+        {
+          "name": "Nature's Renewal",
+          "note": "big emergency heal",
+          "recast": 30
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental"
+        },
+        {
+          "name": "Sandstorm",
+          "note": "group avoidance (verify)",
+          "recast": 120
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Healing Grove",
+          "note": "big heal cooldown",
+          "recast": 180
+        },
+        {
+          "name": "Tunare's Watch",
+          "note": "death save",
+          "recast": 300
+        },
+        {
+          "name": "Nature's Pack",
+          "note": "group buff (verify)",
+          "recast": 120
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID",
+      "blurb": "Damage + utility; keep buffs up, cover your group's cures.",
+      "maintain": [
+        {
+          "name": "Thorncoat",
+          "note": "damage-shield buff",
+          "duration": 600
+        },
+        {
+          "name": "Armor of Seasons",
+          "note": "mitigation buff (verify)",
+          "duration": 600
+        },
+        {
+          "name": "Regenerating Spores",
+          "note": "group regen — keep up",
+          "duration": 60
+        }
+      ],
+      "opener": [
+        {
+          "name": "Icefall",
+          "note": "nuke",
+          "recast": 8
+        },
+        {
+          "name": "Dawnstrike",
+          "note": "nuke",
+          "recast": 6
+        }
+      ],
+      "priority": [
+        {
+          "name": "Dawnstrike",
+          "note": "1) nuke on cd",
+          "recast": 6
+        },
+        {
+          "name": "Icefall",
+          "note": "2) nuke",
+          "recast": 8
+        },
+        {
+          "name": "Frostbite",
+          "note": "3) DoT — keep ticking",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Winter's Sting",
+          "note": "4) nuke",
+          "recast": 12
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Tunare's Watch",
+          "note": "prevent death — panic",
+          "recast": 300
+        },
+        {
+          "name": "Nature's Renewal",
+          "note": "big emergency heal",
+          "recast": 30
+        },
+        {
+          "name": "Cure",
+          "note": "cure a nasty detrimental"
+        },
+        {
+          "name": "Sandstorm",
+          "note": "group avoidance (verify)",
+          "recast": 120
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Healing Grove",
+          "note": "big heal cooldown",
+          "recast": 180
+        },
+        {
+          "name": "Tunare's Watch",
+          "note": "death save",
+          "recast": 300
+        },
+        {
+          "name": "Nature's Pack",
+          "note": "group buff (verify)",
+          "recast": 120
+        }
+      ]
+    }
+  ]
+}

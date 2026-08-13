@@ -1,0 +1,378 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Ranger",
+  "title": "Ranger Rotation",
+  "windowName": "Ranger",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (buffs/debuffs)",
+    "opener": "OPENER / STEALTH",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "ESCAPE / AVOID",
+    "cooldowns": "LONG COOLDOWNS / BURST"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "AOE / MULTI",
+      "blurb": "Multi-target: AoE / encounter damage.",
+      "maintain": [
+        {
+          "name": "Hunter's Instinct",
+          "note": "group ranged buff — keep up",
+          "duration": 1800
+        },
+        {
+          "name": "Archer's Fury",
+          "note": "damage buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Sniper Shot",
+          "note": "open from stealth — huge hit",
+          "recast": 60
+        },
+        {
+          "name": "Hidden Shot",
+          "note": "stealth attack",
+          "recast": 30
+        }
+      ],
+      "priority": [
+        {
+          "name": "Storm of Arrows",
+          "note": "1) AoE on cd",
+          "recast": 30
+        },
+        {
+          "name": "Stream of Arrows",
+          "note": "2) AoE channel",
+          "recast": 30
+        },
+        {
+          "name": "Arrow Rip",
+          "note": "3) AoE shot",
+          "recast": 20
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Evade",
+          "note": "drop hate",
+          "recast": 30
+        },
+        {
+          "name": "Escape",
+          "note": "vanish",
+          "recast": 60
+        },
+        {
+          "name": "Ensnare",
+          "note": "snare/kite"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Killing Instinct",
+          "note": "big DPS buff",
+          "recast": 120
+        },
+        {
+          "name": "Storm of Arrows",
+          "note": "AoE burst",
+          "recast": 30
+        },
+        {
+          "name": "Focus Aim",
+          "note": "crit window",
+          "recast": 60
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "Single-target sustained damage.",
+      "maintain": [
+        {
+          "name": "Hunter's Instinct",
+          "note": "group ranged buff — keep up",
+          "duration": 1800
+        },
+        {
+          "name": "Archer's Fury",
+          "note": "damage buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Sniper Shot",
+          "note": "open from stealth — huge hit",
+          "recast": 60
+        },
+        {
+          "name": "Hidden Shot",
+          "note": "stealth attack",
+          "recast": 30
+        }
+      ],
+      "priority": [
+        {
+          "name": "Sniper Shot",
+          "note": "1) biggest shot on cd",
+          "recast": 60
+        },
+        {
+          "name": "Miracle Shot",
+          "note": "2) big shot",
+          "recast": 30
+        },
+        {
+          "name": "Trick Shot",
+          "note": "3) shot",
+          "recast": 15
+        },
+        {
+          "name": "Triple Shot",
+          "note": "4) shot",
+          "recast": 15
+        },
+        {
+          "name": "Lightning Strike",
+          "note": "5) shot",
+          "recast": 12
+        },
+        {
+          "name": "Searing Shot",
+          "note": "6) shot/DoT",
+          "recast": 12
+        },
+        {
+          "name": "Snipe",
+          "note": "7) shot",
+          "recast": 10
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Evade",
+          "note": "drop hate",
+          "recast": 30
+        },
+        {
+          "name": "Escape",
+          "note": "vanish",
+          "recast": 60
+        },
+        {
+          "name": "Ensnare",
+          "note": "snare/kite"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Killing Instinct",
+          "note": "big DPS buff",
+          "recast": 120
+        },
+        {
+          "name": "Storm of Arrows",
+          "note": "AoE burst",
+          "recast": 30
+        },
+        {
+          "name": "Focus Aim",
+          "note": "crit window",
+          "recast": 60
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GRP / ST",
+      "blurb": "Group single-target priority.",
+      "maintain": [
+        {
+          "name": "Hunter's Instinct",
+          "note": "group ranged buff — keep up",
+          "duration": 1800
+        },
+        {
+          "name": "Archer's Fury",
+          "note": "damage buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Sniper Shot",
+          "note": "open from stealth — huge hit",
+          "recast": 60
+        },
+        {
+          "name": "Hidden Shot",
+          "note": "stealth attack",
+          "recast": 30
+        }
+      ],
+      "priority": [
+        {
+          "name": "Sniper Shot",
+          "note": "1) biggest shot on cd",
+          "recast": 60
+        },
+        {
+          "name": "Miracle Shot",
+          "note": "2) big shot",
+          "recast": 30
+        },
+        {
+          "name": "Trick Shot",
+          "note": "3) shot",
+          "recast": 15
+        },
+        {
+          "name": "Triple Shot",
+          "note": "4) shot",
+          "recast": 15
+        },
+        {
+          "name": "Lightning Strike",
+          "note": "5) shot",
+          "recast": 12
+        },
+        {
+          "name": "Searing Shot",
+          "note": "6) shot/DoT",
+          "recast": 12
+        },
+        {
+          "name": "Snipe",
+          "note": "7) shot",
+          "recast": 10
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Evade",
+          "note": "drop hate",
+          "recast": 30
+        },
+        {
+          "name": "Escape",
+          "note": "vanish",
+          "recast": 60
+        },
+        {
+          "name": "Ensnare",
+          "note": "snare/kite"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Killing Instinct",
+          "note": "big DPS buff",
+          "recast": 120
+        },
+        {
+          "name": "Storm of Arrows",
+          "note": "AoE burst",
+          "recast": 30
+        },
+        {
+          "name": "Focus Aim",
+          "note": "crit window",
+          "recast": 60
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID BURST",
+      "blurb": "Raid burst: line up cooldowns.",
+      "maintain": [
+        {
+          "name": "Hunter's Instinct",
+          "note": "group ranged buff — keep up",
+          "duration": 1800
+        },
+        {
+          "name": "Archer's Fury",
+          "note": "damage buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Sniper Shot",
+          "note": "open from stealth — huge hit",
+          "recast": 60
+        },
+        {
+          "name": "Hidden Shot",
+          "note": "stealth attack",
+          "recast": 30
+        }
+      ],
+      "priority": [
+        {
+          "name": "Focus Aim",
+          "note": "1) accuracy/crit burst",
+          "recast": 60
+        },
+        {
+          "name": "Sniper Shot",
+          "note": "2) biggest shot",
+          "recast": 60
+        },
+        {
+          "name": "Killing Instinct",
+          "note": "3) DPS buff",
+          "recast": 120
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Evade",
+          "note": "drop hate",
+          "recast": 30
+        },
+        {
+          "name": "Escape",
+          "note": "vanish",
+          "recast": 60
+        },
+        {
+          "name": "Ensnare",
+          "note": "snare/kite"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Killing Instinct",
+          "note": "big DPS buff",
+          "recast": 120
+        },
+        {
+          "name": "Storm of Arrows",
+          "note": "AoE burst",
+          "recast": 30
+        },
+        {
+          "name": "Focus Aim",
+          "note": "crit window",
+          "recast": 60
+        }
+      ]
+    }
+  ]
+}

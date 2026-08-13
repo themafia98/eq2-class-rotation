@@ -1,0 +1,458 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Paladin",
+  "title": "Paladin Rotation",
+  "windowName": "Paladin",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (stance/buffs)",
+    "opener": "PULL / SNAP AGGRO",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "DEFENSIVES / SAVES",
+    "cooldowns": "LONG COOLDOWNS"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "MT / AGGRO",
+      "blurb": "Hold aggro: taunts on cooldown, then CAs for threat.",
+      "maintain": [
+        {
+          "name": "Knight's Stance",
+          "note": "defensive stance — keep on (persistent)"
+        },
+        {
+          "name": "Amends",
+          "note": "threat-transfer to a DPS — keep on",
+          "duration": 1800
+        },
+        {
+          "name": "Blessing of the Paladin",
+          "note": "group buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Faith Strike",
+          "note": "taunt + hit to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Judgment",
+          "note": "opener nuke",
+          "recast": 10
+        }
+      ],
+      "priority": [
+        {
+          "name": "Rescue",
+          "note": "1) taunt if you lose aggro",
+          "recast": 30
+        },
+        {
+          "name": "Faith Strike",
+          "note": "2) single threat on cd",
+          "recast": 8
+        },
+        {
+          "name": "Holy Circle",
+          "note": "3) AoE taunt/ward",
+          "recast": 15
+        },
+        {
+          "name": "Judgment",
+          "note": "4) nuke",
+          "recast": 10
+        },
+        {
+          "name": "Ancient Wrath",
+          "note": "5) CA",
+          "recast": 12
+        },
+        {
+          "name": "Power Cleave",
+          "note": "6) AoE CA",
+          "recast": 15
+        },
+        {
+          "name": "Holy Strike",
+          "note": "7) CA",
+          "recast": 15
+        },
+        {
+          "name": "Doom Judgment",
+          "note": "8) nuke",
+          "recast": 20
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Lay on Hands",
+          "note": "huge single heal (self/tank)",
+          "recast": 300
+        },
+        {
+          "name": "Sigil of Heroism",
+          "note": "defensive + threat",
+          "recast": 180
+        },
+        {
+          "name": "Divine Favor",
+          "note": "death prevention (verify)",
+          "recast": 300
+        },
+        {
+          "name": "Prayer of Healing",
+          "note": "top-up heal",
+          "recast": 10
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Castigate",
+          "note": "big nuke",
+          "recast": 45
+        },
+        {
+          "name": "Decree",
+          "note": "AoE nuke",
+          "recast": 30
+        },
+        {
+          "name": "Sigil of Heroism",
+          "note": "burst window",
+          "recast": 180
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "Kill things: CA damage order, defensives as needed.",
+      "maintain": [
+        {
+          "name": "Knight's Stance",
+          "note": "defensive stance — keep on (persistent)"
+        },
+        {
+          "name": "Amends",
+          "note": "threat-transfer to a DPS — keep on",
+          "duration": 1800
+        },
+        {
+          "name": "Blessing of the Paladin",
+          "note": "group buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Faith Strike",
+          "note": "taunt + hit to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Judgment",
+          "note": "opener nuke",
+          "recast": 10
+        }
+      ],
+      "priority": [
+        {
+          "name": "Rescue",
+          "note": "1) taunt if you lose aggro",
+          "recast": 30
+        },
+        {
+          "name": "Faith Strike",
+          "note": "2) single threat on cd",
+          "recast": 8
+        },
+        {
+          "name": "Holy Circle",
+          "note": "3) AoE taunt/ward",
+          "recast": 15
+        },
+        {
+          "name": "Judgment",
+          "note": "4) nuke",
+          "recast": 10
+        },
+        {
+          "name": "Ancient Wrath",
+          "note": "5) CA",
+          "recast": 12
+        },
+        {
+          "name": "Power Cleave",
+          "note": "6) AoE CA",
+          "recast": 15
+        },
+        {
+          "name": "Holy Strike",
+          "note": "7) CA",
+          "recast": 15
+        },
+        {
+          "name": "Doom Judgment",
+          "note": "8) nuke",
+          "recast": 20
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Lay on Hands",
+          "note": "huge single heal (self/tank)",
+          "recast": 300
+        },
+        {
+          "name": "Sigil of Heroism",
+          "note": "defensive + threat",
+          "recast": 180
+        },
+        {
+          "name": "Divine Favor",
+          "note": "death prevention (verify)",
+          "recast": 300
+        },
+        {
+          "name": "Prayer of Healing",
+          "note": "top-up heal",
+          "recast": 10
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Castigate",
+          "note": "big nuke",
+          "recast": 45
+        },
+        {
+          "name": "Decree",
+          "note": "AoE nuke",
+          "recast": 30
+        },
+        {
+          "name": "Sigil of Heroism",
+          "note": "burst window",
+          "recast": 180
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GROUP (AoE)",
+      "blurb": "Multi-mob: AoE taunts first, keep everything on you.",
+      "maintain": [
+        {
+          "name": "Knight's Stance",
+          "note": "defensive stance — keep on (persistent)"
+        },
+        {
+          "name": "Amends",
+          "note": "threat-transfer to a DPS — keep on",
+          "duration": 1800
+        },
+        {
+          "name": "Blessing of the Paladin",
+          "note": "group buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Faith Strike",
+          "note": "taunt + hit to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Judgment",
+          "note": "opener nuke",
+          "recast": 10
+        }
+      ],
+      "priority": [
+        {
+          "name": "Holy Circle",
+          "note": "1) AoE taunt on cd",
+          "recast": 15
+        },
+        {
+          "name": "Power Cleave",
+          "note": "2) AoE CA",
+          "recast": 15
+        },
+        {
+          "name": "Decree",
+          "note": "3) AoE nuke",
+          "recast": 20
+        },
+        {
+          "name": "Consecrate",
+          "note": "4) AoE threat",
+          "recast": 30
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Lay on Hands",
+          "note": "huge single heal (self/tank)",
+          "recast": 300
+        },
+        {
+          "name": "Sigil of Heroism",
+          "note": "defensive + threat",
+          "recast": 180
+        },
+        {
+          "name": "Divine Favor",
+          "note": "death prevention (verify)",
+          "recast": 300
+        },
+        {
+          "name": "Prayer of Healing",
+          "note": "top-up heal",
+          "recast": 10
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Castigate",
+          "note": "big nuke",
+          "recast": 45
+        },
+        {
+          "name": "Decree",
+          "note": "AoE nuke",
+          "recast": 30
+        },
+        {
+          "name": "Sigil of Heroism",
+          "note": "burst window",
+          "recast": 180
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID (MT/OT)",
+      "blurb": "Raid MT/OT: encounter taunts + threat CAs.",
+      "maintain": [
+        {
+          "name": "Knight's Stance",
+          "note": "defensive stance — keep on (persistent)"
+        },
+        {
+          "name": "Amends",
+          "note": "threat-transfer to a DPS — keep on",
+          "duration": 1800
+        },
+        {
+          "name": "Blessing of the Paladin",
+          "note": "group buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Faith Strike",
+          "note": "taunt + hit to snap aggro",
+          "recast": 8
+        },
+        {
+          "name": "Judgment",
+          "note": "opener nuke",
+          "recast": 10
+        }
+      ],
+      "priority": [
+        {
+          "name": "Rescue",
+          "note": "1) taunt if you lose aggro",
+          "recast": 30
+        },
+        {
+          "name": "Faith Strike",
+          "note": "2) single threat on cd",
+          "recast": 8
+        },
+        {
+          "name": "Holy Circle",
+          "note": "3) AoE taunt/ward",
+          "recast": 15
+        },
+        {
+          "name": "Judgment",
+          "note": "4) nuke",
+          "recast": 10
+        },
+        {
+          "name": "Ancient Wrath",
+          "note": "5) CA",
+          "recast": 12
+        },
+        {
+          "name": "Power Cleave",
+          "note": "6) AoE CA",
+          "recast": 15
+        },
+        {
+          "name": "Holy Strike",
+          "note": "7) CA",
+          "recast": 15
+        },
+        {
+          "name": "Doom Judgment",
+          "note": "8) nuke",
+          "recast": 20
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Lay on Hands",
+          "note": "huge single heal (self/tank)",
+          "recast": 300
+        },
+        {
+          "name": "Sigil of Heroism",
+          "note": "defensive + threat",
+          "recast": 180
+        },
+        {
+          "name": "Divine Favor",
+          "note": "death prevention (verify)",
+          "recast": 300
+        },
+        {
+          "name": "Prayer of Healing",
+          "note": "top-up heal",
+          "recast": 10
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Castigate",
+          "note": "big nuke",
+          "recast": 45
+        },
+        {
+          "name": "Decree",
+          "note": "AoE nuke",
+          "recast": 30
+        },
+        {
+          "name": "Sigil of Heroism",
+          "note": "burst window",
+          "recast": 180
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Necromancer",
+  "title": "Necromancer Rotation",
+  "windowName": "Necromancer",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (buffs/debuffs)",
+    "opener": "OPENER / STEALTH",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "ESCAPE / AVOID",
+    "cooldowns": "LONG COOLDOWNS / BURST"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "AOE / MULTI",
+      "blurb": "Multi-target: AoE / encounter damage.",
+      "maintain": [
+        {
+          "name": "Unholy Covenant",
+          "note": "group ward/buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Lich",
+          "note": "power->health drain — keep on",
+          "duration": 1800
+        },
+        {
+          "name": "Grisly Protection",
+          "note": "self ward (verify)",
+          "duration": 600
+        }
+      ],
+      "opener": [
+        {
+          "name": "Pandemic",
+          "note": "stack your DoTs first",
+          "recast": 18,
+          "dot": true
+        },
+        {
+          "name": "Soulrot",
+          "note": "DoT",
+          "recast": 15,
+          "dot": true
+        }
+      ],
+      "priority": [
+        {
+          "name": "Blighted Horde",
+          "note": "1) AoE DoT on cd",
+          "recast": 20,
+          "dot": true
+        },
+        {
+          "name": "Undead Horde",
+          "note": "2) AoE nuke",
+          "recast": 30
+        },
+        {
+          "name": "Consumption",
+          "note": "3) AoE DoT",
+          "recast": 20,
+          "dot": true
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Fear",
+          "note": "fear the mob",
+          "recast": 20
+        },
+        {
+          "name": "Grasping Bones",
+          "note": "root",
+          "recast": 15
+        },
+        {
+          "name": "Dooming Darkness",
+          "note": "snare/DoT",
+          "recast": 15,
+          "dot": true
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Awaken Grave",
+          "note": "burst (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Siphoning of Souls",
+          "note": "power/tap (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Undead Horde",
+          "note": "AoE burst",
+          "recast": 30
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "Single-target sustained damage.",
+      "maintain": [
+        {
+          "name": "Unholy Covenant",
+          "note": "group ward/buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Lich",
+          "note": "power->health drain — keep on",
+          "duration": 1800
+        },
+        {
+          "name": "Grisly Protection",
+          "note": "self ward (verify)",
+          "duration": 600
+        }
+      ],
+      "opener": [
+        {
+          "name": "Pandemic",
+          "note": "stack your DoTs first",
+          "recast": 18,
+          "dot": true
+        },
+        {
+          "name": "Soulrot",
+          "note": "DoT",
+          "recast": 15,
+          "dot": true
+        }
+      ],
+      "priority": [
+        {
+          "name": "Pandemic",
+          "note": "1) DoT — keep ticking",
+          "recast": 18,
+          "dot": true
+        },
+        {
+          "name": "Soulrot",
+          "note": "2) DoT — keep ticking",
+          "recast": 15,
+          "dot": true
+        },
+        {
+          "name": "Bloodcoil",
+          "note": "3) nuke",
+          "recast": 10
+        },
+        {
+          "name": "Chains of Torment",
+          "note": "4) DoT",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Bloodcloud",
+          "note": "5) nuke",
+          "recast": 8
+        },
+        {
+          "name": "Lifetap",
+          "note": "6) tap nuke",
+          "recast": 10
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Fear",
+          "note": "fear the mob",
+          "recast": 20
+        },
+        {
+          "name": "Grasping Bones",
+          "note": "root",
+          "recast": 15
+        },
+        {
+          "name": "Dooming Darkness",
+          "note": "snare/DoT",
+          "recast": 15,
+          "dot": true
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Awaken Grave",
+          "note": "burst (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Siphoning of Souls",
+          "note": "power/tap (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Undead Horde",
+          "note": "AoE burst",
+          "recast": 30
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GRP / ST",
+      "blurb": "Group single-target priority.",
+      "maintain": [
+        {
+          "name": "Unholy Covenant",
+          "note": "group ward/buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Lich",
+          "note": "power->health drain — keep on",
+          "duration": 1800
+        },
+        {
+          "name": "Grisly Protection",
+          "note": "self ward (verify)",
+          "duration": 600
+        }
+      ],
+      "opener": [
+        {
+          "name": "Pandemic",
+          "note": "stack your DoTs first",
+          "recast": 18,
+          "dot": true
+        },
+        {
+          "name": "Soulrot",
+          "note": "DoT",
+          "recast": 15,
+          "dot": true
+        }
+      ],
+      "priority": [
+        {
+          "name": "Pandemic",
+          "note": "1) DoT — keep ticking",
+          "recast": 18,
+          "dot": true
+        },
+        {
+          "name": "Soulrot",
+          "note": "2) DoT — keep ticking",
+          "recast": 15,
+          "dot": true
+        },
+        {
+          "name": "Bloodcoil",
+          "note": "3) nuke",
+          "recast": 10
+        },
+        {
+          "name": "Chains of Torment",
+          "note": "4) DoT",
+          "recast": 12,
+          "dot": true
+        },
+        {
+          "name": "Bloodcloud",
+          "note": "5) nuke",
+          "recast": 8
+        },
+        {
+          "name": "Lifetap",
+          "note": "6) tap nuke",
+          "recast": 10
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Fear",
+          "note": "fear the mob",
+          "recast": 20
+        },
+        {
+          "name": "Grasping Bones",
+          "note": "root",
+          "recast": 15
+        },
+        {
+          "name": "Dooming Darkness",
+          "note": "snare/DoT",
+          "recast": 15,
+          "dot": true
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Awaken Grave",
+          "note": "burst (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Siphoning of Souls",
+          "note": "power/tap (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Undead Horde",
+          "note": "AoE burst",
+          "recast": 30
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID BURST",
+      "blurb": "Raid burst: line up cooldowns.",
+      "maintain": [
+        {
+          "name": "Unholy Covenant",
+          "note": "group ward/buff (verify)",
+          "duration": 300
+        },
+        {
+          "name": "Lich",
+          "note": "power->health drain — keep on",
+          "duration": 1800
+        },
+        {
+          "name": "Grisly Protection",
+          "note": "self ward (verify)",
+          "duration": 600
+        }
+      ],
+      "opener": [
+        {
+          "name": "Pandemic",
+          "note": "stack your DoTs first",
+          "recast": 18,
+          "dot": true
+        },
+        {
+          "name": "Soulrot",
+          "note": "DoT",
+          "recast": 15,
+          "dot": true
+        }
+      ],
+      "priority": [
+        {
+          "name": "Lich",
+          "note": "1) DPS mode on",
+          "recast": 60
+        },
+        {
+          "name": "Awaken Grave",
+          "note": "2) burst pet/nuke (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Undead Horde",
+          "note": "3) AoE burst",
+          "recast": 30
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Fear",
+          "note": "fear the mob",
+          "recast": 20
+        },
+        {
+          "name": "Grasping Bones",
+          "note": "root",
+          "recast": 15
+        },
+        {
+          "name": "Dooming Darkness",
+          "note": "snare/DoT",
+          "recast": 15,
+          "dot": true
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Awaken Grave",
+          "note": "burst (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Siphoning of Souls",
+          "note": "power/tap (verify)",
+          "recast": 120
+        },
+        {
+          "name": "Undead Horde",
+          "note": "AoE burst",
+          "recast": 30
+        }
+      ]
+    }
+  ]
+}

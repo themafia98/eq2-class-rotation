@@ -122,6 +122,8 @@ export interface Meta {
   roles?: RoleMeta[];
   role?: string;
   logFile?: string | null;
+  /** currently-configured logs directory ("auto" = auto-detect) */
+  logsDir?: string | null;
   clickThrough?: boolean;
   settingsDir?: string | null;
   character?: string | null;
@@ -136,6 +138,7 @@ export interface AdvisorApi {
   onMeta(cb: (m: Meta) => void): void;
   setRole(id: string): void;
   openSettings(): void;
+  pickLogsDir(): void;
   saveClass(data: ClassData): void;
   restartToUpdate(): void;
   onToggleEditor(cb: () => void): void;

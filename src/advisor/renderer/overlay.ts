@@ -81,7 +81,11 @@ function applyMeta(m: Meta): void {
   if (m.classData) classData = m.classData;
   if ("logFile" in m) {
     byId("dot").className = "dot" + (m.logFile ? " on" : "");
-    byId("status").textContent = m.logFile ? "log connected" : "no log — set config";
+    byId("status").textContent = m.logFile ? "log connected" : "no log — 📁 pick folder";
+  }
+  if ("logsDir" in m) {
+    const d = m.logsDir && m.logsDir !== "auto" ? m.logsDir : "auto-detect";
+    byId<HTMLElement>("logsBtn").title = `Choose EQ2 logs folder (now: ${d})`;
   }
   if (m.settingsDir) byId<HTMLElement>("gear").style.display = "inline";
   if (m.updateReady) byId("banner").classList.remove("hidden");
@@ -188,6 +192,7 @@ function saveEditor(): void {
 
 // ---- wire up --------------------------------------------------------------
 byId("gear").onclick = () => window.advisor.openSettings();
+byId("logsBtn").onclick = () => window.advisor.pickLogsDir();
 byId("editBtn").onclick = () => openEditor();
 byId("banner").onclick = () => window.advisor.restartToUpdate();
 byId("edCancel").onclick = () => closeEditor();

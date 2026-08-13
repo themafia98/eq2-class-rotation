@@ -1,6 +1,6 @@
 // Electron main process: transparent, always-on-top, suggest-only rotation overlay.
 // Reads the log and displays; never sends input to the game.
-import { app, BrowserWindow, ipcMain, globalShortcut, screen, shell } from "electron";
+import { app, BrowserWindow, dialog, ipcMain, globalShortcut, screen, shell } from "electron";
 import { autoUpdater } from "electron-updater";
 import {
   existsSync, mkdirSync, readFileSync, writeFileSync, copyFileSync, readdirSync,
@@ -21,6 +21,7 @@ const replayFile = replayArg ? replayArg.split("=")[1] : null;
 let win: BrowserWindow | null = null;
 let adv: AdvisorHandle | null = null;
 let config: AdvisorConfig;
+let configPath = BUNDLED_CONFIG;
 let dataDir = BUNDLED_DATA;
 let userDir: string | null = null;
 let clickThrough = false;
@@ -70,12 +71,13 @@ function initConfig(): void {
   if (app.isPackaged) {
     userDir = app.getPath("userData");
     reseed(userDir);
-    config = loadConfig(join(userDir, "config.json"));
+    configPath = join(userDir, "config.json");
     dataDir = join(userDir, "data");
   } else {
-    config = loadConfig(BUNDLED_CONFIG);
+    configPath = BUNDLED_CONFIG;
     dataDir = BUNDLED_DATA;
   }
+  config = loadConfig(configPath);
   opacity = config.window.opacity;
 }
 
@@ -148,6 +150,7 @@ function pushMeta(cd: ClassData, character: string | null): void {
     roles: cd.roles.map((r) => ({ id: r.id, label: r.label })),
     role: adv?.getRole(),
     logFile: adv?.logFile ?? null,
+    logsDir: config.logsDir,
     character,
     clickThrough,
     settingsDir: userDir,
@@ -164,6 +167,28 @@ function switchRole(id: string): void {
 function setOpacity(v: number): void {
   opacity = Math.min(1, Math.max(0.2, Math.round(v * 100) / 100));
   win?.setOpacity(opacity);
+}
+
+// Let the user point the advisor at their EQ2 logs folder directly (instead of auto-detect or
+// hand-editing config.json). Persists the choice, then re-tails immediately.
+async function pickLogsDir(): Promise<void> {
+  if (!win) return;
+  const res = await dialog.showOpenDialog(win, {
+    title: "Select your EQ2 logs folder (contains eq2log_*.txt)",
+    properties: ["openDirectory"],
+    defaultPath: config.logsDir && config.logsDir !== "auto" ? config.logsDir : undefined,
+  });
+  if (res.canceled || res.filePaths.length === 0) return;
+  const dir = res.filePaths[0]!;
+  config.logsDir = dir; // same object the running advisor reads
+  config.logFile = "auto"; // let the dir win in resolveLogFile
+  try {
+    writeFileSync(configPath, JSON.stringify(config, null, 2) + "\n", "utf8");
+  } catch (err) {
+    console.error("could not persist logsDir:", err);
+  }
+  adv?.refreshLogSource();
+  sendMeta({ logFile: adv?.logFile ?? null, logsDir: config.logsDir, character: adv?.character ?? null });
 }
 
 function registerShortcuts(): void {
@@ -190,6 +215,7 @@ function registerShortcuts(): void {
 // ---- IPC from renderer ----------------------------------------------------
 ipcMain.on("set-role", (_e, id: string) => switchRole(id));
 ipcMain.on("open-settings", () => userDir && shell.openPath(userDir));
+ipcMain.on("pick-logs-dir", () => void pickLogsDir());
 ipcMain.on("restart-to-update", () => autoUpdater.quitAndInstall());
 ipcMain.on("save-class", (_e, data: ClassData) => {
   try {

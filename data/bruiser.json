@@ -1,0 +1,413 @@
+{
+  "_readme": "Auto-seeded EoF-era cheat-sheet. Ability names are real EoF base names (from the ZAM DB, level<=70) so the live advisor detects them in your combat log. recast/duration and the priority ORDER are best-effort (verify) DRAFTS — reorder to taste in the overlay editor and tune timings from your own casts. Not every ability is listed; add yours as you cast them.",
+  "class": "Bruiser",
+  "title": "Bruiser Rotation",
+  "windowName": "Bruiser",
+  "sections": [
+    "maintain",
+    "opener",
+    "priority",
+    "emergency",
+    "cooldowns"
+  ],
+  "sectionLabels": {
+    "maintain": "KEEP UP (stance/buffs)",
+    "opener": "PULL / SNAP AGGRO",
+    "priority": "PRIORITY (top = first)",
+    "emergency": "DEFENSIVES / SAVES",
+    "cooldowns": "LONG COOLDOWNS"
+  },
+  "roles": [
+    {
+      "id": "heal",
+      "label": "MT / AGGRO",
+      "blurb": "Hold aggro: taunts on cooldown, then CAs for threat.",
+      "maintain": [
+        {
+          "name": "Brutality",
+          "note": "haste/DPS buff — keep on",
+          "duration": 300
+        },
+        {
+          "name": "Close Mind",
+          "note": "control-resist buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Intimidate",
+          "note": "single taunt + stun",
+          "recast": 8
+        },
+        {
+          "name": "Pummel",
+          "note": "opener CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Intimidate",
+          "note": "1) taunt + stun on cd",
+          "recast": 8
+        },
+        {
+          "name": "Manhandle",
+          "note": "2) taunt/CA",
+          "recast": 12
+        },
+        {
+          "name": "Instill Panic",
+          "note": "3) AoE taunt",
+          "recast": 15
+        },
+        {
+          "name": "Pummel",
+          "note": "4) CA",
+          "recast": 12
+        },
+        {
+          "name": "Meteor Fist",
+          "note": "5) CA",
+          "recast": 10
+        },
+        {
+          "name": "Blaze Kick",
+          "note": "6) CA",
+          "recast": 12
+        },
+        {
+          "name": "Eye Gouge",
+          "note": "7) CA",
+          "recast": 15
+        },
+        {
+          "name": "Uppercut",
+          "note": "8) CA",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Rock Skin",
+          "note": "stoneskin/defensive",
+          "recast": 180
+        },
+        {
+          "name": "Bruising",
+          "note": "damage-absorb",
+          "recast": 180
+        },
+        {
+          "name": "Feign Death",
+          "note": "drop aggro / survive"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Knockout Combination",
+          "note": "big CA",
+          "recast": 60
+        },
+        {
+          "name": "Devastation Fist",
+          "note": "big CA",
+          "recast": 60
+        },
+        {
+          "name": "Savage Assault",
+          "note": "burst",
+          "recast": 45
+        }
+      ]
+    },
+    {
+      "id": "solo",
+      "label": "SOLO",
+      "blurb": "Kill things: CA damage order, defensives as needed.",
+      "maintain": [
+        {
+          "name": "Brutality",
+          "note": "haste/DPS buff — keep on",
+          "duration": 300
+        },
+        {
+          "name": "Close Mind",
+          "note": "control-resist buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Intimidate",
+          "note": "single taunt + stun",
+          "recast": 8
+        },
+        {
+          "name": "Pummel",
+          "note": "opener CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Intimidate",
+          "note": "1) taunt + stun on cd",
+          "recast": 8
+        },
+        {
+          "name": "Manhandle",
+          "note": "2) taunt/CA",
+          "recast": 12
+        },
+        {
+          "name": "Instill Panic",
+          "note": "3) AoE taunt",
+          "recast": 15
+        },
+        {
+          "name": "Pummel",
+          "note": "4) CA",
+          "recast": 12
+        },
+        {
+          "name": "Meteor Fist",
+          "note": "5) CA",
+          "recast": 10
+        },
+        {
+          "name": "Blaze Kick",
+          "note": "6) CA",
+          "recast": 12
+        },
+        {
+          "name": "Eye Gouge",
+          "note": "7) CA",
+          "recast": 15
+        },
+        {
+          "name": "Uppercut",
+          "note": "8) CA",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Rock Skin",
+          "note": "stoneskin/defensive",
+          "recast": 180
+        },
+        {
+          "name": "Bruising",
+          "note": "damage-absorb",
+          "recast": 180
+        },
+        {
+          "name": "Feign Death",
+          "note": "drop aggro / survive"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Knockout Combination",
+          "note": "big CA",
+          "recast": 60
+        },
+        {
+          "name": "Devastation Fist",
+          "note": "big CA",
+          "recast": 60
+        },
+        {
+          "name": "Savage Assault",
+          "note": "burst",
+          "recast": 45
+        }
+      ]
+    },
+    {
+      "id": "groupdps",
+      "label": "GROUP (AoE)",
+      "blurb": "Multi-mob: AoE taunts first, keep everything on you.",
+      "maintain": [
+        {
+          "name": "Brutality",
+          "note": "haste/DPS buff — keep on",
+          "duration": 300
+        },
+        {
+          "name": "Close Mind",
+          "note": "control-resist buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Intimidate",
+          "note": "single taunt + stun",
+          "recast": 8
+        },
+        {
+          "name": "Pummel",
+          "note": "opener CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Instill Panic",
+          "note": "1) AoE taunt on cd",
+          "recast": 15
+        },
+        {
+          "name": "One Hundred Hand Punch",
+          "note": "2) AoE CA",
+          "recast": 20
+        },
+        {
+          "name": "Sucker Punch",
+          "note": "3) AoE CA",
+          "recast": 20
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Rock Skin",
+          "note": "stoneskin/defensive",
+          "recast": 180
+        },
+        {
+          "name": "Bruising",
+          "note": "damage-absorb",
+          "recast": 180
+        },
+        {
+          "name": "Feign Death",
+          "note": "drop aggro / survive"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Knockout Combination",
+          "note": "big CA",
+          "recast": 60
+        },
+        {
+          "name": "Devastation Fist",
+          "note": "big CA",
+          "recast": 60
+        },
+        {
+          "name": "Savage Assault",
+          "note": "burst",
+          "recast": 45
+        }
+      ]
+    },
+    {
+      "id": "raiddps",
+      "label": "RAID (MT/OT)",
+      "blurb": "Raid MT/OT: encounter taunts + threat CAs.",
+      "maintain": [
+        {
+          "name": "Brutality",
+          "note": "haste/DPS buff — keep on",
+          "duration": 300
+        },
+        {
+          "name": "Close Mind",
+          "note": "control-resist buff (verify)",
+          "duration": 300
+        }
+      ],
+      "opener": [
+        {
+          "name": "Intimidate",
+          "note": "single taunt + stun",
+          "recast": 8
+        },
+        {
+          "name": "Pummel",
+          "note": "opener CA",
+          "recast": 12
+        }
+      ],
+      "priority": [
+        {
+          "name": "Intimidate",
+          "note": "1) taunt + stun on cd",
+          "recast": 8
+        },
+        {
+          "name": "Manhandle",
+          "note": "2) taunt/CA",
+          "recast": 12
+        },
+        {
+          "name": "Instill Panic",
+          "note": "3) AoE taunt",
+          "recast": 15
+        },
+        {
+          "name": "Pummel",
+          "note": "4) CA",
+          "recast": 12
+        },
+        {
+          "name": "Meteor Fist",
+          "note": "5) CA",
+          "recast": 10
+        },
+        {
+          "name": "Blaze Kick",
+          "note": "6) CA",
+          "recast": 12
+        },
+        {
+          "name": "Eye Gouge",
+          "note": "7) CA",
+          "recast": 15
+        },
+        {
+          "name": "Uppercut",
+          "note": "8) CA",
+          "recast": 15
+        }
+      ],
+      "emergency": [
+        {
+          "name": "Rock Skin",
+          "note": "stoneskin/defensive",
+          "recast": 180
+        },
+        {
+          "name": "Bruising",
+          "note": "damage-absorb",
+          "recast": 180
+        },
+        {
+          "name": "Feign Death",
+          "note": "drop aggro / survive"
+        }
+      ],
+      "cooldowns": [
+        {
+          "name": "Knockout Combination",
+          "note": "big CA",
+          "recast": 60
+        },
+        {
+          "name": "Devastation Fist",
+          "note": "big CA",
+          "recast": 60
+        },
+        {
+          "name": "Savage Assault",
+          "note": "burst",
+          "recast": 45
+        }
+      ]
+    }
+  ]
+}
