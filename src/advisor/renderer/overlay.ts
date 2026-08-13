@@ -13,6 +13,10 @@ let roles: { id: string; label: string }[] = [];
 let currentRole = "";
 let classData: ClassData | null = null;
 let unlisted: string[] = [];
+let classList: string[] = [];
+let currentClass = "";
+let autoDetect = true;
+let opacity = 0.92;
 
 // ---- live view ------------------------------------------------------------
 function renderTabs(): void {
@@ -75,10 +79,18 @@ function renderState(s: ViewState): void {
 }
 
 function applyMeta(m: Meta): void {
-  if (m.class) byId("cls").textContent = m.character ? `${m.character} · ${m.class}` : m.class;
+  if (m.class) {
+    currentClass = m.class;
+    const auto = m.autoDetect ?? autoDetect ? " (auto)" : "";
+    byId("cls").textContent = (m.character ? `${m.character} · ${m.class}` : m.class) + auto;
+  }
   if (m.roles) roles = m.roles;
   if (m.role) currentRole = m.role;
   if (m.classData) classData = m.classData;
+  if (m.classList) classList = m.classList;
+  if (typeof m.autoDetect === "boolean") autoDetect = m.autoDetect;
+  if (typeof m.opacity === "number") opacity = m.opacity;
+  if (!byId("settings").classList.contains("hidden")) renderSettings();
   if ("logFile" in m) {
     byId("dot").className = "dot" + (m.logFile ? " on" : "");
     byId("status").textContent = m.logFile ? "log connected" : "no log — 📁 pick folder";
@@ -190,14 +202,79 @@ function saveEditor(): void {
   closeEditor();
 }
 
+// ---- settings -------------------------------------------------------------
+function renderSettings(): void {
+  const sel = byId<HTMLSelectElement>("setClass");
+  sel.innerHTML = "";
+  const autoOpt = document.createElement("option");
+  autoOpt.value = "__auto__";
+  autoOpt.textContent = "Auto-detect";
+  sel.appendChild(autoOpt);
+  for (const name of classList) {
+    const o = document.createElement("option");
+    o.value = name;
+    o.textContent = name;
+    sel.appendChild(o);
+  }
+  sel.value = autoDetect ? "__auto__" : currentClass;
+  byId<HTMLInputElement>("setOpacityRange").value = String(Math.round(opacity * 100));
+  byId("setHint").textContent = autoDetect
+    ? `Auto-detecting from your log${currentClass ? ` — now: ${currentClass}` : ""}. Pick a class to lock it.`
+    : `Locked to ${currentClass}. Choose Auto-detect to follow the log again.`;
+}
+
+function openSettingsPanel(): void {
+  closeEditor();
+  renderSettings();
+  byId("settings").classList.remove("hidden");
+}
+
+function closeSettingsPanel(): void {
+  byId("settings").classList.add("hidden");
+}
+
 // ---- wire up --------------------------------------------------------------
-byId("gear").onclick = () => window.advisor.openSettings();
+byId("gear").onclick = () => openSettingsPanel();
 byId("logsBtn").onclick = () => window.advisor.pickLogsDir();
 byId("editBtn").onclick = () => openEditor();
 byId("banner").onclick = () => window.advisor.restartToUpdate();
 byId("edCancel").onclick = () => closeEditor();
 byId("edSave").onclick = () => saveEditor();
 byId("edAddBtn").onclick = () => addAbility();
+
+byId<HTMLSelectElement>("setClass").onchange = () => {
+  const v = byId<HTMLSelectElement>("setClass").value;
+  if (v === "__auto__") window.advisor.setAutoDetect(true);
+  else window.advisor.setClass(v);
+};
+byId<HTMLInputElement>("setOpacityRange").oninput = () => {
+  window.advisor.setOpacity(Number(byId<HTMLInputElement>("setOpacityRange").value) / 100);
+};
+byId("setLogsBtn").onclick = () => window.advisor.pickLogsDir();
+byId("setOpenFolder").onclick = () => window.advisor.openSettings();
+byId("setDone").onclick = () => closeSettingsPanel();
+
+// ---- resize grip (drag the corner to resize the overlay) ------------------
+let resizing = false;
+let lastX = 0;
+let lastY = 0;
+byId("grip").addEventListener("mousedown", (e: MouseEvent) => {
+  resizing = true;
+  lastX = e.screenX;
+  lastY = e.screenY;
+  e.preventDefault();
+});
+window.addEventListener("mousemove", (e: MouseEvent) => {
+  if (!resizing) return;
+  const dx = e.screenX - lastX;
+  const dy = e.screenY - lastY;
+  lastX = e.screenX;
+  lastY = e.screenY;
+  if (dx || dy) window.advisor.resizeBy(dx, dy);
+});
+window.addEventListener("mouseup", () => {
+  resizing = false;
+});
 
 window.advisor.onState(renderState);
 window.advisor.onMeta(applyMeta);

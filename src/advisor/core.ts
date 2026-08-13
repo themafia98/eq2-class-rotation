@@ -28,6 +28,12 @@ export interface AdvisorHandle {
   activeClass(): ClassData;
   getRole(): string;
   setRole(id: string): void;
+  /** True while the class is being auto-detected from the log (false once manually forced). */
+  isAutoDetect(): boolean;
+  /** Force a specific class by name and stop auto-detect. No-op if the name is unknown. */
+  setClass(name: string): void;
+  /** Turn log auto-detection on/off; turning on re-detects from recent casts immediately. */
+  setAutoDetect(on: boolean): void;
   reloadClass(cd: ClassData): void;
   /** Re-resolve the log file from the (possibly just-changed) config and re-tail it now. */
   refreshLogSource(): void;
@@ -53,6 +59,7 @@ export function startAdvisor(opts: StartAdvisorOptions): AdvisorHandle {
   let currentRole = opts.role || config.defaultRole;
   let character: string | null = null;
   let logFile: string | null = null;
+  let autoDetect = config.autoDetectClass;
   let sinceDetect = 0;
   let lastNow = Math.floor(Date.now() / 1000);
 
@@ -90,7 +97,7 @@ export function startAdvisor(opts: StartAdvisorOptions): AdvisorHandle {
   };
 
   const maybeDetect = (): void => {
-    if (!config.autoDetectClass || classes.length < 2) return;
+    if (!autoDetect || classes.length < 2) return;
     if (++sinceDetect < 15) return;
     sinceDetect = 0;
     const detected = detectClass(classes, ingestor.events.slice(-60));
@@ -173,6 +180,27 @@ export function startAdvisor(opts: StartAdvisorOptions): AdvisorHandle {
     getRole: () => currentRole,
     setRole(id: string): void {
       currentRole = id;
+      emit(lastNow);
+    },
+    isAutoDetect: () => autoDetect,
+    setClass(name: string): void {
+      const cd = classes.find((c) => c.class.toLowerCase() === name.toLowerCase());
+      if (!cd) return;
+      autoDetect = false;
+      if (cd === activeClass) {
+        onActiveClass?.(activeClass, character); // re-push meta even if the class is unchanged
+        emit(lastNow);
+      } else {
+        setActiveClass(cd);
+      }
+    },
+    setAutoDetect(on: boolean): void {
+      autoDetect = on;
+      if (on) {
+        const detected = detectClass(classes, ingestor.events.slice(-60));
+        if (detected) setActiveClass(detected);
+      }
+      onActiveClass?.(activeClass, character);
       emit(lastNow);
     },
     reloadClass(cd: ClassData): void {

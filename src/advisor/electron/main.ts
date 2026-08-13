@@ -24,8 +24,17 @@ let config: AdvisorConfig;
 let configPath = BUNDLED_CONFIG;
 let dataDir = BUNDLED_DATA;
 let userDir: string | null = null;
+let allClasses: ClassData[] = [];
 let clickThrough = false;
 let opacity = 0.92;
+
+function persistConfig(): void {
+  try {
+    writeFileSync(configPath, JSON.stringify(config, null, 2) + "\n", "utf8");
+  } catch (err) {
+    console.error("could not persist config:", err);
+  }
+}
 
 // ---- editable-settings seeding (refresh on version upgrade) ----------------
 function seedFile(src: string, dest: string, force: boolean): void {
@@ -114,7 +123,9 @@ function createWindow(): void {
     transparent: true,
     alwaysOnTop: true,
     skipTaskbar: true,
-    resizable: false,
+    resizable: true,
+    minWidth: 220,
+    minHeight: 150,
     hasShadow: false,
     webPreferences: {
       preload: join(APP_DIR, "preload.cjs"),
@@ -124,13 +135,26 @@ function createWindow(): void {
   });
   win.setAlwaysOnTop(true, "screen-saver");
   win.setOpacity(opacity);
+  win.on("resize", onWindowResize);
   void win.loadFile(join(APP_DIR, "renderer", "overlay.html"));
   win.webContents.on("did-finish-load", startEngine);
+}
+
+// Persist the overlay size (debounced) so a resize survives restarts.
+let saveSizeTimer: ReturnType<typeof setTimeout> | undefined;
+function onWindowResize(): void {
+  if (!win || win.isDestroyed()) return;
+  const size = win.getSize();
+  config.window.width = size[0] ?? config.window.width;
+  config.window.height = size[1] ?? config.window.height;
+  if (saveSizeTimer) clearTimeout(saveSizeTimer);
+  saveSizeTimer = setTimeout(persistConfig, 500);
 }
 
 function startEngine(): void {
   if (adv) return;
   const classes = loadClasses(dataDir);
+  allClasses = classes;
   adv = startAdvisor({
     config,
     classes,
@@ -151,6 +175,9 @@ function pushMeta(cd: ClassData, character: string | null): void {
     role: adv?.getRole(),
     logFile: adv?.logFile ?? null,
     logsDir: config.logsDir,
+    classList: allClasses.map((c) => c.class).sort(),
+    autoDetect: adv?.isAutoDetect() ?? config.autoDetectClass,
+    opacity,
     character,
     clickThrough,
     settingsDir: userDir,
@@ -167,6 +194,9 @@ function switchRole(id: string): void {
 function setOpacity(v: number): void {
   opacity = Math.min(1, Math.max(0.2, Math.round(v * 100) / 100));
   win?.setOpacity(opacity);
+  config.window.opacity = opacity;
+  persistConfig();
+  sendMeta({ opacity });
 }
 
 // Let the user point the advisor at their EQ2 logs folder directly (instead of auto-detect or
@@ -182,11 +212,7 @@ async function pickLogsDir(): Promise<void> {
   const dir = res.filePaths[0]!;
   config.logsDir = dir; // same object the running advisor reads
   config.logFile = "auto"; // let the dir win in resolveLogFile
-  try {
-    writeFileSync(configPath, JSON.stringify(config, null, 2) + "\n", "utf8");
-  } catch (err) {
-    console.error("could not persist logsDir:", err);
-  }
+  persistConfig();
   adv?.refreshLogSource();
   sendMeta({ logFile: adv?.logFile ?? null, logsDir: config.logsDir, character: adv?.character ?? null });
 }
@@ -214,6 +240,27 @@ function registerShortcuts(): void {
 
 // ---- IPC from renderer ----------------------------------------------------
 ipcMain.on("set-role", (_e, id: string) => switchRole(id));
+ipcMain.on("set-class", (_e, name: string) => {
+  adv?.setClass(name);
+  config.class = name;
+  config.autoDetectClass = false;
+  persistConfig();
+  if (adv) pushMeta(adv.activeClass(), adv.character);
+});
+ipcMain.on("set-auto-detect", (_e, on: boolean) => {
+  adv?.setAutoDetect(on);
+  config.autoDetectClass = on;
+  persistConfig();
+  if (adv) pushMeta(adv.activeClass(), adv.character);
+});
+ipcMain.on("set-opacity", (_e, v: number) => setOpacity(v));
+ipcMain.on("resize-by", (_e, dx: number, dy: number) => {
+  if (!win || win.isDestroyed()) return;
+  const size = win.getSize();
+  const w = size[0] ?? config.window.width;
+  const h = size[1] ?? config.window.height;
+  win.setSize(Math.max(220, Math.round(w + dx)), Math.max(150, Math.round(h + dy)));
+});
 ipcMain.on("open-settings", () => userDir && shell.openPath(userDir));
 ipcMain.on("pick-logs-dir", () => void pickLogsDir());
 ipcMain.on("restart-to-update", () => autoUpdater.quitAndInstall());

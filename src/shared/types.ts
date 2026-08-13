@@ -124,6 +124,12 @@ export interface Meta {
   logFile?: string | null;
   /** currently-configured logs directory ("auto" = auto-detect) */
   logsDir?: string | null;
+  /** every class the advisor has loaded (for the manual class picker) */
+  classList?: string[];
+  /** whether the class is being auto-detected from the log */
+  autoDetect?: boolean;
+  /** current window opacity 0..1 (for the settings slider) */
+  opacity?: number;
   clickThrough?: boolean;
   settingsDir?: string | null;
   character?: string | null;
@@ -137,6 +143,10 @@ export interface AdvisorApi {
   onState(cb: (s: ViewState) => void): void;
   onMeta(cb: (m: Meta) => void): void;
   setRole(id: string): void;
+  setClass(name: string): void;
+  setAutoDetect(on: boolean): void;
+  setOpacity(v: number): void;
+  resizeBy(dx: number, dy: number): void;
   openSettings(): void;
   pickLogsDir(): void;
   saveClass(data: ClassData): void;
